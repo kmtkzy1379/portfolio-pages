@@ -329,7 +329,46 @@
     <p>
       実証実験として、あえて「ユーザーを冷笑的に煽る」という極端な性格付けを試みました。少ないデータ量（100件）でも、語彙力を意図的に制限することでキャラクター性を定着させ、会話を成立させる手法を検証しました。
     </p>
+    
+    <h3>3. グラフ</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+      <!-- グラフ1: 評価 -->
+      <div style="flex: 1 1 300px; max-width: 100%;">
+        <img src="images/Eval.png" alt="Cumulative Reward" style="width:100%; border: 1px solid #eee; display:block;">
+        <p style="font-size: 0.9em; color: #444; margin-top: 5px;">
+          <strong>① 評価(Eval)</strong><br>
+          未知のデータに対する損失がステップごとに減少しており、適切に学習できており汎化性能が向上している。
+        </p>
+      </div>
 
+      <!-- グラフ2: 訓練 -->
+      <div style="flex: 1 1 300px; max-width: 100%;">
+        <img src="images/Train.png" alt="Episode Length" style="width:100%; border: 1px solid #eee; display:block;">
+        <p style="font-size: 0.9em; color: #444; margin-top: 5px;">
+          <strong>② 訓練 (Train)</strong><br>
+          学習率の減衰に合わせて訓練喪失が右肩下がりになっており、モデルの学習が理想的に収束している。
+        </p>
+      </div>
+
+      <!-- グラフ3: システム指標 -->
+      <div style="flex: 1 1 300px; max-width: 100%;">
+        <img src="images/System.png" alt="Policy Loss" style="width:100%; border: 1px solid #eee; display:block;">
+        <p style="font-size: 0.9em; color: #444; margin-top: 5px;">
+          <strong>③ システム指標 (System)</strong><br>
+          ハードウェアトラブルのない健全な実行環境である。
+        </p>
+      </div>
+
+      <!-- グラフ4: デモチャット -->
+      <div style="flex: 1 1 300px; max-width: 100%;">
+        <img src="images/Demo_Chat.png" alt="Policy Loss" style="width:100%; border: 1px solid #eee; display:block;">
+        <p style="font-size: 0.9em; color: #444; margin-top: 5px;">
+          <strong>③ デモチャット</strong><br>
+          しっかりと性格付けできているがどこか日本語が拙い。
+        </p>
+      </div>
+    </div>
+    
     <div style="text-align: center; margin-top: 30px;">
       <h3>デモ・技術資料</h3>
       <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
@@ -344,6 +383,7 @@
   
 </body>
 </html>
+
 
 
 
