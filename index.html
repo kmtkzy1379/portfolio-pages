@@ -316,7 +316,18 @@
       <li><strong>システムプロンプトの限界：</strong> 長期的な対話においてTransformerの注意機構（Attention）から初期指示が外れる問題に対し、FTは重みそのものに振る舞いを刻み込むため、長期一貫性の維持に有効である。</li>
     </ul>
 
-    <h3>3. 低リソース環境下での実装戦略</h3>
+    <h3>3. 改善と汎化性能の向上</h3>
+　　<p>
+ 　　 初期実験から得られた知見を活かし、ハイパーパラメータを見直すことで、本制作物である「口論・冷笑特化型AI」を完成させました。<br>
+ 　　 過学習を抑制し、汎化性能を高めるために以下の調整を行っています。
+　　</p>
+　　<ul>
+　　  <li><strong>LoRA rank (r)</strong>： 32 &rarr; 8</li>
+　　  <li><strong>Epochs</strong>： 2 &rarr; 1</li>
+　　  <li><strong>Learning rate</strong>： 2e-4 &rarr; 1e-4</li>
+　　</ul>
+    
+    <h3>4. 低リソース環境下での実装戦略</h3>
     <p>
       計算資源の制約（低VRAM環境）を克服するため、以下の軽量化技術を統合し、本来高スペックを要求する14Bモデルの学習を完遂させました。
     </p>
@@ -325,12 +336,12 @@
       <li><strong>4bit量子化 & LoRA：</strong> パラメータ効率化により、低VRAMでも大規模モデルの学習を可能に。</li>
     </ul>
 
-    <h3>4. 制作物：口論・冷笑特化型AI</h3>
+    <h3>5. 制作物：口論・冷笑特化型AI</h3>
     <p>
       実証実験として、あえて「ユーザーを冷笑的に煽る」という極端な性格付けを試みました。少ないデータ量（100件）でも、語彙力を意図的に制限することでキャラクター性を定着させ、会話を成立させる手法を検証しました。
     </p>
     
-    <h3>3. グラフ</h3>
+    <h3>6. グラフ</h3>
     <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
       <!-- グラフ1: 評価 -->
       <div style="flex: 1 1 300px; max-width: 100%;">
@@ -370,7 +381,7 @@
     </div>
     
     <div style="text-align: center; margin-top: 30px;">
-      <h3>デモ・技術資料</h3>
+      <h3>HaggingFace(モデルカード・デモ)</h3>
       <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
         <a href="https://huggingface.co/spaces/hkucdshch/portfolio" target="_blank" style="background-color: #FFD21E; color: black;">🚀 AIと対話する (Demo Space)</a>
         <a href="https://huggingface.co/hkucdshch/portfolio6-FT" target="_blank" style="background-color: #333; color: white;">📄 モデルカード / 学習詳細</a>
@@ -383,6 +394,7 @@
   
 </body>
 </html>
+
 
 
 
