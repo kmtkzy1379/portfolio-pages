@@ -217,28 +217,81 @@
     </div>
   </div>
 
-  <!-- ポートフォリオ 5（仮） -->
+  <!-- ポートフォリオ 5 -->
   <div class="portfolio">
-    <h2>⑤ 身体的・神経的制約がAIの歩行学習に与える影響（仮）</h2>
-
+    <h2>⑤ 身体的・神経的制約がAIの歩行学習と進化に与える影響の検証</h2>
+    
+    <h3>1. 目的・概要</h3>
     <p>
-      Unity ML-Agents を用いた強化学習実験。<br>
-      身体スケール変化（相対筋力低下）および意思決定遅延が、
-      二足歩行エージェントの学習戦略に与える影響を検証。
+      本プロジェクトは、Unity ML-Agentsを用いた強化学習実験です。「身体の巨大化に伴う筋力不足（2乗3乗の法則）」や「神経伝達速度の遅延（反応速度の低下）」といった生物学的な制約（ハンディキャップ）を与えた際、AIがどのような生存戦略（歩行フォーム）を独自に獲得するかを検証しました。
+    </p>
+    <p>
+      実験の結果、<strong>「ハンディキャップを持つ個体は、標準個体とは異なる特化型の進化を遂げる」</strong>という、人間の障害やニューロダイバーシティ（神経多様性）にも通じる示唆が得られました。
     </p>
 
-    <h3>学習結果（グラフ）</h3>
-    <img src="images/cumulative_reward.png" alt="Cumulative Reward" style="width:100%; max-width:600px; display:block; margin:20px auto;">
-    <img src="images/episode_length.png" alt="Episode Length" style="width:100%; max-width:600px; display:block; margin:20px auto;">
-    <img src="images/training_loss.png" alt="Training Loss" style="width:100%; max-width:600px; display:block; margin:20px auto;">
+<h3>2. 実験設定：2つの制約モデル</h3>
+    <ul>
+      <li>
+        <strong>Scale Model（物理的制約）：スクエア・キューブの法則</strong><br>
+        生物学的スケールメリット・デメリットを検証するため、モデルのScale（x, y, z）を1.5倍に設定。2乗3乗の法則に基づき、以下のパラメータを調整して相対的な筋力不足を再現しました。
+        <ul style="margin-top: 5px; margin-bottom: 5px; color: #555;">
+          <li><strong>質量 (Mass)</strong>：全パーツの Rigidbody Mass を <strong>3.375倍</strong> ($1.5^3$) に設定。</li>
+          <li><strong>筋力 (Muscle)</strong>：全関節 (Joint) の Slerp Drive における Position Spring, Position Damper, Maximum Force を <strong>2.25倍</strong> ($1.5^2$) に設定。</li>
+          <li><strong>視覚 (Vision)</strong>：身体の拡大に合わせ、Ray Perception Sensor の Ray Length を <strong>1.5倍</strong> に補正。</li>
+        </ul>
+      </li>
+      <li style="margin-top: 15px;">
+        <strong>Delayed Model（神経的制約）：反応速度の遅延</strong><br>
+        身体能力は標準と同一ですが、ML-Agentsのパラメータ <code>Decision Period</code>（行動決定の間隔）を操作しました。
+        <ul style="margin-top: 5px; margin-bottom: 5px; color: #555;">
+          <li>標準モデル：10フレーム毎に意思決定</li>
+          <li>遅延モデル：<strong>20フレーム</strong>毎に意思決定</li>
+        </ul>
+        これにより、知覚から行動までの情報処理ループを約2倍に引き伸ばし、神経伝達の遅延をシミュレートしました。
+      </li>
+    </ul>
 
-    <p style="text-align:center; margin-top:20px;">
-      ※ デモ動画は後日 YouTube リンクを掲載予定
+    <h3>3. 検証結果と考察</h3>
+    <p>各モデルの学習推移と獲得した挙動から、以下の「特化的進化」が観測されました。</p>
+    
+    <div style="text-align: center; margin: 20px 0;">
+      <!-- グラフ画像の表示 -->
+      <img src="images/cumulative_reward.png" alt="Cumulative Reward Graph" style="width:100%; max-width:600px; display:block; margin:0 auto 10px auto; border: 1px solid #eee;">
+      <p style="font-size: 0.9em; color: #666;">図：各モデルの累積報酬の推移</p>
+    </div>
+
+    <ul>
+      <li>
+        <strong>Scale Model（慎重な保守派）：</strong><br>
+        体が重いため、エネルギー効率を重視し、重心を低く保つ「ゆっくりだが転倒しにくい」フォームを獲得しました。
+      </li>
+      <li>
+        <strong>Delayed Model（ハイリスク・ハイリターン）：</strong><br>
+        最も特異な進化を遂げました。反応が遅くバランス修正が効かないため、<strong>「転倒するまでの短い時間に猛スピードで前進し、距離（報酬）を稼ぐ」</strong>という極端な戦略を選択しました。生存時間は短いものの、結果として最も高い報酬スコアを記録しました。
+      </li>
+    </ul>
+    <p>
+      これは、ある機能の欠損が別の機能の過剰な発達や独自の戦略を生むという現象であり、AIにおいても制約条件が「個性」や「特化した能力」を生み出す要因になることを示唆しています。
     </p>
+
+    <h3>4. 今後の展望</h3>
+    <p>
+      この知見は、実機ロボットにおいてバッテリー低下や通信遅延が発生した際の「緊急時ロバスト制御」への応用が期待できます。また、異なる制約を持ったAI同士を協力させる「多様性アンサンブル学習」へと発展させ、単一の万能モデルでは解決できない課題へのアプローチを構想しています。
+    </p>
+
+    <h3>5. 使用技術</h3>
+    <p>Unity 2022.3 / ML-Agents / Python / PPO (Proximal Policy Optimization)</p>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <!-- 必要に応じてYouTubeリンクやGitHubリンクを差し替えてください -->
+        <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
+        <a href="#" target="_blank">GitHubを見る（準備中）</a>
+    </div>
   </div>
 
   
 </body>
 </html>
+
 
 
