@@ -250,9 +250,8 @@
         これにより、知覚から行動までの情報処理ループを約2倍に引き伸ばし、神経伝達の遅延をシミュレートしました。
       </li>
     </ul>
-
-    <h3>3. 検証結果と考察</h3>
-    <h3>3. 検証結果（学習グラフ）</h3>
+      
+    <h3>3. 検証結果（学習グラフ）と考察</h3>
     <p>Normal（水色）、Scale（オレンジ）、Delayed（紫）の3モデルの学習推移です。</p>
 
     <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
@@ -276,10 +275,10 @@
 
       <!-- グラフ3: 学習損失 -->
       <div style="flex: 1 1 300px; max-width: 100%;">
-        <img src="images/policy_loss.png" alt="Policy Loss" style="width:100%; border: 1px solid #eee; display:block;">
+        <img src="images/training_loss.png" alt="Policy Loss" style="width:100%; border: 1px solid #eee; display:block;">
         <p style="font-size: 0.9em; color: #444; margin-top: 5px;">
           <strong>③ 学習損失 (Policy Loss)</strong><br>
-          Delayedは学習が進んでもLossの変動が激しく、常にギリギリの制御を行っていることが示唆される。
+          各モデルとも学習に伴い収束しているが、Delayedモデルは変動が激しく、常にギリギリの制御を行っていることが示唆される。
         </p>
       </div>
     </div>
@@ -302,6 +301,7 @@
   
 </body>
 </html>
+
 
 
 
