@@ -252,28 +252,38 @@
     </ul>
 
     <h3>3. 検証結果と考察</h3>
-    <p>各モデルの学習推移と獲得した挙動から、以下の「特化的進化」が観測されました。</p>
-    
-    <div style="text-align: center; margin: 20px 0;">
-      <!-- グラフ画像の表示 -->
-      <img src="images/cumulative_reward.png" alt="Cumulative Reward Graph" style="width:100%; max-width:600px; display:block; margin:0 auto 10px auto; border: 1px solid #eee;">
-      <p style="font-size: 0.9em; color: #666;">図：各モデルの累積報酬の推移</p>
+    <h3>3. 検証結果（学習グラフ）</h3>
+    <p>Normal（水色）、Scale（オレンジ）、Delayed（紫）の3モデルの学習推移です。</p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+      <!-- グラフ1: 累積報酬 -->
+      <div style="flex: 1 1 300px; max-width: 100%;">
+        <img src="images/cumulative_reward.png" alt="Cumulative Reward" style="width:100%; border: 1px solid #eee; display:block;">
+        <p style="font-size: 0.9em; color: #444; margin-top: 5px;">
+          <strong>① 累積報酬 (Cumulative Reward)</strong><br>
+          Delayedモデル(紫)は初期学習に苦戦するが、最終的には他を上回り最も高いスコアを記録した。
+        </p>
+      </div>
+
+      <!-- グラフ2: 生存時間 -->
+      <div style="flex: 1 1 300px; max-width: 100%;">
+        <img src="images/episode_length.png" alt="Episode Length" style="width:100%; border: 1px solid #eee; display:block;">
+        <p style="font-size: 0.9em; color: #444; margin-top: 5px;">
+          <strong>② 生存時間 (Episode Length)</strong><br>
+          Normal(水色)が最も安定して歩行継続可能。Delayedは報酬が高い反面、生存時間は極端に短い。
+        </p>
+      </div>
+
+      <!-- グラフ3: 学習損失 -->
+      <div style="flex: 1 1 300px; max-width: 100%;">
+        <img src="images/policy_loss.png" alt="Policy Loss" style="width:100%; border: 1px solid #eee; display:block;">
+        <p style="font-size: 0.9em; color: #444; margin-top: 5px;">
+          <strong>③ 学習損失 (Policy Loss)</strong><br>
+          Delayedは学習が進んでもLossの変動が激しく、常にギリギリの制御を行っていることが示唆される。
+        </p>
+      </div>
     </div>
-
-    <ul>
-      <li>
-        <strong>Scale Model（慎重な保守派）：</strong><br>
-        体が重いため、エネルギー効率を重視し、重心を低く保つ「ゆっくりだが転倒しにくい」フォームを獲得しました。
-      </li>
-      <li>
-        <strong>Delayed Model（ハイリスク・ハイリターン）：</strong><br>
-        最も特異な進化を遂げました。反応が遅くバランス修正が効かないため、<strong>「転倒するまでの短い時間に猛スピードで前進し、距離（報酬）を稼ぐ」</strong>という極端な戦略を選択しました。生存時間は短いものの、結果として最も高い報酬スコアを記録しました。
-      </li>
-    </ul>
-    <p>
-      これは、ある機能の欠損が別の機能の過剰な発達や独自の戦略を生むという現象であり、AIにおいても制約条件が「個性」や「特化した能力」を生み出す要因になることを示唆しています。
-    </p>
-
+    
     <h3>4. 今後の展望</h3>
     <p>
       この知見は、実機ロボットにおいてバッテリー低下や通信遅延が発生した際の「緊急時ロバスト制御」への応用が期待できます。また、異なる制約を持ったAI同士を協力させる「多様性アンサンブル学習」へと発展させ、単一の万能モデルでは解決できない課題へのアプローチを構想しています。
@@ -292,6 +302,7 @@
   
 </body>
 </html>
+
 
 
 
