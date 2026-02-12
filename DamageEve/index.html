@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Interactive Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- メインステージ：画像と動画を重ねて配置 -->
+  <div class="stage" id="stage">
+    <img
+      src="model/idle.png"
+      alt="Idle"
+      class="stage__idle"
+      id="idleImage"
+      draggable="false"
+    >
+    <video
+      src="model/hit.mp4"
+      class="stage__video"
+      id="hitVideo"
+      preload="auto"
+      playsinline
+      webkit-playsinline
+      muted
+      poster="model/idle.png"
+    ></video>
+  </div>
+
+  <!-- 効果音（プリロード） -->
+  <audio id="hitNoise1" src="HitNoise/hit_noise_1.mp3" preload="auto"></audio>
+  <audio id="hitNoise2" src="HitNoise/hit_noise_2.mp3" preload="auto"></audio>
+  <audio id="hitNoise3" src="HitNoise/hit_noise_3.mp3" preload="auto"></audio>
+
+  <!-- ボイス（プリロード） -->
+  <audio id="hitVoice1" src="HitVoice/hit_voice_1.wav" preload="auto"></audio>
+  <audio id="hitVoice2" src="HitVoice/hit_voice_2.wav" preload="auto"></audio>
+  <audio id="hitVoice3" src="HitVoice/hit_voice_3.wav" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
