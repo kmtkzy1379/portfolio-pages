@@ -12,7 +12,7 @@
      NAVBAR
      ============================================================ -->
 <nav class="navbar" id="navbar">
-  <div class="navbar__title"><span>K</span>OMTSU PORTFOLIO</div>
+  <div class="navbar__title"><span>K</span>OMATSU PORTFOLIO</div>
 
   <div class="navbar__badges">
     <a class="badge" data-target="portfolio-1"><span class="badge__num">1</span><span class="badge__label">AItuber</span></a>
@@ -36,17 +36,17 @@
      AUDIO — Preloaded Assets
      ============================================================ -->
 <!-- Hit SFX -->
-<audio id="hitNoise1" src="../HitNoise/hit_noise_1.mp3" preload="auto"></audio>
-<audio id="hitNoise2" src="../HitNoise/hit_noise_2.mp3" preload="auto"></audio>
-<audio id="hitNoise3" src="../HitNoise/hit_noise_3.mp3" preload="auto"></audio>
+<audio id="hitNoise1" src="HitNoise/hit_noise_1.mp3" preload="auto"></audio>
+<audio id="hitNoise2" src="HitNoise/hit_noise_2.mp3" preload="auto"></audio>
+<audio id="hitNoise3" src="HitNoise/hit_noise_3.mp3" preload="auto"></audio>
 <!-- Hit Voice -->
-<audio id="hitVoice1" src="../HitVoice/hit_voice_1.wav" preload="auto"></audio>
-<audio id="hitVoice2" src="../HitVoice/hit_voice_2.wav" preload="auto"></audio>
-<audio id="hitVoice3" src="../HitVoice/hit_voice_3.wav" preload="auto"></audio>
+<audio id="hitVoice1" src="HitVoice/hit_voice_1.wav" preload="auto"></audio>
+<audio id="hitVoice2" src="HitVoice/hit_voice_2.wav" preload="auto"></audio>
+<audio id="hitVoice3" src="HitVoice/hit_voice_3.wav" preload="auto"></audio>
 <!-- Easter Egg -->
-<audio id="micNoise" src="../DamageEve/mic_noise.mp3" preload="auto"></audio>
+<audio id="micNoise" src="DamageEve/mic_noise.mp3" preload="auto"></audio>
 <!-- Button SE -->
-<audio id="walletOpen" src="wallet_open.mp3" preload="auto"></audio>
+<audio id="walletOpen" src="ButtonSound/wallet_open.mp3" preload="auto"></audio>
 
 <!-- Glitch Overlay (100-hit) -->
 <div class="glitch-overlay" id="glitchOverlay"></div>
@@ -108,6 +108,47 @@
           </p>
         </div>
 
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TABLE OF CONTENTS — 目次
+     ============================================================ -->
+<section class="section" id="toc">
+  <div class="container">
+    <div class="card toc-card">
+      <h2>目次</h2>
+      <div class="toc-list">
+        <a class="toc-item" href="#portfolio-1">
+          <span class="toc-badge"><span class="toc-badge__num">1</span><span class="toc-badge__label">AItuber</span></span>
+          <span class="toc-title">FEP模倣AItuberアプリケーション</span>
+        </a>
+        <a class="toc-item" href="#portfolio-2">
+          <span class="toc-badge"><span class="toc-badge__num">2</span><span class="toc-badge__label">ML</span></span>
+          <span class="toc-title">機械学習基礎</span>
+        </a>
+        <a class="toc-item" href="#portfolio-3">
+          <span class="toc-badge"><span class="toc-badge__num">3</span><span class="toc-badge__label">DL</span></span>
+          <span class="toc-title">深層学習基礎</span>
+        </a>
+        <a class="toc-item" href="#portfolio-4">
+          <span class="toc-badge"><span class="toc-badge__num">4</span><span class="toc-badge__label">Unity</span></span>
+          <span class="toc-title">Unityゲーム開発基礎</span>
+        </a>
+        <a class="toc-item" href="#portfolio-5">
+          <span class="toc-badge"><span class="toc-badge__num">5</span><span class="toc-badge__label">RL</span></span>
+          <span class="toc-title">身体的・神経的制約がAIの歩行学習と進化に与える影響の検証</span>
+        </a>
+        <a class="toc-item" href="#portfolio-6">
+          <span class="toc-badge"><span class="toc-badge__num">6</span><span class="toc-badge__label">LoRA</span></span>
+          <span class="toc-title">LLM Fine-tuning (LoRA)：意識模倣とペルソナ構築の検証</span>
+        </a>
+        <a class="toc-item" href="#portfolio-7">
+          <span class="toc-badge"><span class="toc-badge__num">7</span><span class="toc-badge__label">Eve</span></span>
+          <span class="toc-title">FEP模倣AItuber改良版：マルチモード統合システム「Eve AI」</span>
+        </a>
       </div>
     </div>
   </div>
@@ -231,9 +272,20 @@
       <div class="demo-section">
         <h3>UnityTestGame デモ</h3>
         <p>Unityで作ったブラウザゲームを公開しています</p>
-        <p><strong>操作方法</strong></p>
-        <p>↑…上移動　→…右移動　↓…下移動　←…左移動<br>
-           shift…ダッシュ　space…ジャンプ　A…左カメラ回転　W…右カメラ回転　C…攻撃</p>
+        <div class="controls-box">
+          <p class="controls-box__title">操作方法</p>
+          <div class="controls-grid">
+            <div class="control-item"><kbd>↑</kbd><span>上移動</span></div>
+            <div class="control-item"><kbd>↓</kbd><span>下移動</span></div>
+            <div class="control-item"><kbd>←</kbd><span>左移動</span></div>
+            <div class="control-item"><kbd>→</kbd><span>右移動</span></div>
+            <div class="control-item"><kbd>Shift</kbd><span>ダッシュ</span></div>
+            <div class="control-item"><kbd>Space</kbd><span>ジャンプ</span></div>
+            <div class="control-item"><kbd>A</kbd><span>左カメラ回転</span></div>
+            <div class="control-item"><kbd>W</kbd><span>右カメラ回転</span></div>
+            <div class="control-item"><kbd>C</kbd><span>攻撃</span></div>
+          </div>
+        </div>
         <div class="btn-group">
           <a href="https://kmtkzy1379.github.io/portfolio-game/" target="_blank" class="btn btn--play">ゲームをプレイ</a>
           <a href="https://github.com/kmtkzy1379/MyUnityProject.git" target="_blank" class="btn btn--github">GitHub</a>
@@ -273,7 +325,7 @@
         </li>
         <li>
           <strong>Delayed Model（神経的制約）：反応速度の遅延</strong><br>
-          身体能力は標準と同一ですが、ML-Agentsのパラメータ <code>Decision Period</code>（行動決定の間隔）を操作しました。
+          身体能力は標準と同一ですが、ML-Agentsのパラメータ <code class="code--dp">Decision Period</code>（行動決定の間隔）を操作しました。
           <ul>
             <li>標準モデル：10フレーム毎に意思決定</li>
             <li>遅延モデル：<strong>20フレーム</strong>毎に意思決定</li>
@@ -287,15 +339,15 @@
 
       <div class="graph-grid">
         <div class="graph-item">
-          <img src="../images/cumulative_reward.png" alt="Cumulative Reward">
+          <img src="images/cumulative_reward.png" alt="Cumulative Reward">
           <p><strong>累積報酬 (Cumulative Reward)</strong><br>Delayedモデル(紫)は初期学習に苦戦するが、最終的には他を上回り最も高いスコアを記録した。</p>
         </div>
         <div class="graph-item">
-          <img src="../images/episode_length.png" alt="Episode Length">
+          <img src="images/episode_length.png" alt="Episode Length">
           <p><strong>生存時間 (Episode Length)</strong><br>Normal(水色)が最も安定して歩行継続可能。Delayedは報酬が高い反面、生存時間は極端に短い。</p>
         </div>
         <div class="graph-item">
-          <img src="../images/training_loss.png" alt="Training Loss">
+          <img src="images/training_loss.png" alt="Training Loss">
           <p><strong>学習損失 (Training Loss)</strong><br>各モデルとも学習に伴い収束しているが、Delayedモデルは変動が激しく、常にギリギリの制御を行っていることが示唆される。</p>
         </div>
       </div>
@@ -398,19 +450,19 @@
       <h3>6. グラフ</h3>
       <div class="graph-grid">
         <div class="graph-item">
-          <img src="../images/Eval.png" alt="Eval">
+          <img src="images/Eval.png" alt="Eval">
           <p><strong>評価 (Eval)</strong><br>未知のデータに対する損失がステップごとに減少しており、適切に学習できており汎化性能が向上している。</p>
         </div>
         <div class="graph-item">
-          <img src="../images/Train.png" alt="Train">
+          <img src="images/Train.png" alt="Train">
           <p><strong>訓練 (Train)</strong><br>学習率の減衰に合わせて訓練喪失が右肩下がりになっており、モデルの学習が理想的に収束している。</p>
         </div>
         <div class="graph-item">
-          <img src="../images/System.png" alt="System">
+          <img src="images/System.png" alt="System">
           <p><strong>システム指標 (System)</strong><br>ハードウェアトラブルのない健全な実行環境である。</p>
         </div>
         <div class="graph-item">
-          <img src="../images/Demo_Chat.png" alt="Demo Chat">
+          <img src="images/Demo_Chat.png" alt="Demo Chat">
           <p><strong>デモチャット</strong><br>しっかりと性格付けできているがどこか日本語が拙い。</p>
         </div>
       </div>
@@ -521,14 +573,14 @@
 <section class="hero" id="hero">
   <div class="hero__stage" id="stage">
     <img
-      src="../model/idle.png"
+      src="model/idle.png"
       alt="Eve"
       class="hero__idle"
       id="idleImage"
       draggable="false"
     >
     <video
-      src="../model/hit.mp4"
+      src="model/hit.mp4"
       class="hero__video"
       id="hitVideo"
       preload="auto"

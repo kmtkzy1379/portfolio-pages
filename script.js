@@ -46,7 +46,7 @@
   const NOISE_VOLUME  = 0.2;
   const VOICE_VOLUME  = 0.8;
   const MIC_VOLUME    = 0.6;
-  const SE_VOLUME     = 0.3;
+  const SE_VOLUME     = 0.6;
   const HIT_GOAL      = 100;
 
   /* ==========================================================
@@ -193,26 +193,31 @@
   });
 
   /* ==========================================================
-     HERO EVENT LISTENERS
+     HERO EVENT LISTENERS — stage（イブ画像エリア）のみに判定
      ========================================================== */
   var touchHandled = false;
 
-  hero.addEventListener('touchstart', function (e) {
+  stage.addEventListener('touchstart', function (e) {
     e.preventDefault();
     touchHandled = true;
     handleHit();
     setTimeout(function () { touchHandled = false; }, 400);
   }, { passive: false });
 
-  hero.addEventListener('click', function () {
+  stage.addEventListener('click', function () {
     if (touchHandled) return;
     handleHit();
   });
 
-  hero.addEventListener('contextmenu', function (e) {
+  stage.addEventListener('contextmenu', function (e) {
     e.preventDefault();
     if (touchHandled) return;
     handleHit();
+  });
+
+  // hero 全体の右クリックメニューは抑制（UX のため）
+  hero.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
   });
 
   /* ==========================================================
@@ -267,6 +272,21 @@
       e.preventDefault();
       playButtonSE();
       var targetId = badge.getAttribute('data-target');
+      var target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* ==========================================================
+     TABLE OF CONTENTS — Smooth Scroll + SE
+     ========================================================== */
+  document.querySelectorAll('.toc-item').forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      playButtonSE();
+      var targetId = item.getAttribute('href').replace('#', '');
       var target = document.getElementById(targetId);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });

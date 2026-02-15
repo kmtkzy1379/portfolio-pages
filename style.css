@@ -210,7 +210,6 @@ body {
   background:
     radial-gradient(ellipse at center, rgba(230, 57, 70, 0.03) 0%, transparent 70%),
     var(--bg);
-  cursor: pointer;
   user-select: none;
   overflow: hidden;
 }
@@ -236,6 +235,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .hero__idle,
@@ -416,6 +416,13 @@ body {
   border-radius: 3px;
   font-size: 0.9em;
   color: var(--accent);
+}
+
+.card code.code--dp {
+  color: #6ee7b7;
+  background: rgba(110, 231, 183, 0.1);
+  border: 1px solid rgba(110, 231, 183, 0.2);
+  font-weight: 600;
 }
 
 /* ============================================================
@@ -648,6 +655,149 @@ body {
 }
 
 /* ============================================================
+   TABLE OF CONTENTS
+   ============================================================ */
+.toc-card {
+  border-left-color: var(--accent);
+}
+
+.toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toc-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.toc-item:hover {
+  background: rgba(230, 57, 70, 0.06);
+  border-color: var(--accent);
+}
+
+.toc-item:hover .toc-badge__num {
+  background: var(--accent);
+  color: #fff;
+}
+
+.toc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  padding: 0 10px 0 0;
+  border-radius: 15px;
+  border: 1px solid var(--border-light);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.68em;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.toc-badge__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--border-light);
+  color: var(--text);
+  font-size: 0.95em;
+  font-weight: 800;
+  margin-left: 3px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.toc-badge__label {
+  letter-spacing: 0.04em;
+}
+
+.toc-title {
+  font-size: 0.9em;
+  color: #ccc;
+  transition: color 0.2s ease;
+}
+
+.toc-item:hover .toc-title {
+  color: var(--text);
+}
+
+/* ============================================================
+   CONTROLS BOX (Unity Game)
+   ============================================================ */
+.controls-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+
+.controls-box__title {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px !important;
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+
+.controls-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.control-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+.control-item kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 28px;
+  padding: 0 8px;
+  background: var(--border-light);
+  border: 1px solid #444;
+  border-bottom: 3px solid #555;
+  border-radius: 5px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.8em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.control-item span {
+  font-size: 0.82em;
+  color: #bbb;
+  white-space: nowrap;
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 .footer {
@@ -726,6 +876,25 @@ body {
 }
 
 @media (max-width: 480px) {
+  .toc-item {
+    gap: 10px;
+    padding: 8px 10px;
+  }
+  .toc-title {
+    font-size: 0.8em;
+  }
+  .toc-badge {
+    font-size: 0.6em;
+    height: 26px;
+  }
+  .toc-badge__num {
+    width: 18px;
+    height: 18px;
+    font-size: 0.85em;
+  }
+}
+
+
   .navbar__title {
     display: none;
   }
