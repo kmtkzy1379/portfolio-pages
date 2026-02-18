@@ -342,6 +342,55 @@
   });
 
   /* ==========================================================
+     ACCORDION — Toggle open/close
+     ========================================================== */
+  document.querySelectorAll('.accordion__toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      playButtonSE();
+      var accordion = btn.closest('.accordion');
+      var isOpen = accordion.classList.contains('accordion--open');
+      accordion.classList.toggle('accordion--open');
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  /* ==========================================================
+     TOC SORT — Ascending / Descending toggle
+     ========================================================== */
+  var tocSortBtn = document.getElementById('tocSortBtn');
+  if (tocSortBtn) {
+    var sortDesc = false;
+
+    tocSortBtn.addEventListener('click', function () {
+      playButtonSE();
+      sortDesc = !sortDesc;
+      tocSortBtn.classList.toggle('desc', sortDesc);
+
+      var tocList = document.querySelector('.toc-list');
+      var tocItems = Array.from(tocList.querySelectorAll('.toc-item'));
+      tocItems.sort(function (a, b) {
+        var aNum = parseInt(a.getAttribute('data-order'), 10);
+        var bNum = parseInt(b.getAttribute('data-order'), 10);
+        return sortDesc ? bNum - aNum : aNum - bNum;
+      });
+      tocItems.forEach(function (item) {
+        tocList.appendChild(item);
+      });
+
+      var heroSection = document.getElementById('hero');
+      var sections = Array.from(document.querySelectorAll('section[data-order]'));
+      sections.sort(function (a, b) {
+        var aNum = parseInt(a.getAttribute('data-order'), 10);
+        var bNum = parseInt(b.getAttribute('data-order'), 10);
+        return sortDesc ? bNum - aNum : aNum - bNum;
+      });
+      sections.forEach(function (section) {
+        heroSection.parentNode.insertBefore(section, heroSection);
+      });
+    });
+  }
+
+  /* ==========================================================
      PRELOAD
      ========================================================== */
   hitNoises.forEach(function (a) { a.load(); });

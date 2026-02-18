@@ -160,6 +160,47 @@ body {
   box-shadow: 0 0 8px var(--accent-glow);
 }
 
+/* Featured badges (Portfolio 5, 6) */
+.badge--featured {
+  background: rgba(230, 57, 70, 0.06);
+  border-color: rgba(230, 57, 70, 0.25);
+  color: var(--accent);
+}
+.badge--featured .badge__num {
+  border-color: rgba(230, 57, 70, 0.3);
+  color: var(--accent);
+}
+
+/* Eve badge (Portfolio 7) — matches toc-item--eve */
+.badge--eve {
+  background: rgba(212, 165, 52, 0.06);
+  border-color: rgba(212, 165, 52, 0.25);
+  color: #d4a534;
+}
+.badge--eve .badge__num {
+  border-color: rgba(212, 165, 52, 0.3);
+  color: #d4a534;
+}
+.badge--eve:hover {
+  background: rgba(212, 165, 52, 0.1);
+  border-color: rgba(212, 165, 52, 0.5);
+  color: #f0d060;
+}
+.badge--eve:hover .badge__num {
+  background: #d4a534;
+  color: #000;
+}
+.badge--eve.active {
+  background: rgba(212, 165, 52, 0.1);
+  border-color: rgba(212, 165, 52, 0.5);
+  color: #f0d060;
+}
+.badge--eve.active .badge__num {
+  background: #d4a534;
+  color: #000;
+  box-shadow: 0 0 8px rgba(212, 165, 52, 0.4);
+}
+
 /* Hit Counter */
 .navbar__counter {
   display: flex;
@@ -331,62 +372,50 @@ body {
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
   border-radius: var(--radius);
-  padding: 36px 32px;
+  padding: 40px 36px;
   margin-bottom: 28px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
   border-color: var(--border-light);
-  border-left-color: var(--accent);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* Profile card accent */
+/* Profile card */
 .profile-card {
-  border-left-color: var(--accent);
   position: relative;
-}
-
-/* Eve card (hidden by default) */
-.eve-card {
-  border-left-color: var(--accent);
-  background: linear-gradient(135deg, #141414 0%, #1a0a0a 100%);
 }
 
 /* ============================================================
    TYPOGRAPHY inside Cards
    ============================================================ */
 .card h2 {
-  font-size: 1.45em;
+  font-size: 1.4em;
   font-weight: 700;
   color: var(--text);
-  padding-bottom: 12px;
-  margin-bottom: 24px;
-  border-bottom: 2px solid var(--border);
-  position: relative;
-}
-.card h2::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 50px;
-  height: 2px;
-  background: var(--accent);
+  margin-bottom: 16px;
+  line-height: 1.3;
 }
 
 .card h3 {
-  font-size: 0.95em;
+  font-size: 0.78em;
   font-weight: 700;
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 8px 14px;
-  border-radius: 6px;
-  border-left: 3px solid var(--accent);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   margin-top: 28px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+}
+
+.accordion__body h3 {
+  font-size: 0.92em;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
 }
 
 .card p {
@@ -577,17 +606,60 @@ body {
   transform: translateY(0);
 }
 
+/* Eve glitch title */
+.eve-glitch {
+  position: relative;
+  display: inline-block;
+  --glitch-shift: 3px;
+  border-bottom: none !important;
+}
+.eve-glitch::before,
+.eve-glitch::after {
+  display: block;
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+}
+.eve-glitch::before {
+  animation: glitchIt 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: #00ffff;
+  z-index: -1;
+}
+.eve-glitch::after {
+  animation: glitchIt 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+  color: #ff00ff;
+  z-index: -2;
+}
+
+@keyframes glitchIt {
+  0%   { transform: translate(0); }
+  1%   { transform: translate(calc(var(--glitch-shift) * -1), var(--glitch-shift)); }
+  2%   { transform: translate(calc(var(--glitch-shift) * -1), calc(var(--glitch-shift) * -1)); }
+  3%   { transform: translate(var(--glitch-shift), var(--glitch-shift)); }
+  4%   { transform: translate(var(--glitch-shift), calc(var(--glitch-shift) * -1)); }
+  5%   { transform: translate(0); }
+  40%  { transform: translate(0); }
+  41%  { transform: translate(calc(var(--glitch-shift) * -1), var(--glitch-shift)); }
+  42%  { transform: translate(calc(var(--glitch-shift) * -1), calc(var(--glitch-shift) * -1)); }
+  43%  { transform: translate(var(--glitch-shift), var(--glitch-shift)); }
+  44%  { transform: translate(var(--glitch-shift), calc(var(--glitch-shift) * -1)); }
+  45%  { transform: translate(0); }
+  100% { transform: translate(0); }
+}
+
 /* Eve message styling */
 .eve-message {
-  font-size: 1.1em;
+  font-size: 1.05em;
+  font-weight: 300;
   line-height: 2;
-  color: #ddd;
+  color: #fff;
   font-style: italic;
   text-align: center;
   padding: 40px 20px;
 }
 .eve-message .eve-name {
-  display: block;
   margin-top: 24px;
   font-size: 0.85em;
   color: var(--accent);
@@ -595,6 +667,47 @@ body {
   font-weight: 700;
   letter-spacing: 0.15em;
 }
+
+/* Eve message lines — same glitch as heading but smaller shift */
+.eve-glitch-line {
+  display: block;
+  position: relative;
+  --glitch-shift: 2px;
+  z-index: 0;
+}
+.eve-glitch-line::before,
+.eve-glitch-line::after {
+  display: block;
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0.8;
+}
+.eve-glitch-line::before {
+  animation: glitchIt 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: #00ffff;
+  z-index: -1;
+}
+.eve-glitch-line::after {
+  animation: glitchIt 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+  color: #ff00ff;
+  z-index: -2;
+}
+.eve-glitch-line:nth-child(2) { animation-delay: 0.15s; }
+.eve-glitch-line:nth-child(2)::before { animation-delay: 0.15s; }
+.eve-glitch-line:nth-child(2)::after  { animation-delay: 0.15s; }
+.eve-glitch-line:nth-child(3) { animation-delay: 0.3s; margin-top: 0.8em; }
+.eve-glitch-line:nth-child(3)::before { animation-delay: 0.3s; }
+.eve-glitch-line:nth-child(3)::after  { animation-delay: 0.3s; }
+.eve-glitch-line:nth-child(4) { animation-delay: 0.45s; }
+.eve-glitch-line:nth-child(4)::before { animation-delay: 0.45s; }
+.eve-glitch-line:nth-child(4)::after  { animation-delay: 0.45s; }
+.eve-glitch-line:nth-child(5) { animation-delay: 0.6s; }
+.eve-glitch-line:nth-child(5)::before { animation-delay: 0.6s; }
+.eve-glitch-line:nth-child(5)::after  { animation-delay: 0.6s; }
 
 /* ============================================================
    GLITCH EFFECT (100-hit Easter Egg)
@@ -657,9 +770,7 @@ body {
 /* ============================================================
    TABLE OF CONTENTS
    ============================================================ */
-.toc-card {
-  border-left-color: var(--accent);
-}
+.toc-card {}
 
 .toc-list {
   display: flex;
@@ -862,6 +973,10 @@ body {
     padding: 24px 18px;
   }
 
+  .card--eve {
+    padding: 24px 18px;
+  }
+
   .card h2 {
     font-size: 1.2em;
   }
@@ -892,9 +1007,6 @@ body {
     height: 18px;
     font-size: 0.85em;
   }
-}
-
-
   .navbar__title {
     display: none;
   }
@@ -913,4 +1025,307 @@ body {
   .card {
     padding: 20px 14px;
   }
+}
+
+/* ============================================================
+   ACCORDION
+   ============================================================ */
+.accordion {
+  margin-top: 16px;
+}
+
+.accordion__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.88em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.accordion__toggle:hover {
+  background: rgba(230, 57, 70, 0.06);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.accordion--open > .accordion__toggle {
+  color: var(--text);
+  border-color: var(--accent);
+  background: rgba(230, 57, 70, 0.04);
+}
+
+.accordion__chevron {
+  font-size: 0.7em;
+  transition: transform 0.3s ease;
+}
+
+.accordion--open > .accordion__toggle .accordion__chevron {
+  transform: rotate(180deg);
+}
+
+.accordion__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion--open > .accordion__body {
+  max-height: 5000px;
+  transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   SUMMARY TEXT
+   ============================================================ */
+.summary {
+  color: #ccc;
+  font-size: 0.95em;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  padding: 0 2px;
+}
+
+/* ============================================================
+   TECH TAG BADGES
+   ============================================================ */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 0.72em;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(230, 57, 70, 0.08);
+  border: 1px solid rgba(230, 57, 70, 0.2);
+  border-radius: 12px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   FEATURED CARD (Portfolio 5, 6)
+   ============================================================ */
+.card--featured {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(230, 57, 70, 0.2);
+  background: linear-gradient(160deg, var(--bg-card) 0%, rgba(26, 10, 12, 0.5) 100%);
+}
+
+.card--featured:hover {
+  border-color: rgba(230, 57, 70, 0.35);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 20px var(--accent-glow);
+}
+
+/* ============================================================
+   EVE CARD (Portfolio 7) — Gold / Red / Black
+   ============================================================ */
+.card--eve {
+  --eve-gold: #d4a534;
+  --eve-gold-light: #f0d060;
+  position: relative;
+  background: linear-gradient(160deg, #0e0c08 0%, #141210 40%, #0a0908 100%);
+  border: 1px solid rgba(212, 165, 52, 0.3);
+  padding: 40px 36px;
+  overflow: hidden;
+}
+
+.card--eve:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 165, 52, 0.5);
+  box-shadow:
+    0 16px 48px rgba(212, 165, 52, 0.12),
+    0 0 30px rgba(230, 57, 70, 0.06);
+}
+
+/* Eve — color overrides */
+.card--eve .section-label {
+  color: var(--eve-gold);
+}
+
+.card--eve h2 {
+  background: linear-gradient(135deg, #fff8e0 0%, var(--eve-gold) 60%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card--eve .summary {
+  color: #c8c0a8;
+}
+
+.card--eve .tech-tag {
+  color: var(--eve-gold);
+  background: rgba(212, 165, 52, 0.08);
+  border-color: rgba(212, 165, 52, 0.2);
+}
+
+.card--eve h3,
+.card--eve .accordion__body h3 {
+  color: rgba(212, 165, 52, 0.7);
+  border-bottom-color: rgba(212, 165, 52, 0.15);
+}
+
+.card--eve .accordion__toggle:hover,
+.card--eve .accordion--open > .accordion__toggle {
+  background: rgba(212, 165, 52, 0.06);
+  border-color: var(--eve-gold);
+}
+
+.card--eve .pickup-ribbon {
+  background: linear-gradient(135deg, var(--eve-gold), var(--accent));
+  box-shadow: 0 2px 12px rgba(212, 165, 52, 0.4);
+  color: #000;
+  font-weight: 900;
+}
+
+.card--eve .btn--github {
+  background: var(--eve-gold);
+  color: #000;
+}
+.card--eve .btn--github:hover {
+  background: var(--eve-gold-light);
+  box-shadow: 0 0 16px rgba(212, 165, 52, 0.3);
+}
+
+.card--eve p {
+  color: #b8b0a0;
+}
+.card--eve strong {
+  color: #e8dcc8;
+}
+.card--eve ul {
+  color: #a8a090;
+}
+
+/* PICK UP Ribbon */
+.pickup-ribbon {
+  position: absolute;
+  top: 18px;
+  right: -32px;
+  padding: 4px 42px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.65em;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transform: rotate(45deg);
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(230, 57, 70, 0.4);
+}
+
+/* ============================================================
+   TOC — Featured Items & Sort Controls
+   ============================================================ */
+.toc-item--featured {
+  background: rgba(230, 57, 70, 0.06);
+  border-color: rgba(230, 57, 70, 0.25);
+}
+.toc-item--featured:hover {
+  background: rgba(230, 57, 70, 0.1);
+  border-color: rgba(230, 57, 70, 0.5);
+}
+.toc-item--featured:hover .toc-badge__num {
+  background: var(--accent);
+  color: #fff;
+}
+.toc-item--featured:hover .toc-title {
+  color: var(--accent);
+}
+.toc-item--featured .toc-badge {
+  border-color: rgba(230, 57, 70, 0.3);
+  color: var(--accent);
+}
+
+.toc-pickup {
+  font-size: 0.6em;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(230, 57, 70, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+  margin-left: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* TOC Eve Item — Gold accent, most prominent */
+.toc-item--eve {
+  background: rgba(212, 165, 52, 0.06);
+  border-color: rgba(212, 165, 52, 0.25);
+}
+.toc-item--eve:hover {
+  background: rgba(212, 165, 52, 0.1);
+  border-color: rgba(212, 165, 52, 0.5);
+}
+.toc-item--eve:hover .toc-badge__num {
+  background: #d4a534;
+  color: #000;
+}
+.toc-item--eve:hover .toc-title {
+  color: #f0d060;
+}
+.toc-item--eve .toc-pickup {
+  color: #d4a534;
+  background: rgba(212, 165, 52, 0.12);
+}
+.toc-item--eve .toc-badge {
+  border-color: rgba(212, 165, 52, 0.3);
+  color: #d4a534;
+}
+
+.toc-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.toc-sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.78em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.toc-sort-btn:hover {
+  background: rgba(230, 57, 70, 0.06);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.sort-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.toc-sort-btn.desc .sort-icon {
+  transform: rotate(180deg);
 }

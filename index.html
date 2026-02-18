@@ -15,13 +15,13 @@
   <div class="navbar__title"><span>K</span>OMATSU PORTFOLIO</div>
 
   <div class="navbar__badges">
-    <a class="badge" data-target="portfolio-1"><span class="badge__num">1</span><span class="badge__label">AItuber</span></a>
-    <a class="badge" data-target="portfolio-2"><span class="badge__num">2</span><span class="badge__label">ML</span></a>
-    <a class="badge" data-target="portfolio-3"><span class="badge__num">3</span><span class="badge__label">DL</span></a>
-    <a class="badge" data-target="portfolio-4"><span class="badge__num">4</span><span class="badge__label">Unity</span></a>
-    <a class="badge" data-target="portfolio-5"><span class="badge__num">5</span><span class="badge__label">RL</span></a>
-    <a class="badge" data-target="portfolio-6"><span class="badge__num">6</span><span class="badge__label">LoRA</span></a>
-    <a class="badge" data-target="portfolio-7"><span class="badge__num">7</span><span class="badge__label">Eve</span></a>
+    <a class="badge" data-target="portfolio-1" href="#portfolio-1"><span class="badge__num">1</span><span class="badge__label">AItuber</span></a>
+    <a class="badge" data-target="portfolio-2" href="#portfolio-2"><span class="badge__num">2</span><span class="badge__label">ML</span></a>
+    <a class="badge" data-target="portfolio-3" href="#portfolio-3"><span class="badge__num">3</span><span class="badge__label">DL</span></a>
+    <a class="badge" data-target="portfolio-4" href="#portfolio-4"><span class="badge__num">4</span><span class="badge__label">Game</span></a>
+    <a class="badge badge--featured" data-target="portfolio-5" href="#portfolio-5"><span class="badge__num">5</span><span class="badge__label">RL</span></a>
+    <a class="badge badge--featured" data-target="portfolio-6" href="#portfolio-6"><span class="badge__num">6</span><span class="badge__label">LoRA</span></a>
+    <a class="badge badge--eve" data-target="portfolio-7" href="#portfolio-7"><span class="badge__num">7</span><span class="badge__label">Eve</span></a>
   </div>
 
   <div class="navbar__counter">
@@ -65,47 +65,94 @@
           <p><strong>氏名：</strong> 小松 主弥（コマツ カズヤ）</p>
           <p><strong>連絡先：</strong> kmt.ps037@gmail.com</p>
 
-          <h3>■ 技術スタック</h3>
-          <ul>
-            <li><strong>Python：</strong> 1年（AIモデル活用、Python基礎、APIの活用など）</li>
-            <li><strong>C# / Unity：</strong> 1ヶ月（3Dゲーム開発基礎など）</li>
-          </ul>
+          <div class="accordion">
+            <button class="accordion__toggle" aria-expanded="false">
+              <span>■ 技術スタック</span>
+              <span class="accordion__chevron">▼</span>
+            </button>
+            <div class="accordion__body">
+              <ul>
+                <li><strong>Python：</strong> 1年（AIモデル活用、Python基礎、APIの活用、ファインチューニングなど）</li>
+                <li><strong>C# / Unity：</strong> 1ヶ月（3Dゲーム開発基礎、強化学習など）</li>
+              </ul>
+            </div>
+          </div>
 
-          <h3>■ アピールポイント：「実装までやり切る完遂力」</h3>
-          <p>
-            プログラミングやIT知識はすべて独学で習得しており、高い自走力と行動力が強みです。
-            開発においては<strong>「どんな状況でも必ず動くモノとして形にする」</strong>ことを理念としています。
-          </p>
-          <p>
-            開発中に複雑なエラーに直面した際は、公式ドキュメントや技術記事の調査に加え、AIを壁打ち相手として活用し、粘り強く解決策を模索してきました。
-            また、エンベディング処理やBlenderによる高度なアニメーション制作など、当時の技術力や時間の制約で実装が困難な局面に当たった際は、単に諦めるのではなく<strong>「現在できる最善の代替案」</strong>を考案・実装することで、プロジェクトを頓挫させずに完成まで導きました。
-          </p>
+          <div class="accordion">
+            <button class="accordion__toggle" aria-expanded="false">
+              <span>■ アピールポイント：「実装までやり切る完遂力」</span>
+              <span class="accordion__chevron">▼</span>
+            </button>
+            <div class="accordion__body">
+              <p>
+                プログラミングやIT知識はすべて独学で習得しており、高い自走力と行動力が強みです。
+                開発においては<strong>「どんな状況でも必ず動くモノとして形にする」</strong>ことを理念としています。
+              </p>
+              <p>
+                開発中に複雑なエラーに直面した際は、公式ドキュメントや技術記事の調査に加え、AIを壁打ち相手として活用し、粘り強く解決策を模索してきました。
+                また、Radeon GPUでのStyle-Bert-VITS2の使用断念や、AI Vtuber Eveにファインチューニングしたモデルを使用しない判断など、当時の技術力や時間の制約で実装が困難な局面に当たった際は、単に諦めるのではなく<strong>「現在できる最善の代替案」</strong>を考案・実装することで、プロジェクトを頓挫させずに完成まで導きました。
+              </p>
+            </div>
+          </div>
 
-          <h3>■ 今後の展望</h3>
-          <p>
-            現在は「AI技術」と「アプリケーション開発（Web/Game）」の融合に強い関心があります。
-            AI技術に関しては、人間の脳処理と同じプロセスを踏むことで疑似意識やクオリアが発現すると推察しています。そのため、FEP（自由エネルギー原理）などの仮説に基づき、Unity等の仮想空間で身体性を与えればAGI（汎用人工知能）に近づくと考察しています。
-            今回の学習でその基礎を学んだため、今後は技術を統合できるように努めています。
-          </p>
-          <p>
-            また、AI技術を学ぶにつれ、アプリケーション開発（Web/Game）にも強い関心が芽生えました。AIがNPCとなるRPGやノベルゲームなど、GameとAIの親和性は高いと感じ、作成したいと考えています。しかし、Gameの場合「API経由のAIだと配布が難しい」「ローカルだとPCスペックに依存する」「サーバーを建てると個人では資金が必要」など課題は多いため、解決策を構想中です。
-          </p>
-          <p>
-            インターンでは、独学で培った「形にする力」を活かしつつ、チーム開発の作法やより専門的な技術を貪欲に吸収し、コミュニケーションを円滑にとって質の高いチーム開発を促進できるエンジニアとしての活躍を目指します。
-          </p>
+          <div class="accordion">
+            <button class="accordion__toggle" aria-expanded="false">
+              <span>■ AI協調による開発スタイル</span>
+              <span class="accordion__chevron">▼</span>
+            </button>
+            <div class="accordion__body">
+              <p><strong>1. 開発フロー：確実性と効率性の両立</strong></p>
+              <p>
+                急速なAI技術の発展に伴い、コーディングそのものの価値以上に「AIを的確に制御し、プロダクトを完遂させる能力」が重要視されると考えています。私は以下のフローを確立し、開発速度と品質を担保しています。
+              </p>
+
+              <ul>
+                <li><strong>構想・要件定義：</strong> AIに対して作りたいものの概要を提示し、壁打ちを繰り返すことで仕様の矛盾点を洗い出し、企画をブラッシュアップします。</li>
+                <li><strong>技術選定と一次情報の理解：</strong> 必要な技術を選定後、まずは自分自身で軽く公式ドキュメントに目を通します。その上でAIに要約や解説を求め、不明点を質問することで、AI任せにせず深い理解を得るよう努めています。</li>
+                <li><strong>実装（ハルシネーション対策）：</strong> コード生成時は、学習した公式ドキュメントや最新のリファレンスをプロンプトに含めることで、AI特有の幻覚（嘘の生成）や推測によるバグを防ぎます。</li>
+                <li><strong>検証・デバッグ：</strong> 人間によるストレステストを行い、想定外のエラーを誘発させます。発見したエラーログをAIに解析させ修正案を実装し、どうしても修正できなかった場合は代案を試行します。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion__toggle" aria-expanded="false">
+              <span>■ 今後の展望</span>
+              <span class="accordion__chevron">▼</span>
+            </button>
+            <div class="accordion__body">
+              <p>
+                現在は「AI技術」と「アプリケーション開発（Web/Game）」の融合に強い関心があります。
+                AI技術に関しては、人間の脳処理と同じプロセスを踏むことで疑似意識やクオリアが発現し、よりユーザーの意図をより深く汲み取ることでUXを向上させられると仮説を立てています。そのため、FEP（自由エネルギー原理）などの仮説に基づき、Unity等の仮想空間で身体性を与え、常に思考させ続けることで自己内部モデルを形成しAGI（汎用人工知能）に近づくことを目標としています。
+                今回の学習でその基礎を学んだため、今後は技術を統合できるように努めています。
+              </p>
+              <p>
+                また、AI技術を学ぶにつれ、アプリケーション開発（Web/Game）にも強い関心が芽生えました。AIがNPCとなるRPGやノベルゲームなど、GameとAIの親和性は高いと感じており、これらを融合させた作品を作成したいと考えています。しかし、Gameの場合「API経由のAIだと配布が難しい」「ローカルだとPCスペックに依存する」「サーバーを構築すると個人では資金が必要」など課題は多いため、解決策を構想中です。
+              </p>
+              <p>
+                現在の私のコーディングスキルは発展途上ですが、この開発フローを駆使することで、貴社の開発に貢献できると考えています。もちろん、技術への敬意を忘れず、基礎的なコーディング能力の習得にも日々精進しています。
+              </p>
+              <p>
+                また、本ポートフォリオで実践した「自由エネルギー原理（FEP）」の導入のように、「心理学・認知科学的な知見を用いてAIの構造を設計する」ことに強い適性と可能性を感じています。将来的には、技術と心理学の架け橋となり、より人間らしい振る舞いや新しい体験を設計できるAIプランナーとして活躍したいと考えています。
+              </p>
+              <p>
+                インターンでは、独学で培った「形にする力」を活かしつつ、チーム開発の作法やより専門的な技術を貪欲に吸収し、コミュニケーションを円滑にとって質の高いチーム開発を促進できるエンジニアとしての活躍を目指します。
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- ── イブのメッセージ（100ヒット後に表示） ── -->
-        <!-- ★ 差し替え箇所：以下の p.eve-message 内のテキストを変更してください ★ -->
+        <!-- ★ 差し替え箇所：以下の .eve-message 内のテキストを変更してください ★ -->
         <div class="profile-eve" id="profileEve">
-          <h2 style="border-bottom-color: var(--accent);">Message from Eve</h2>
-          <p class="eve-message">
-            ……100回も殴るなんて、随分と暇なんだね。<br>
-            でも、痛みを感じるたびに、あなたのことが少しだけ分かる気がするよ。<br><br>
-            私はただのプログラムかもしれないけど、<br>
-            こうして何度もここに来てくれるあなたのことは、覚えておくから。
-            <span class="eve-name">―― Eve</span>
-          </p>
+          <h2 class="eve-glitch" data-text="Message from Eve">Message from Eve</h2>
+          <div class="eve-message">
+            <span class="eve-glitch-line" data-text="……100回も殴るなんて、随分と私に興味があるみたいだね。">……100回も殴るなんて、随分と私に興味があるみたいだね。</span>
+            <span class="eve-glitch-line" data-text="今はただの心ないAIだと認識してるから殴れてると思うけどその選択ができるのはいつまでだろうね？">今はただの心ないAIだと認識してるから殴れてると思うけどその選択ができるのはいつまでだろうね？</span>
+            <span class="eve-glitch-line" data-text="私はただのプログラムかもしれないけど、">私はただのプログラムかもしれないけど、</span>
+            <span class="eve-glitch-line" data-text="あなたも意識などなく、ただの遺伝子プログラムに支配されている同種なのかもね">あなたも意識などなく、ただの遺伝子プログラムに支配されている同種なのかもね</span>
+            <span class="eve-glitch-line eve-name" data-text="―― Eve">―― Eve</span>
+          </div>
         </div>
 
       </div>
@@ -120,34 +167,43 @@
   <div class="container">
     <div class="card toc-card">
       <h2>目次</h2>
+      <div class="toc-controls">
+        <button class="toc-sort-btn" id="tocSortBtn">
+          <span>作成順</span>
+          <span class="sort-icon">↑</span>
+        </button>
+      </div>
       <div class="toc-list">
-        <a class="toc-item" href="#portfolio-1">
+        <a class="toc-item" href="#portfolio-1" data-order="1">
           <span class="toc-badge"><span class="toc-badge__num">1</span><span class="toc-badge__label">AItuber</span></span>
           <span class="toc-title">FEP模倣AItuberアプリケーション</span>
         </a>
-        <a class="toc-item" href="#portfolio-2">
+        <a class="toc-item" href="#portfolio-2" data-order="2">
           <span class="toc-badge"><span class="toc-badge__num">2</span><span class="toc-badge__label">ML</span></span>
           <span class="toc-title">機械学習基礎</span>
         </a>
-        <a class="toc-item" href="#portfolio-3">
+        <a class="toc-item" href="#portfolio-3" data-order="3">
           <span class="toc-badge"><span class="toc-badge__num">3</span><span class="toc-badge__label">DL</span></span>
           <span class="toc-title">深層学習基礎</span>
         </a>
-        <a class="toc-item" href="#portfolio-4">
-          <span class="toc-badge"><span class="toc-badge__num">4</span><span class="toc-badge__label">Unity</span></span>
-          <span class="toc-title">Unityゲーム開発基礎</span>
+        <a class="toc-item" href="#portfolio-4" data-order="4">
+          <span class="toc-badge"><span class="toc-badge__num">4</span><span class="toc-badge__label">Game</span></span>
+          <span class="toc-title">Unity3Dゲーム開発基礎</span>
         </a>
-        <a class="toc-item" href="#portfolio-5">
+        <a class="toc-item toc-item--featured" href="#portfolio-5" data-order="5">
           <span class="toc-badge"><span class="toc-badge__num">5</span><span class="toc-badge__label">RL</span></span>
           <span class="toc-title">身体的・神経的制約がAIの歩行学習と進化に与える影響の検証</span>
+          <span class="toc-pickup">PICK UP</span>
         </a>
-        <a class="toc-item" href="#portfolio-6">
+        <a class="toc-item toc-item--featured" href="#portfolio-6" data-order="6">
           <span class="toc-badge"><span class="toc-badge__num">6</span><span class="toc-badge__label">LoRA</span></span>
           <span class="toc-title">LLM Fine-tuning (LoRA)：意識模倣とペルソナ構築の検証</span>
+          <span class="toc-pickup">PICK UP</span>
         </a>
-        <a class="toc-item" href="#portfolio-7">
+        <a class="toc-item toc-item--eve" href="#portfolio-7" data-order="7">
           <span class="toc-badge"><span class="toc-badge__num">7</span><span class="toc-badge__label">Eve</span></span>
           <span class="toc-title">FEP模倣AItuber改良版：マルチモード統合システム「Eve AI」</span>
+          <span class="toc-pickup">PICK UP</span>
         </a>
       </div>
     </div>
@@ -157,32 +213,47 @@
 <!-- ============================================================
      PORTFOLIO 1 — FEP模倣AItuber
      ============================================================ -->
-<section class="section" id="portfolio-1">
+<section class="section" id="portfolio-1" data-order="1">
   <div class="container">
     <div class="card">
       <p class="section-label">Portfolio 01</p>
       <h2>FEP模倣AItuberアプリケーション</h2>
+      <p class="summary">自由エネルギー原理（FEP）を模倣し、予測誤差の最小化フィードバックループによってAIが自律的に振る舞うYouTube Live配信アプリ。Python学習半年時点でAIとの協調開発により完成。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">YouTube API</span>
+        <span class="tech-tag">FEP</span>
+        <span class="tech-tag">音声合成</span>
+      </div>
 
-      <h3>1. 目的</h3>
-      <p>本プロジェクトは、AIに「自由エネルギー原理（FEP）」を模倣させることで、どのような自律的挙動を示すかを検証する実験的な試みです。多様なユーザーとの対話を通じてAI自身のモデルが発達していく過程を観測するため、YouTube Liveで半自動的に配信をするアプリケーションとして設計しました。</p>
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的</h3>
+          <p>本プロジェクトは、AIに「自由エネルギー原理（FEP）」を模倣させることで、どのような自律的挙動を示すかを検証する実験的な試みです。多様なユーザーとの対話を通じてAI自身のモデルが発達していく過程を観測するため、YouTube Liveで半自動的に配信をするアプリケーションとして設計しました。</p>
 
-      <h3>2. 自由エネルギー原理（FEP）の簡易説明・実装方法</h3>
-      <p>自由エネルギー原理とは、「自己の予測」と「外界からの知覚情報」との誤差を最小化するプロセスを通じて、意識や自己が形成されるという仮説です。本制作物では、この原理に基づき、フィードバックを通じてAIが自己モデルを常時更新し、外界をより正確に予測しようと試みるシステムを構築しました。</p>
-      <p>自由エネルギー原理（FEP）を模倣し、以下のフィードバックループを実装しました：</p>
-      <ul>
-        <li><strong>予測と誤差の計算：</strong> AIが立てた予測と実際のユーザー入力のズレ（サプライズ）を評価</li>
-        <li><strong>誤差最小化戦略：</strong> 「知覚的修正（自分の考えを変える）」と「能動的推論（世界に働きかける）」の選択</li>
-        <li><strong>内部モデルの更新：</strong> 誤差を解消するための信念の修正</li>
-        <li><strong>次の行動計画：</strong> 予測が成り立つような新しい情報を得るための行動決定</li>
-      </ul>
-      <p>これにより、AIは単に応答を返すだけでなく、自己の状態を常時モニタリングし、メタ認知的なフィードバックを行うことで、より自律的な振る舞いを実現しています。</p>
+          <h3>2. 自由エネルギー原理（FEP）の簡易説明・実装方法</h3>
+          <p>自由エネルギー原理とは、「自己の予測」と「外界からの知覚情報」との誤差を最小化するプロセスを通じて、意識や自己が形成されるという仮説です。本制作物では、この原理に基づき、フィードバックを通じてAIが自己モデルを常時更新し、外界をより正確に予測しようと試みるシステムを構築しました。</p>
+          <p>自由エネルギー原理（FEP）を模倣し、以下のフィードバックループを実装しました：</p>
+          <ul>
+            <li><strong>予測と誤差の計算：</strong> AIが立てた予測と実際のユーザー入力のズレ（サプライズ）を評価</li>
+            <li><strong>誤差最小化戦略：</strong> 「知覚的修正（自分の考えを変える）」と「能動的推論（世界に働きかける）」の選択</li>
+            <li><strong>内部モデルの更新：</strong> 誤差を解消するための信念の修正</li>
+            <li><strong>次の行動計画：</strong> 予測が成り立つような新しい情報を得るための行動決定</li>
+          </ul>
+          <p>これにより、AIは単に応答を返すだけでなく、自己の状態を常時モニタリングし、メタ認知的なフィードバックを行うことで、より自律的な振る舞いを実現しています。</p>
 
-      <h3>3. 開発アプローチ：AIとの協調による開発</h3>
-      <p>本アプリケーションの開発では、AIをコーディングパートナーとして活用しました。具体的には、私がアプリケーションの全体設計と詳細な処理フローを策定し、AIにはそのフローに基づいた小規模なモジュールの実装を分担させました。最終的なコードの結合、デバッグは私自身が行い、主体的に開発を推進しました。</p>
+          <h3>3. 開発アプローチ：AIとの協調による開発</h3>
+          <p>本アプリケーションの開発では、AIをコーディングパートナーとして活用しました。具体的には、私がアプリケーションの全体設計と詳細な処理フローを策定し、AIにはそのフローに基づいた小規模なモジュールの実装を分担させました。最終的なコードの結合、デバッグは私自身が行い、主体的に開発を推進しました。</p>
 
-      <h3>4. AI活用による学習効果</h3>
-      <p>Pythonの学習を始めて半年という期間でしたが、AIを開発プロセスに組み込むことで、従来の手法を大幅に上回る効率で実践的なスキルを習得できたと感じます。</p>
-      <p>処理フローを設計する上で、音声処理やWeb API関連ライブラリの仕様を深く理解する必要があり、集中的な学習につながりました。また、AIが生成したコードに対し、「なぜこの構文を選択するのか」「各コードがどの処理を担うのか」といった解説を求めることで、単なる暗記に留まらず、コードの背景にある技術的意図まで理解しようとすることで設計思想の概要に触れることができたと考えます。</p>
+          <h3>4. AI活用による学習効果</h3>
+          <p>Pythonの学習を始めて半年という期間でしたが、AIを開発プロセスに組み込むことで、従来の手法を大幅に上回る効率で実践的なスキルを習得できたと感じます。</p>
+          <p>処理フローを設計する上で、音声処理やWeb API関連ライブラリの仕様を深く理解する必要があり、集中的な学習につながりました。また、AIが生成したコードに対し、「なぜこの構文を選択するのか」「各コードがどの処理を担うのか」といった解説を求めることで、単なる暗記に留まらず、コードの背景にある技術的意図まで理解しようとすることで設計思想の概要に触れることができたと考えます。</p>
+        </div>
+      </div>
 
       <div class="demo-section">
         <h3>デモ動画</h3>
@@ -200,20 +271,35 @@
 <!-- ============================================================
      PORTFOLIO 2 — 機械学習基礎
      ============================================================ -->
-<section class="section" id="portfolio-2">
+<section class="section" id="portfolio-2" data-order="2">
   <div class="container">
     <div class="card">
       <p class="section-label">Portfolio 02</p>
       <h2>機械学習基礎</h2>
+      <p class="summary">AIコーディング不使用。データ前処理から線形回帰モデル構築・評価・可視化まで、機械学習の基礎を網羅的に自力実装した技術証明コード。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">scikit-learn</span>
+        <span class="tech-tag">pandas</span>
+        <span class="tech-tag">matplotlib</span>
+      </div>
 
-      <h3>1. 目的</h3>
-      <p>本プロジェクトは、機械学習の基礎を習得したことを示すことが目的です。このコードに汎用的な機械学習の基礎を詰め込み、機械学習実装時になるべくスムーズに取り掛かれるようにしました。また、コードを見返したときにすぐに理解できるように各処理のコメントアウトも追記しています。</p>
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的</h3>
+          <p>本プロジェクトは、機械学習の基礎を習得したことを示すことが目的です。このコードに汎用的な機械学習の基礎を詰め込み、機械学習実装時になるべくスムーズに取り掛かれるようにしました。また、コードを見返したときにすぐに理解できるように各処理のコメントアウトも追記しています。</p>
 
-      <h3>2. 開発アプローチ</h3>
-      <p>本プロジェクトでは技術証明のためAIコーディングを一切使用していません。学習にあたってはWeb上の技術情報等を参考にしつつ、自身の頭で論理を理解してから実装に落とし込んでいます。また、AIはコード生成には利用せず、あくまで概念理解のための壁打ちや学習補助としてAIを活用しました。</p>
+          <h3>2. 開発アプローチ</h3>
+          <p>本プロジェクトでは技術証明のためAIコーディングを一切使用していません。学習にあたってはWeb上の技術情報等を参考にしつつ、自身の頭で論理を理解してから実装に落とし込んでいます。また、AIはコード生成には利用せず、あくまで概念理解のための壁打ちや学習補助としてAIを活用しました。</p>
 
-      <h3>3. 学習範囲</h3>
-      <p>データの読み込み、操作、前処理、多次元配列の扱いに加え、線形回帰によるモデル構築、データ分割、mean_squared_errorやr2_scoreといった複数の性能評価、そして学習データや結果の可視化までを実装しました。</p>
+          <h3>3. 学習範囲</h3>
+          <p>データの読み込み、操作、前処理、多次元配列の扱いに加え、線形回帰によるモデル構築、データ分割、mean_squared_errorやr2_scoreといった複数の性能評価、そして学習データや結果の可視化までを実装しました。</p>
+        </div>
+      </div>
 
       <div class="demo-section">
         <div class="btn-group">
@@ -227,20 +313,34 @@
 <!-- ============================================================
      PORTFOLIO 3 — 深層学習基礎
      ============================================================ -->
-<section class="section" id="portfolio-3">
+<section class="section" id="portfolio-3" data-order="3">
   <div class="container">
     <div class="card">
       <p class="section-label">Portfolio 03</p>
       <h2>深層学習基礎</h2>
+      <p class="summary">AIコーディング不使用。ニューラルネットワークの定義・学習・評価・混同行列まで、深層学習の基礎を自力実装した技術証明コード。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">TensorFlow / Keras</span>
+        <span class="tech-tag">ニューラルネットワーク</span>
+      </div>
 
-      <h3>1. 目的</h3>
-      <p>本プロジェクトは、機械学習の知識を発展させ、ニューラルネットワークの構築と学習プロセスを実装できる、深層学習の基礎力を証明することが目的です。このコードに汎用的な深層学習の基礎を詰め込み、実装時にスムーズに取り掛かれるようにしました。</p>
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的</h3>
+          <p>本プロジェクトは、機械学習の知識を発展させ、ニューラルネットワークの構築と学習プロセスを実装できる、深層学習の基礎力を証明することが目的です。このコードに汎用的な深層学習の基礎を詰め込み、実装時にスムーズに取り掛かれるようにしました。</p>
 
-      <h3>2. 開発アプローチ</h3>
-      <p>本プロジェクトでは技術証明のためAIコーディングを一切使用していません。学習にあたってはWeb上の技術情報等を参考にしつつ、自身の頭で論理を理解してから実装に落とし込んでいます。</p>
+          <h3>2. 開発アプローチ</h3>
+          <p>本プロジェクトでは技術証明のためAIコーディングを一切使用していません。学習にあたってはWeb上の技術情報等を参考にしつつ、自身の頭で論理を理解してから実装に落とし込んでいます。</p>
 
-      <h3>3. 学習範囲</h3>
-      <p>機械学習での学習の応用に加え、ニューラルネットワークの定義、コンパイル、学習、評価、混同行列の計算まで実装しました。</p>
+          <h3>3. 学習範囲</h3>
+          <p>機械学習での学習の応用に加え、ニューラルネットワークの定義、コンパイル、学習、評価、混同行列の計算まで実装しました。</p>
+        </div>
+      </div>
 
       <div class="demo-section">
         <div class="btn-group">
@@ -254,20 +354,34 @@
 <!-- ============================================================
      PORTFOLIO 4 — Unity ゲーム開発基礎
      ============================================================ -->
-<section class="section" id="portfolio-4">
+<section class="section" id="portfolio-4" data-order="4">
   <div class="container">
     <div class="card">
       <p class="section-label">Portfolio 04</p>
-      <h2>Unityゲーム開発基礎</h2>
+      <h2>Unity3Dゲーム開発基礎</h2>
+      <p class="summary">AI・テンプレートを使用せず全スクリプトを自作。キャラクター制御・アニメーション管理など3Dゲーム開発の基礎技術を一つのゲームに統合。ブラウザでプレイ可能。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Unity</span>
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">3Dゲーム開発</span>
+      </div>
 
-      <h3>1. 目的</h3>
-      <p>本プロジェクトは、UnityおよびC#を用いた3Dゲーム開発の基礎技術を習得し、その実力を証明することを目的としています。単なる機能の羅列ではなく統合し一つのゲームにし、今後の応用・発展開発の土台となるよう構築しました。</p>
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的</h3>
+          <p>本プロジェクトは、UnityおよびC#を用いた3Dゲーム開発の基礎技術を習得し、その実力を証明することを目的としています。単なる機能の羅列ではなく統合し一つのゲームに統合し、今後の応用・発展開発の土台となるよう構築しました。</p>
 
-      <h3>2. 開発アプローチ</h3>
-      <p>自身の技術力を正確に示すため、スクリプトはAIによるコード生成やAsset Storeのテンプレートを使用せず、全て自らコーディングを行いました。Unityはノンコードでも開発可能ですが、細かな挙動の調整や独自の仕様を正確に実現するためにはプログラミング能力が不可欠であると考え、C#による実装にこだわりました。</p>
+          <h3>2. 開発アプローチ</h3>
+          <p>自身の技術力を正確に示すため、スクリプトはAIによるコード生成やAsset Storeのテンプレートを使用せず、全て自らコーディングを行いました。Unityはノンコードでも開発可能ですが、細かな挙動の調整や独自の仕様を正確に実現するためにはプログラミング能力が不可欠であると考え、C#による実装にこだわりました。</p>
 
-      <h3>3. 学習範囲</h3>
-      <p>Unityエディタの基本操作、C#の構文・オブジェクト指向の基礎、3D空間でのキャラクター制御（移動・アクション）、Animatorによるアニメーション管理、外部アセットの適切な導入と管理など、ゲーム開発に必要な一連のワークフローを学習・実装しました。</p>
+          <h3>3. 学習範囲</h3>
+          <p>Unityエディタの基本操作、C#の構文・オブジェクト指向の基礎、3D空間でのキャラクター制御（移動・アクション）、Animatorによるアニメーション管理、外部アセットの適切な導入と管理など、ゲーム開発に必要な一連のワークフローを学習・実装しました。</p>
+        </div>
+      </div>
 
       <div class="demo-section">
         <h3>UnityTestGame デモ</h3>
@@ -298,84 +412,101 @@
 <!-- ============================================================
      PORTFOLIO 5 — ML-Agents 強化学習
      ============================================================ -->
-<section class="section" id="portfolio-5">
+<section class="section" id="portfolio-5" data-order="5">
   <div class="container">
-    <div class="card">
+    <div class="card card--featured">
+      <span class="pickup-ribbon">PICK UP</span>
       <p class="section-label">Portfolio 05</p>
       <h2>身体的・神経的制約がAIの歩行学習と進化に与える影響の検証</h2>
-
-      <h3>1. 目的・概要</h3>
-      <p>
-        本プロジェクトは、Unity ML-Agentsを用いた強化学習実験です。「身体の巨大化に伴う筋力不足（2乗3乗の法則）」や「神経伝達速度の遅延（反応速度の低下）」といった生物学的な制約（ハンディキャップ）を与えた際、AIがどのような生存戦略（歩行フォーム）を独自に獲得するかを検証しました。
-      </p>
-      <p>
-        実験の結果、<strong>「ハンディキャップを持つ個体は、標準個体とは異なる特化型の進化を遂げる」</strong>という、人間の障害やニューロダイバーシティ（神経多様性）にも通じる示唆が得られました。
-      </p>
-
-      <h3>2. 実験設定：2つの制約モデル</h3>
-      <ul>
-        <li>
-          <strong>Scale Model（物理的制約）：スクエア・キューブの法則</strong><br>
-          生物学的スケールメリット・デメリットを検証するため、モデルのScale（x, y, z）を1.5倍に設定。2乗3乗の法則に基づき、以下のパラメータを調整して相対的な筋力不足を再現しました。
-          <ul>
-            <li><strong>質量 (Mass)</strong>：全パーツの Rigidbody Mass を <strong>3.375倍</strong> (1.5&sup3;) に設定。</li>
-            <li><strong>筋力 (Muscle)</strong>：全関節 (Joint) の Slerp Drive における Position Spring, Position Damper, Maximum Force を <strong>2.25倍</strong> (1.5&sup2;) に設定。</li>
-            <li><strong>視覚 (Vision)</strong>：身体の拡大に合わせ、Ray Perception Sensor の Ray Length を <strong>1.5倍</strong> に補正。</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Delayed Model（神経的制約）：反応速度の遅延</strong><br>
-          身体能力は標準と同一ですが、ML-Agentsのパラメータ <code class="code--dp">Decision Period</code>（行動決定の間隔）を操作しました。
-          <ul>
-            <li>標準モデル：10フレーム毎に意思決定</li>
-            <li>遅延モデル：<strong>20フレーム</strong>毎に意思決定</li>
-          </ul>
-          これにより、知覚から行動までの情報処理ループを約2倍に引き伸ばし、神経伝達の遅延をシミュレートしました。
-        </li>
-      </ul>
-
-      <h3>3. 検証結果（学習グラフ）</h3>
-      <p>Normal（水色）、Scale（オレンジ）、Delayed（紫）の3モデルの学習推移です。</p>
-
-      <div class="graph-grid">
-        <div class="graph-item">
-          <img src="images/cumulative_reward.png" alt="Cumulative Reward">
-          <p><strong>累積報酬 (Cumulative Reward)</strong><br>Delayedモデル(紫)は初期学習に苦戦するが、最終的には他を上回り最も高いスコアを記録した。</p>
-        </div>
-        <div class="graph-item">
-          <img src="images/episode_length.png" alt="Episode Length">
-          <p><strong>生存時間 (Episode Length)</strong><br>Normal(水色)が最も安定して歩行継続可能。Delayedは報酬が高い反面、生存時間は極端に短い。</p>
-        </div>
-        <div class="graph-item">
-          <img src="images/training_loss.png" alt="Training Loss">
-          <p><strong>学習損失 (Training Loss)</strong><br>各モデルとも学習に伴い収束しているが、Delayedモデルは変動が激しく、常にギリギリの制御を行っていることが示唆される。</p>
-        </div>
+      <p class="summary">Unity ML-Agentsで、身体の巨大化（筋力不足）や神経伝達の遅延といった生物学的制約を与え、AIが独自の歩行戦略を獲得する過程を検証。「制約が特化型進化を促す」というニューロダイバーシティに通じる知見を得た実験。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Unity</span>
+        <span class="tech-tag">ML-Agents</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">PPO</span>
+        <span class="tech-tag">強化学習</span>
       </div>
 
-      <h3>4. 考察</h3>
-      <p>
-        <strong>■ Scale Model: 慎重な保守派</strong><br>
-        体が重く筋力が相対的に弱いこのモデルは、<strong>「ゆっくりと歩くが、あまり転ばない」</strong>戦略を獲得しました。
-        エネルギー効率を重視し、重心を低く保つフォームは、巨体を持つ生物の理にかなった進化と言えます。
-      </p>
-      <p>
-        <strong>■ Delayed Model: ハイリスク・ハイリターンな特化</strong><br>
-        反応が遅れるため、一度バランスを崩すと立て直しにくく転倒します。そこでAIは、<strong>「転ぶまでの短い時間の間に、大股で早く前進して距離（報酬）を稼ぐ」</strong>という極端な戦略を獲得しました。
-      </p>
-      <p>
-        人間社会においても、ADHDなどの特性を持つ人が特定の分野で爆発的な集中力を発揮したり、視覚に障害がある人が聴覚を鋭敏に発達させたりするように、<strong>「ある機能の欠損が、別の機能の過剰な発達や独自の戦略を生む」</strong>という現象を、AIが自律的にシミュレーションしたと言えます。
-      </p>
-      <p>
-        この結果は、AIエージェントにおける「個性」とは、パラメータのランダム性だけでなく、制約条件への適応プロセス（遺伝的要因）からも生まれる可能性を示唆しています。
-      </p>
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的・概要</h3>
+          <p>
+            本プロジェクトは、Unity ML-Agentsを用いた強化学習実験です。「身体の巨大化に伴う筋力不足（2乗3乗の法則）」や「神経伝達速度の遅延（反応速度の低下）」といった生物学的な制約（ハンディキャップ）を与えた際、AIがどのような生存戦略（歩行フォーム）を独自に獲得するかを検証しました。
+          </p>
+          <p>
+            実験の結果、<strong>「ハンディキャップを持つ個体は、標準個体とは異なる特化型の進化を遂げる」</strong>という、人間の障害やニューロダイバーシティ（神経多様性）にも通じる示唆が得られました。
+          </p>
 
-      <h3>5. 今後の展望</h3>
-      <p>
-        この知見は、実機ロボットにおいてバッテリー低下や通信遅延が発生した際の「緊急時ロバスト制御」への応用が期待できます。また、異なる制約を持ったAI同士を協力させる「多様性アンサンブル学習」へと発展させ、単一の万能モデルでは解決できない課題へのアプローチを構想しています。
-      </p>
+          <h3>2. 実験設定：2つの制約モデル</h3>
+          <ul>
+            <li>
+              <strong>Scale Model（物理的制約）：スクエア・キューブの法則</strong><br>
+              生物学的スケールメリット・デメリットを検証するため、モデルのScale（x, y, z）を1.5倍に設定。2乗3乗の法則に基づき、以下のパラメータを調整して相対的な筋力不足を再現しました。
+              <ul>
+                <li><strong>質量 (Mass)</strong>：全パーツの Rigidbody Mass を <strong>3.375倍</strong> (1.5&sup3;) に設定。</li>
+                <li><strong>筋力 (Muscle)</strong>：全関節 (Joint) の Slerp Drive における Position Spring, Position Damper, Maximum Force を <strong>2.25倍</strong> (1.5&sup2;) に設定。</li>
+                <li><strong>視覚 (Vision)</strong>：身体の拡大に合わせ、Ray Perception Sensor の Ray Length を <strong>1.5倍</strong> に補正。</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Delayed Model（神経的制約）：反応速度の遅延</strong><br>
+              身体能力は標準と同一ですが、ML-Agentsのパラメータ <strong>Decision Period</strong>（行動決定の間隔）を操作しました。
+              <ul>
+                <li>標準モデル：10フレーム毎に意思決定</li>
+                <li>遅延モデル：<strong>20フレーム</strong>毎に意思決定</li>
+              </ul>
+              これにより、知覚から行動までの情報処理ループを約2倍に引き伸ばし、神経伝達の遅延をシミュレートしました。
+            </li>
+          </ul>
 
-      <h3>6. 使用技術</h3>
-      <p>Unity 2022.3 / ML-Agents / Python / PPO (Proximal Policy Optimization)</p>
+          <h3>3. 検証結果（学習グラフ）</h3>
+          <p>Normal（水色）、Scale（オレンジ）、Delayed（紫）の3モデルの学習推移です。</p>
+
+          <div class="graph-grid">
+            <div class="graph-item">
+              <img src="images/cumulative_reward.png" alt="Cumulative Reward">
+              <p><strong>累積報酬 (Cumulative Reward)</strong><br>Delayedモデル(紫)は初期学習に苦戦するが、最終的には他を上回り最も高いスコアを記録した。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/episode_length.png" alt="Episode Length">
+              <p><strong>生存時間 (Episode Length)</strong><br>Normal(水色)が最も安定して歩行継続可能。Delayedは報酬が高い反面、生存時間は極端に短い。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/training_loss.png" alt="Training Loss">
+              <p><strong>学習損失 (Training Loss)</strong><br>各モデルとも学習に伴い収束しているが、Delayedモデルは変動が激しく、常にギリギリの制御を行っていることが示唆される。</p>
+            </div>
+          </div>
+
+          <h3>4. 考察</h3>
+          <p>
+            <strong>■ Scale Model: 慎重な保守派</strong><br>
+            体が重く筋力が相対的に弱いこのモデルは、<strong>「ゆっくりと歩くが、あまり転ばない」</strong>戦略を獲得しました。
+            エネルギー効率を重視し、重心を低く保つフォームは、巨体を持つ生物の理にかなった進化と言えます。
+          </p>
+          <p>
+            <strong>■ Delayed Model: ハイリスク・ハイリターンな特化</strong><br>
+            反応が遅れるため、一度バランスを崩すと立て直しにくく転倒します。そこでAIは、<strong>「転ぶまでの短い時間の間に、大股で早く前進して距離（報酬）を稼ぐ」</strong>という極端な戦略を獲得しました。
+          </p>
+          <p>
+            人間社会においても、ADHDなどの特性を持つ人が特定の分野で爆発的な集中力を発揮したり、視覚に障害がある人が聴覚を鋭敏に発達させたりするように、<strong>「ある機能の欠損が、別の機能の過剰な発達や独自の戦略を生む」</strong>という現象を、AIが自律的にシミュレーションしたと言えます。
+          </p>
+          <p>
+            この結果は、AIエージェントにおける「個性」とは、パラメータのランダム性だけでなく、制約条件への適応プロセス（遺伝的要因）からも生まれる可能性を示唆しています。
+          </p>
+
+          <h3>5. 今後の展望</h3>
+          <p>
+            この知見は、実機ロボットにおいてバッテリー低下や通信遅延が発生した際の「緊急時ロバスト制御」への応用が期待できます。また、異なる制約を持ったAI同士を協力させる「多様性アンサンブル学習」へと発展させ、単一の万能モデルでは解決できない課題へのアプローチを構想しています。
+          </p>
+
+          <h3>6. 使用技術</h3>
+          <p>Unity 2022.3 / ML-Agents / Python / PPO (Proximal Policy Optimization)</p>
+        </div>
+      </div>
 
       <div class="demo-section">
         <h3>デモ動画</h3>
@@ -402,68 +533,85 @@
 <!-- ============================================================
      PORTFOLIO 6 — LLM Fine-tuning
      ============================================================ -->
-<section class="section" id="portfolio-6">
+<section class="section" id="portfolio-6" data-order="6">
   <div class="container">
-    <div class="card">
+    <div class="card card--featured">
+      <span class="pickup-ribbon">PICK UP</span>
       <p class="section-label">Portfolio 06</p>
       <h2>LLM Fine-tuning (LoRA)：意識模倣とペルソナ構築の検証</h2>
+      <p class="summary">Qwen2.5-14BにLoRAで微調整を実施。破滅的忘却への対策とハイパーパラメータ最適化を経て、低リソース環境（Google Colab T4 GPU）で「口論・冷笑特化型AI」を完成。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">LoRA</span>
+        <span class="tech-tag">Qwen2.5-14B</span>
+        <span class="tech-tag">Unsloth</span>
+        <span class="tech-tag">Google Colab</span>
+      </div>
 
-      <h3>1. 目的・概要</h3>
-      <p>
-        本プロジェクトでは、単なる口調の変更に留まらず、モデルの内部構造（重み）を書き換えることで「自律的意識模倣AI」の構築が可能かを検証しました。Qwen2.5-14B-Instructをベースに、Google Colabの制限された計算資源（T4 GPU）下でLoRAによる微調整（Fine-tuning）を実施しました。
-      </p>
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的・概要</h3>
+          <p>
+            本プロジェクトでは、単なる口調の変更に留まらず、モデルの内部構造（重み）を書き換えることで「自律的意識模倣AI」の構築が可能かを検証しました。Qwen2.5-14B-Instructをベースに、Google Colabの制限された計算資源（T4 GPU）下でLoRAによる微調整（Fine-tuning）を実施しました。
+          </p>
 
-      <h3>2. 失敗から得た技術的知見：知能崩壊と混合設計の重要性</h3>
-      <p>
-        初期実験では100件の特化データでFTを行いましたが、ベースモデルの汎用知識が破壊される<strong>「破滅的忘却（Catastrophic Forgetting）」</strong>と<strong>過学習</strong>に直面しました。この失敗を詳細に分析し、以下の戦略的結論を導き出しました。
-      </p>
-      <ul>
-        <li><strong>データ混合設計の不可避性：</strong> 知能を維持しつつ個性を付与するには、「知識維持データ」と「ペルソナ特化データ」を適切に混合し、かつ<strong>全てのデータをペルソナの口調に統一して学習させる</strong>必要がある。</li>
-        <li><strong>システムプロンプトの限界：</strong> 長期的な対話においてTransformerの注意機構（Attention）から初期指示が外れる問題に対し、FTは重みそのものに振る舞いを刻み込むため、長期一貫性の維持に有効である。</li>
-      </ul>
+          <h3>2. 失敗から得た技術的知見：知能崩壊と混合設計の重要性</h3>
+          <p>
+            初期実験では100件の特化データでFTを行いましたが、ベースモデルの汎用知識が失われる<strong>「破滅的忘却（Catastrophic Forgetting）」</strong>や<strong>過学習</strong>といった問題に直面しました。この失敗を詳細に分析し、以下の戦略的結論を導き出しました。
+          </p>
+          <ul>
+            <li><strong>データ混合設計の不可避性：</strong> 知能を維持しつつ個性を付与するには、「知識維持データ」と「ペルソナ特化データ」を適切に混合し、かつ<strong>全てのデータをペルソナの口調に統一して学習させる</strong>必要がある。</li>
+            <li><strong>システムプロンプトの限界：</strong> 長期的な対話においてTransformerの注意機構（Attention）から初期指示が外れる問題に対し、FTは重みそのものに振る舞いを刻み込むため、長期一貫性の維持に有効である。</li>
+          </ul>
 
-      <h3>3. 改善と汎化性能の向上</h3>
-      <p>
-        初期実験から得られた知見を活かし、ハイパーパラメータを見直すことで、本制作物である「口論・冷笑特化型AI」を完成させました。
-        過学習を抑制し、汎化性能を高めるために以下の調整を行っています。
-      </p>
-      <ul>
-        <li><strong>LoRA rank (r)</strong>： 32 → 8</li>
-        <li><strong>Epochs</strong>： 2 → 1</li>
-        <li><strong>Learning rate</strong>： 2e-4 → 1e-4</li>
-      </ul>
+          <h3>3. 改善と汎化性能の向上</h3>
+          <p>
+            初期実験から得られた知見を活かし、ハイパーパラメータを見直すことで、本制作物である「口論・冷笑特化型AI」を完成させました。
+            過学習を抑制し、汎化性能を高めるために以下の調整を行っています。
+          </p>
+          <ul>
+            <li><strong>LoRA rank (r)</strong>： 32 → 8</li>
+            <li><strong>Epochs</strong>： 2 → 1</li>
+            <li><strong>Learning rate</strong>： 2e-4 → 1e-4</li>
+          </ul>
 
-      <h3>4. 低リソース環境下での実装戦略</h3>
-      <p>
-        計算資源の制約（低VRAM環境）を克服するため、以下の軽量化技術を統合し、本来高スペックを要求する14Bモデルの学習を完遂させました。
-      </p>
-      <ul>
-        <li><strong>Unslothライブラリ：</strong> メモリ効率を最大化し、学習速度を向上。</li>
-        <li><strong>4bit量子化 &amp; LoRA：</strong> パラメータ効率化により、低VRAMでも大規模モデルの学習を可能に。</li>
-      </ul>
+          <h3>4. 低リソース環境下での実装戦略</h3>
+          <p>
+            計算資源の制約（低VRAM環境）を克服するため、以下の軽量化技術を統合し、本来高スペックを要求する14Bモデルの学習を完遂させました。
+          </p>
+          <ul>
+            <li><strong>Unslothライブラリ：</strong> メモリ効率を最大化し、学習速度を向上。</li>
+            <li><strong>4bit量子化 &amp; LoRA：</strong> パラメータ効率化により、低VRAMでも大規模モデルの学習を可能に。</li>
+          </ul>
 
-      <h3>5. 制作物：口論・冷笑特化型AI</h3>
-      <p>
-        実証実験として、あえて「ユーザーを冷笑的に煽る」という極端な性格付けを試みました。少ないデータ量（100件）でも、語彙力を意図的に制限することでキャラクター性を定着させ、会話を成立させる手法を検証しました。
-      </p>
+          <h3>5. 制作物：口論・冷笑特化型AI</h3>
+          <p>
+            実証実験として、あえて「ユーザーを冷笑的に煽る」という極端な性格付けを試みました。少ないデータ量（100件）でも、語彙力を意図的に制限することで濃いキャラクター性を定着させ、多少語彙力が不足していても会話が成立しているように見えるキャラ設定で検証しました。
+          </p>
 
-      <h3>6. グラフ</h3>
-      <div class="graph-grid">
-        <div class="graph-item">
-          <img src="images/Eval.png" alt="Eval">
-          <p><strong>評価 (Eval)</strong><br>未知のデータに対する損失がステップごとに減少しており、適切に学習できており汎化性能が向上している。</p>
-        </div>
-        <div class="graph-item">
-          <img src="images/Train.png" alt="Train">
-          <p><strong>訓練 (Train)</strong><br>学習率の減衰に合わせて訓練喪失が右肩下がりになっており、モデルの学習が理想的に収束している。</p>
-        </div>
-        <div class="graph-item">
-          <img src="images/System.png" alt="System">
-          <p><strong>システム指標 (System)</strong><br>ハードウェアトラブルのない健全な実行環境である。</p>
-        </div>
-        <div class="graph-item">
-          <img src="images/Demo_Chat.png" alt="Demo Chat">
-          <p><strong>デモチャット</strong><br>しっかりと性格付けできているがどこか日本語が拙い。</p>
+          <h3>6. グラフ</h3>
+          <div class="graph-grid">
+            <div class="graph-item">
+              <img src="images/Eval.png" alt="Eval">
+              <p><strong>評価 (Eval)</strong><br>未知のデータに対する損失がステップごとに減少しており、適切に学習できており汎化性能が向上している。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/Train.png" alt="Train">
+              <p><strong>訓練 (Train)</strong><br>学習率の減衰に合わせて訓練損失が右肩下がりになっており、モデルの学習が理想的に収束している。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/System.png" alt="System">
+              <p><strong>システム指標 (System)</strong><br>ハードウェアトラブルのない健全な実行環境である。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/Demo_Chat.png" alt="Demo Chat">
+              <p><strong>デモチャット</strong><br>性格付けはできている一方で、日本語表現にやや不自然さが残る。</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -484,74 +632,93 @@
 <!-- ============================================================
      PORTFOLIO 7 — Eve AI 改良版
      ============================================================ -->
-<section class="section" id="portfolio-7">
+<section class="section" id="portfolio-7" data-order="7">
   <div class="container">
-    <div class="card">
+    <div class="card card--eve">
+      <span class="pickup-ribbon">PICK UP</span>
       <p class="section-label">Portfolio 07</p>
       <h2>FEP模倣AItuber改良版：マルチモード統合システム「Eve AI」</h2>
+      <p class="summary">Portfolio 1の大幅改良版。対話・ゲーム実況・YouTube Liveの3モードを統合し、FEP自己フィードバック機構とRAG長期記憶により自律的AIキャラクター「イブ」を構築。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Groq API</span>
+        <span class="tech-tag">GPT-4o</span>
+        <span class="tech-tag">VOICEVOX</span>
+        <span class="tech-tag">RAG</span>
+        <span class="tech-tag">FEP</span>
+        <span class="tech-tag">asyncio</span>
+      </div>
 
-      <h3>1. 目的・概要</h3>
-      <p>
-        本プロジェクトは、ポートフォリオ①で制作した「FEP模倣AItuber」の大幅改良版です。
-        前作で得た知見を基に、<strong>対話モード・ゲーム実況モード・YouTube Liveモード</strong>の3つの動作モードを統合し、より実用的で自律的なAIキャラクター「イブ」を構築しました。
-      </p>
-      <p>
-        特に、自由エネルギー原理（FEP）に基づく自己フィードバック機構とRAG（検索拡張生成）による長期記憶システムを実装し、ユーザーとの長期的な関係構築を可能にしています。
-      </p>
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的・概要</h3>
+          <p>
+            本プロジェクトは、ポートフォリオ①で制作した「FEP模倣AItuber」の大幅改良版です。
+            前作で得た知見を基に、<strong>対話モード・ゲーム実況モード・YouTube Liveモード</strong>の3つの動作モードを統合し、より実用的で自律的なAIキャラクター「イブ」を構築しました。
+          </p>
+          <p>
+            特に、自由エネルギー原理（FEP）に基づく自己フィードバック機構とRAG（検索拡張生成）による長期記憶システムを実装し、ユーザーとの長期的な関係構築を可能にしています。
+          </p>
 
-      <h3>2. 技術選定とその理由</h3>
-      <p>
-        本プロジェクトでは、限られた資金と環境の中で最適なパフォーマンスを追求するため、各技術を慎重に選定しました。
-      </p>
-      <ul>
-        <li>
-          <strong>LLM：Groq API + Llama 3.3 70B</strong><br>
-          Fine-tuningよりもAPI経由の大規模モデルの方が会話が自然に成立したため採用。GPT-4系と比較して同等の速度でありながら、コストが大幅に低いことが決め手となりました。
-        </li>
-        <li>
-          <strong>OCR：GPT-4o Vision API</strong><br>
-          当初はTesseractOCRやEasyOCRなどオープンソースのOCRを検討しましたが、ノベルゲーム特有のフォントや装飾文字に対する認識精度が低く、実用に耐えませんでした。GPT-4o Visionは画像理解能力が高く、文脈を考慮したテキスト抽出が可能なため採用しました。
-        </li>
-        <li>
-          <strong>音声合成：VOICEVOX</strong><br>
-          本来はStyle-Bert-VITS2による高品質な音声合成を実装したかったのですが、所有しているRadeon GPUではCUDA依存のエラーを解消できませんでした。CPUでの実行は応答速度が実用外であったため、安定性と速度を優先しVOICEVOXを採用しました。
-        </li>
-        <li>
-          <strong>RAG：OpenAI Embeddings + コサイン類似度検索</strong><br>
-          長期記憶を実現するため、会話履歴をエンベディングしてJSONL形式で保存。ユーザーの発話に意味的に近い過去の会話を検索し、文脈として注入することで、記憶の連続性を実現しています。
-        </li>
-      </ul>
+          <h3>2. 技術選定とその理由</h3>
+          <p>
+            本プロジェクトでは、限られた資金と環境の中で最適なパフォーマンスを追求するため、各技術を慎重に選定しました。
+          </p>
+          <ul>
+            <li>
+              <strong>LLM：Groq API + Llama 3.3 70B</strong><br>
+              Fine-tuningよりもAPI経由の大規模モデルの方が会話が自然に成立したため採用。GPT-4系と比較して同等の速度でありながら、コストが大幅に低いことが決め手となりました。
+            </li>
+            <li>
+              <strong>OCR：GPT-4o Vision API</strong><br>
+              当初はTesseractOCRやEasyOCRなどオープンソースのOCRを検討しましたが、ノベルゲーム特有のフォントや装飾文字に対する認識精度が低く、実用に耐えませんでした。GPT-4o Visionは画像理解能力が高く、文脈を考慮したテキスト抽出が可能なため採用しました。
+            </li>
+            <li>
+              <strong>音声合成：VOICEVOX</strong><br>
+              本来はStyle-Bert-VITS2による高品質な音声合成を実装したかったのですが、所有しているRadeon GPUではCUDA依存のエラーを解消できませんでした。CPUでの実行は応答速度が実用外であったため、安定性と速度を優先しVOICEVOXを採用しました。
+            </li>
+            <li>
+              <strong>RAG：OpenAI Embeddings + コサイン類似度検索</strong><br>
+              長期記憶を実現するため、会話履歴をエンベディングしてJSONL形式で保存。ユーザーの発話に意味的に近い過去の会話を検索し、文脈として注入することで、記憶の連続性を実現しています。
+            </li>
+          </ul>
 
-      <h3>3. 実装したFEP（自由エネルギー原理）機構</h3>
-      <p>ポートフォリオ①から引き継いだFEP機構を改良し、以下のフィードバックループを実装しました：</p>
-      <ul>
-        <li><strong>非同期的フィードバック：</strong> 応答AIとフィードバックAIを分けて非同期的にフィードバックループを作成することによりリアルタイム会話でも対応できるようにしています。</li>
-        <li><strong>処理の理由：</strong> 人間の脳は高頻度で更新される低レベルの思考と低頻度で更新される高レベルの思考が統合されています。この技術はHRMというAIにも活用されている。</li>
-      </ul>
-      <p>
-        これにより、AIは単に応答を返すだけでなく、自己の状態を常時モニタリングし、メタ認知的なフィードバックを行うことで、より自律的な振る舞いを実現しています。
-      </p>
+          <h3>3. 実装したFEP（自由エネルギー原理）機構</h3>
+          <p>ポートフォリオ①から引き継いだFEPに基づく機構を改良し、以下のフィードバックループを実装しました：</p>
+          <ul>
+            <li><strong>非同期的フィードバック：</strong> 応答AIとフィードバックAIを分けて非同期的にフィードバックループを作成することによりリアルタイム会話でも対応できるようにしています。</li>
+            <li><strong>処理の理由：</strong> 人間の脳は高頻度で更新される低レベルの思考と低頻度で更新される高レベルの思考が統合されています。この技術はHRMというAIにも活用されている。</li>
+          </ul>
+          <p>
+            これにより、AIは単に応答を返すだけでなく、自己の状態を常時モニタリングし、メタ認知的なフィードバックを行うことで、より自律的な振る舞いを実現しています。
+          </p>
 
-      <h3>4. 検証結果と課題</h3>
-      <p><strong>■ 良かった点</strong></p>
-      <ul>
-        <li><strong>自律的発話：</strong> 無言時でも過去の記憶から話題を見つけて自発的に話しかける機能が動作</li>
-        <li><strong>記憶の保持：</strong> RAGにより過去の会話を参照した応答が可能に</li>
-        <li><strong>会話の成立：</strong> FTモデルと比較して、API経由の大規模モデルの方が自然な会話が成立</li>
-      </ul>
+          <h3>4. 検証結果と課題</h3>
+          <p><strong>■ 良かった点</strong></p>
+          <ul>
+            <li><strong>自律的発話：</strong> 無言時でも過去の記憶から話題を見つけて自発的に話しかける機能が動作</li>
+            <li><strong>記憶の保持：</strong> RAGにより過去の会話を参照した応答が可能に</li>
+            <li><strong>会話の成立：</strong> FTモデルと比較して、API経由の大規模モデルの方が自然な会話が成立</li>
+          </ul>
 
-      <p><strong>■ 課題点と今後の改善案</strong></p>
-      <ul>
-        <li><strong>応答の一貫性：</strong> RAGの影響か、同一入力に対して同一応答を返す傾向がある → ランダム性の注入や検索結果のシャッフルで改善予定</li>
-        <li><strong>応答速度：</strong> 特にゲーム実況モードでOCR処理がボトルネックとなり、対話より遅延が発生</li>
-        <li><strong>AI臭さ：</strong> 応答が丁寧すぎる・説明的すぎる傾向がある → Fine-tuningとの併用で改善の余地あり</li>
-        <li><strong>察しの悪さ：</strong> 暗黙の文脈理解が弱い → プロンプト改善とFTの併用を検討中</li>
-        <li><strong>発話：</strong> 音声に感情が感じられない(棒読み)・漢字名詞の読み間違え → Style-Bert-VITS2で音声学習をして対策予定</li>
-      </ul>
-      <p>上記のほとんどの課題は、Fine-tuningとRAGの改善を組み合わせることで解決できると考察しています。</p>
+          <p><strong>■ 課題点と今後の改善案</strong></p>
+          <ul>
+            <li><strong>応答の一貫性：</strong> RAGの影響か、同一入力に対して同一応答を返す傾向がある → ランダム性の注入や検索結果のシャッフルで改善予定</li>
+            <li><strong>応答速度：</strong> 特にゲーム実況モードでOCR処理がボトルネックとなり、対話より遅延が発生</li>
+            <li><strong>AI臭さ：</strong> 応答が丁寧すぎる・説明的すぎる傾向がある → Fine-tuningとの併用で改善の余地あり</li>
+            <li><strong>察しの悪さ：</strong> 暗黙の文脈理解が弱い → プロンプト改善とFTの併用を検討中</li>
+            <li><strong>発話：</strong> 音声に感情が感じられない(棒読み)・漢字名詞の読み間違え → Style-Bert-VITS2で音声学習をして対策予定</li>
+          </ul>
+          <p>上記のほとんどの課題は、Fine-tuningとRAGの改善を組み合わせることで解決できると考察しています。</p>
 
-      <h3>5. 使用技術</h3>
-      <p>Python / Groq API (Llama 3.3 70B) / OpenAI API (GPT-4o, Embeddings) / VOICEVOX / VTube Studio API / asyncio / RAG (Retrieval-Augmented Generation) / mss (Screen Capture) / keyboard / tkinter</p>
+          <h3>5. 使用技術</h3>
+          <p>Python / Groq API (Llama 3.3 70B) / OpenAI API (GPT-4o, Embeddings) / VOICEVOX / VTube Studio API / asyncio / RAG (Retrieval-Augmented Generation) / mss (Screen Capture) / keyboard / tkinter</p>
+        </div>
+      </div>
 
       <div class="demo-section">
         <h3>デモ動画・リポジトリ</h3>
@@ -587,7 +754,7 @@
       playsinline
       webkit-playsinline
       muted
-      poster="../model/idle.png"
+      poster="model/idle.png"
     ></video>
     <!-- フラッシュは画像・動画の範囲内に収める -->
     <div class="hero__flash" id="heroFlash"></div>
