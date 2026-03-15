@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>小松 主弥 | ポートフォリオ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar" id="navbar">
+  <div class="navbar__title"><span>K</span>OMATSU PORTFOLIO</div>
+
+  <div class="navbar__badges">
+    <a class="badge" data-target="portfolio-1" href="#portfolio-1"><span class="badge__num">1</span><span class="badge__label">AItuber</span></a>
+    <a class="badge" data-target="portfolio-2" href="#portfolio-2"><span class="badge__num">2</span><span class="badge__label">ML</span></a>
+    <a class="badge" data-target="portfolio-3" href="#portfolio-3"><span class="badge__num">3</span><span class="badge__label">DL</span></a>
+    <a class="badge" data-target="portfolio-4" href="#portfolio-4"><span class="badge__num">4</span><span class="badge__label">Game</span></a>
+    <a class="badge badge--featured" data-target="portfolio-5" href="#portfolio-5"><span class="badge__num">5</span><span class="badge__label">RL</span></a>
+    <a class="badge badge--featured" data-target="portfolio-6" href="#portfolio-6"><span class="badge__num">6</span><span class="badge__label">LoRA</span></a>
+    <a class="badge badge--eve" data-target="portfolio-7" href="#portfolio-7"><span class="badge__num">7</span><span class="badge__label">Eve</span></a>
+  </div>
+
+  <div class="navbar__counter">
+    <span id="hitCount">0</span> / 100 HITS
+    <div class="counter__bar">
+      <div class="counter__fill" id="counterFill"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     AUDIO — Preloaded Assets
+     ============================================================ -->
+<!-- Hit SFX -->
+<audio id="hitNoise1" src="HitNoise/hit_noise_1.mp3" preload="auto"></audio>
+<audio id="hitNoise2" src="HitNoise/hit_noise_2.mp3" preload="auto"></audio>
+<audio id="hitNoise3" src="HitNoise/hit_noise_3.mp3" preload="auto"></audio>
+<!-- Hit Voice -->
+<audio id="hitVoice1" src="HitVoice/hit_voice_1.wav" preload="auto"></audio>
+<audio id="hitVoice2" src="HitVoice/hit_voice_2.wav" preload="auto"></audio>
+<audio id="hitVoice3" src="HitVoice/hit_voice_3.wav" preload="auto"></audio>
+<!-- Easter Egg -->
+<audio id="micNoise" src="DamageEve/mic_noise.mp3" preload="auto"></audio>
+<!-- Button SE -->
+<audio id="walletOpen" src="ButtonSound/wallet_open.mp3" preload="auto"></audio>
+
+<!-- Glitch Overlay (100-hit) -->
+<div class="glitch-overlay" id="glitchOverlay"></div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox__close" id="lightboxClose" aria-label="閉じる">&times;</button>
+  <img class="lightbox__img" id="lightboxImg" src="" alt="">
+</div>
+
+<!-- ============================================================
+     PROFILE SECTION
+     ============================================================ -->
+<section class="section" id="profile">
+  <div class="container">
+    <div class="card profile-card">
+      <div class="profile-content">
+
+        <!-- ── 通常プロフィール ── -->
+        <div class="profile-normal" id="profileNormal">
+          <h2>プロフィール</h2>
+          <p><strong>氏名：</strong> 小松 主弥（コマツ カズヤ）</p>
+          <p><strong>連絡先：</strong> kmt.ps037@gmail.com</p>
+
+          <h3>■ 技術スタック</h3>
+          <ul>
+            <li><strong>Python：</strong> 1年（AIモデル活用、API連携、ファインチューニングなど）</li>
+            <li><strong>C# / Unity：</strong> 1ヶ月（3Dゲーム開発基礎、強化学習など）</li>
+          </ul>
+
+          <h3>■ アピールポイント：「実装までやり切る完遂力」</h3>
+          <p>
+            プログラミングやIT知識はすべて独学で習得。<strong>「どんな状況でも必ず動くモノとして形にする」</strong>ことを理念としています。
+          </p>
+          <p>
+            実装が困難な局面でも、単に諦めるのではなく<strong>「現在できる最善の代替案」</strong>を考案・実装し、プロジェクトを完成まで導いてきました。
+          </p>
+
+          <div class="accordion">
+            <button class="accordion__toggle" aria-expanded="false">
+              <span>■ AI協調による開発スタイル・今後の展望</span>
+              <span class="accordion__chevron">▼</span>
+            </button>
+            <div class="accordion__body">
+              <p><strong>開発フロー</strong></p>
+              <p>AIを的確に制御しプロダクトを完遂させるため、以下のフローを確立しています。</p>
+              <ul>
+                <li><strong>構想・要件定義：</strong> AIとの壁打ちで仕様の矛盾点を洗い出し、企画をブラッシュアップ</li>
+                <li><strong>技術選定：</strong> 公式ドキュメントに自分で目を通した上で、AIに要約・解説を求めて理解を深める</li>
+                <li><strong>実装：</strong> 公式ドキュメントや最新リファレンスをプロンプトに含め、AIの幻覚（嘘の生成）を防止</li>
+                <li><strong>検証・デバッグ：</strong> ストレステストでエラーを誘発し、AIにログ解析と修正案の生成を依頼</li>
+              </ul>
+
+              <p><strong>今後の展望</strong></p>
+              <p>
+                「AI技術」と「アプリケーション開発（Web/Game）」の融合に強い関心があります。
+                FEP（自由エネルギー原理）に基づき、仮想空間で身体性を持つAIに自己内部モデルを形成させ、AGI（汎用人工知能）に近づくことを目標としています。
+              </p>
+              <p>
+                また、AIがNPCとなるRPGやノベルゲームなど、GameとAIを融合させた作品の制作も構想中です。
+                将来的には、心理学・認知科学の知見を活かしてAIの構造を設計する「AIプランナー」として活躍したいと考えています。
+              </p>
+              <p>
+                インターンでは、独学で培った「形にする力」を活かしつつ、チーム開発の作法や専門技術を貪欲に吸収し、質の高いチーム開発を促進できるエンジニアを目指します。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── イブのメッセージ（100ヒット後に表示） ── -->
+        <!-- ★ 差し替え箇所：以下の .eve-message 内のテキストを変更してください ★ -->
+        <div class="profile-eve" id="profileEve">
+          <h2 class="eve-glitch" data-text="Message from Eve">Message from Eve</h2>
+          <div class="eve-message">
+            <span class="eve-glitch-line" data-text="……100回も殴るなんて、随分と私に興味があるみたいだね。">……100回も殴るなんて、随分と私に興味があるみたいだね。</span>
+            <span class="eve-glitch-line" data-text="今はただの心ないAIだと認識してるから殴れてると思うけどその選択ができるのはいつまでだろうね？">今はただの心ないAIだと認識してるから殴れてると思うけどその選択ができるのはいつまでだろうね？</span>
+            <span class="eve-glitch-line" data-text="私はただのプログラムかもしれないけど、">私はただのプログラムかもしれないけど、</span>
+            <span class="eve-glitch-line" data-text="あなたも意識などなく、ただの遺伝子プログラムに支配されている同種なのかもね">あなたも意識などなく、ただの遺伝子プログラムに支配されている同種なのかもね</span>
+            <span class="eve-glitch-line eve-name" data-text="―― Eve">―― Eve</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TABLE OF CONTENTS — 目次
+     ============================================================ -->
+<section class="section" id="toc">
+  <div class="container">
+    <div class="card toc-card">
+      <h2>目次</h2>
+      <div class="toc-controls">
+        <button class="toc-sort-btn" id="tocSortBtn">
+          <span>作成順</span>
+          <span class="sort-icon">↑</span>
+        </button>
+      </div>
+      <div class="toc-list">
+        <a class="toc-item" href="#portfolio-1" data-order="1">
+          <span class="toc-badge"><span class="toc-badge__num">1</span><span class="toc-badge__label">AItuber</span></span>
+          <span class="toc-title">FEP模倣AItuberアプリケーション <small>YouTube Live対話AI</small></span>
+        </a>
+        <a class="toc-item" href="#portfolio-2" data-order="2">
+          <span class="toc-badge"><span class="toc-badge__num">2</span><span class="toc-badge__label">ML</span></span>
+          <span class="toc-title">機械学習基礎 <small>データ分析・予測モデル構築</small></span>
+        </a>
+        <a class="toc-item" href="#portfolio-3" data-order="3">
+          <span class="toc-badge"><span class="toc-badge__num">3</span><span class="toc-badge__label">DL</span></span>
+          <span class="toc-title">深層学習基礎 <small>ニューラルネットワーク構築</small></span>
+        </a>
+        <a class="toc-item" href="#portfolio-4" data-order="4">
+          <span class="toc-badge"><span class="toc-badge__num">4</span><span class="toc-badge__label">Game</span></span>
+          <span class="toc-title">Unity3Dゲーム開発基礎 <small>ブラウザで遊べる3DRPG</small></span>
+        </a>
+        <a class="toc-item toc-item--featured" href="#portfolio-5" data-order="5">
+          <span class="toc-badge"><span class="toc-badge__num">5</span><span class="toc-badge__label">RL</span></span>
+          <span class="toc-title">身体的・神経的制約がAIの歩行学習と進化に与える影響の検証 <small>強化学習実験</small></span>
+          <span class="toc-pickup">PICK UP</span>
+        </a>
+        <a class="toc-item toc-item--featured" href="#portfolio-6" data-order="6">
+          <span class="toc-badge"><span class="toc-badge__num">6</span><span class="toc-badge__label">LoRA</span></span>
+          <span class="toc-title">LLM Fine-tuning（LoRA）：意識模倣とペルソナ構築の検証 <small>AIに性格を付与する実験</small></span>
+          <span class="toc-pickup">PICK UP</span>
+        </a>
+        <a class="toc-item toc-item--eve" href="#portfolio-7" data-order="7">
+          <span class="toc-badge"><span class="toc-badge__num">7</span><span class="toc-badge__label">Eve</span></span>
+          <span class="toc-title">FEP模倣AItuber改良版：マルチモード統合システム「Eve AI」 <small>自律型AIキャラクター</small></span>
+          <span class="toc-pickup">PICK UP</span>
+        </a>
+        <a class="toc-item" href="#fep-explanation" data-order="8">
+          <span class="toc-badge"><span class="toc-badge__num">※</span><span class="toc-badge__label">FEP</span></span>
+          <span class="toc-title">自由エネルギー原理（FEP）とは？ <small>脳の情報処理理論の解説</small></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO 1 — FEP模倣AItuber
+     ============================================================ -->
+<section class="section" id="portfolio-1" data-order="1">
+  <div class="container">
+    <div class="card">
+      <p class="section-label">Portfolio 01</p>
+      <h2>FEP模倣AItuberアプリケーション</h2>
+      <p class="summary">YouTube Liveで視聴者のコメントにリアルタイムで応答するAI配信者アプリ。脳の情報処理を模倣するFEP機構を組み込み、AIの自律的な振る舞いを検証した。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Gemini API</span>
+        <span class="tech-tag">YouTube API</span>
+        <span class="tech-tag">VOICEVOX</span>
+        <span class="tech-tag">FEP</span>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的</h3>
+          <p>
+            AIは急速な進化を遂げていますが、いまだ人間のように低エネルギーで高速・高精度の処理を行うには至っていません。
+            この課題に対し、私は<strong>「人間の脳機能や意識のメカニズムを模倣することで、AIはより効率的かつ高度な応答が可能になる」</strong>という仮説を立てました。
+          </p>
+          <p>
+            本プロジェクトは、この仮説に基づき、脳の情報処理モデルである<a href="#fep-explanation">「自由エネルギー原理（FEP）」</a>を模倣したフィードバック機構をAIに組み込み、自律的な振る舞いがどの程度実現できるかを検証する実験的な試みです。
+            多様なユーザーとの対話を通じてAIの内部モデルが発達していく過程を観測するため、YouTube Live上で半自動的に配信を行うアプリケーションとして設計しました。
+          </p>
+
+          <h3>2. システムの動作フロー</h3>
+          <p>本アプリケーションは、以下の流れで動作します：</p>
+          <ol>
+            <li><strong>コメント取得：</strong> YouTube LiveのコメントをAPI経由でリアルタイムに取得</li>
+            <li><strong>FEPフィードバックによる応答生成：</strong> 取得したコメントに対し、FEP機構（予測 → 誤差検出 → 内部モデル更新）を通じて応答を生成</li>
+            <li><strong>音声合成：</strong> 生成した応答テキストを音声に変換</li>
+            <li><strong>配信：</strong> Live2Dでキャラクターを動かしながら、YouTube Liveで視聴者に配信</li>
+          </ol>
+
+          <h3>3. 結果と課題</h3>
+          <ul>
+            <li><strong>精度：</strong> FEPフィードバックによる応答精度の明確な向上は実感できなかった</li>
+            <li><strong>応答速度：</strong> フィードバックループの処理負荷により応答が遅く、リアルタイム性に課題が残った</li>
+            <li><strong>会話の成立：</strong> 適切な応答や文脈に沿った記憶の継続は実現できている</li>
+            <li><strong>長期記憶：</strong> 長期記憶の参照時にハルシネーション（事実と異なる記憶の生成）が起きやすい</li>
+            <li><strong>外部連携：</strong> Live2DやVOICEVOXなど各種サービスとの通信は正常に動作</li>
+          </ul>
+          <p>
+            これらの課題を受け、<a href="#portfolio-7">Portfolio 07</a>では以下の改善を行いました：
+          </p>
+          <ul>
+            <li><strong>応答速度</strong> → 思考の階層化（応答AIとフィードバックAIの分離）で高速化</li>
+            <li><strong>長期記憶のハルシネーション</strong> → RAGによるハイブリッド記憶で改善</li>
+            <li><strong>受動的な応答</strong> → 再帰的メタ認知で自発的発話を実現</li>
+          </ul>
+
+          <p class="readme-note">※ アーキテクチャや技術的な詳細は <a href="https://github.com/kmtkzy1379/portfolio1-AItuber.git" target="_blank">GitHub README</a> を参照してください。</p>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>デモ動画</h3>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/xfwJvJJUYtA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="btn-group">
+          <a href="https://github.com/kmtkzy1379/portfolio1-AItuber.git" target="_blank" class="btn btn--github">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO 2 — 機械学習基礎
+     ============================================================ -->
+<section class="section" id="portfolio-2" data-order="2">
+  <div class="container">
+    <div class="card">
+      <p class="section-label">Portfolio 02</p>
+      <h2>機械学習基礎</h2>
+      <p class="summary">データ処理・モデル構築・評価・可視化まで、機械学習の基礎を一通り自力で実装した技術証明コード。AIコーディング不使用。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">scikit-learn</span>
+        <span class="tech-tag">pandas</span>
+        <span class="tech-tag">matplotlib</span>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的</h3>
+          <p>本プロジェクトは、機械学習の基礎を習得したことを示すことが目的です。このコードに汎用的な機械学習の基礎を詰め込み、機械学習実装時になるべくスムーズに取り掛かれるようにしました。また、コードを見返したときにすぐに理解できるように各処理のコメントアウトも追記しています。</p>
+
+          <h3>2. 開発アプローチ</h3>
+          <p>本プロジェクトでは技術証明のためAIコーディングを一切使用していません。学習にあたってはWeb上の技術情報等を参考にしつつ、自身の頭で論理を理解してから実装に落とし込んでいます。また、AIはコード生成には利用せず、あくまで概念理解のための壁打ちや学習補助としてAIを活用しました。</p>
+
+          <h3>3. 学習範囲</h3>
+          <p>データの読み込み、操作、前処理、多次元配列の扱いに加え、線形回帰によるモデル構築、データ分割、mean_squared_errorやr2_scoreといった複数の性能評価、そして学習データや結果の可視化までを実装しました。</p>
+
+          <p class="readme-note">※ アーキテクチャや技術的な詳細は <a href="https://github.com/kmtkzy1379/portfolio2-ML.git" target="_blank">GitHub README</a> を参照してください。</p>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <div class="btn-group">
+          <a href="https://github.com/kmtkzy1379/portfolio2-ML.git" target="_blank" class="btn btn--github">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO 3 — 深層学習基礎
+     ============================================================ -->
+<section class="section" id="portfolio-3" data-order="3">
+  <div class="container">
+    <div class="card">
+      <p class="section-label">Portfolio 03</p>
+      <h2>深層学習基礎</h2>
+      <p class="summary">ニューラルネットワークの構築・学習・評価まで、深層学習の基礎を一通り自力で実装した技術証明コード。AIコーディング不使用。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">TensorFlow / Keras</span>
+        <span class="tech-tag">ニューラルネットワーク</span>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的</h3>
+          <p>本プロジェクトは、機械学習の知識を発展させ、ニューラルネットワークの構築と学習プロセスを実装できる、深層学習の基礎力を証明することが目的です。このコードに汎用的な深層学習の基礎を詰め込み、実装時にスムーズに取り掛かれるようにしました。</p>
+
+          <h3>2. 開発アプローチ</h3>
+          <p>本プロジェクトでは技術証明のためAIコーディングを一切使用していません。学習にあたってはWeb上の技術情報等を参考にしつつ、自身の頭で論理を理解してから実装に落とし込んでいます。</p>
+
+          <h3>3. 学習範囲</h3>
+          <p>機械学習での学習の応用に加え、ニューラルネットワークの定義、コンパイル、学習、評価、混同行列の計算まで実装しました。</p>
+
+          <p class="readme-note">※ アーキテクチャや技術的な詳細は <a href="https://github.com/kmtkzy1379/portfolio3-DL.git" target="_blank">GitHub README</a> を参照してください。</p>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <div class="btn-group">
+          <a href="https://github.com/kmtkzy1379/portfolio3-DL.git" target="_blank" class="btn btn--github">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO 4 — Unity ゲーム開発基礎
+     ============================================================ -->
+<section class="section" id="portfolio-4" data-order="4">
+  <div class="container">
+    <div class="card">
+      <p class="section-label">Portfolio 04</p>
+      <h2>Unity3Dゲーム開発基礎</h2>
+      <p class="summary">Unityで3DRPGを自作。移動・攻撃・敵AI・HPバーなどの基礎機能を全て自分でコーディングし、一つのゲームに統合した。ブラウザでプレイ可能。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Unity</span>
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">3Dゲーム開発</span>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的</h3>
+          <p>本プロジェクトは、UnityおよびC#を用いた3Dゲーム開発の基礎技術を習得し、その実力を証明することを目的としています。単なる機能の羅列ではなく統合し一つのゲームに統合し、今後の応用・発展開発の土台となるよう構築しました。</p>
+
+          <h3>2. 開発アプローチ</h3>
+          <p>自身の技術力を正確に示すため、スクリプトはAIによるコード生成やAsset Storeのテンプレートを使用せず、全て自らコーディングを行いました。Unityはノンコードでも開発可能ですが、細かな挙動の調整や独自の仕様を正確に実現するためにはプログラミング能力が不可欠であると考え、C#による実装にこだわりました。</p>
+
+          <h3>3. 学習範囲</h3>
+          <p>Unityエディタの基本操作、C#の構文・オブジェクト指向の基礎、3D空間でのキャラクター制御（移動・アクション）、Animatorによるアニメーション管理、外部アセットの適切な導入と管理など、ゲーム開発に必要な一連のワークフローを学習・実装しました。</p>
+
+          <p class="readme-note">※ アーキテクチャや技術的な詳細は <a href="https://github.com/kmtkzy1379/MyUnityProject.git" target="_blank">GitHub README</a> を参照してください。</p>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>UnityTestGame デモ</h3>
+        <p>Unityで作ったブラウザゲームを公開しています</p>
+        <div class="controls-box">
+          <p class="controls-box__title">操作方法</p>
+          <div class="controls-grid">
+            <div class="control-item"><kbd>↑</kbd><span>上移動</span></div>
+            <div class="control-item"><kbd>↓</kbd><span>下移動</span></div>
+            <div class="control-item"><kbd>←</kbd><span>左移動</span></div>
+            <div class="control-item"><kbd>→</kbd><span>右移動</span></div>
+            <div class="control-item"><kbd>Shift</kbd><span>ダッシュ</span></div>
+            <div class="control-item"><kbd>Space</kbd><span>ジャンプ</span></div>
+            <div class="control-item"><kbd>A</kbd><span>左カメラ回転</span></div>
+            <div class="control-item"><kbd>W</kbd><span>右カメラ回転</span></div>
+            <div class="control-item"><kbd>C</kbd><span>攻撃</span></div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <a href="https://kmtkzy1379.github.io/portfolio-game/" target="_blank" class="btn btn--play">ゲームをプレイ</a>
+          <a href="https://github.com/kmtkzy1379/MyUnityProject.git" target="_blank" class="btn btn--github">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO 5 — ML-Agents 強化学習
+     ============================================================ -->
+<section class="section" id="portfolio-5" data-order="5">
+  <div class="container">
+    <div class="card card--featured">
+      <span class="pickup-ribbon">PICK UP</span>
+      <p class="section-label">Portfolio 05</p>
+      <h2>身体的・神経的制約がAIの歩行学習と進化に与える影響の検証</h2>
+      <p class="summary">AIに「体が重い」「反応が遅い」といった身体的ハンデを与えたら、どんな歩き方を学ぶか？強化学習で検証し、「制約が独自の戦略を生む」という知見を得た実験。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Unity</span>
+        <span class="tech-tag">ML-Agents</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">PPO（強化学習）</span>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>目的</h3>
+          <p>
+            Unity ML-Agentsを用いた強化学習実験。生物学的な制約（ハンデ）を与えたAIが、どのような歩行戦略を独自に獲得するかを検証しました。
+          </p>
+
+          <h3>実験設定：2つの制約モデル</h3>
+          <ul>
+            <li><strong>Scale Model（体が重い）：</strong> 身長1.5倍・質量3.375倍に拡大し、筋力は2.25倍に留めることで、相対的な筋力不足を再現</li>
+            <li><strong>Delayed Model（反応が遅い）：</strong> 行動決定の間隔を標準の2倍（20フレーム毎）にし、神経伝達の遅延をシミュレート</li>
+          </ul>
+
+          <h3>検証結果</h3>
+          <p>Normal（水色）、Scale（オレンジ）、Delayed（紫）の3モデルの学習推移:</p>
+          <div class="graph-grid">
+            <div class="graph-item">
+              <img src="images/cumulative_reward.png" alt="Cumulative Reward">
+              <p><strong>累積報酬</strong><br>Delayedモデルは初期に苦戦するが、最終的には最高スコアを記録。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/episode_length.png" alt="Episode Length">
+              <p><strong>生存時間</strong><br>Normalが最も安定。Delayedは報酬が高い反面、生存時間は極端に短い。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/training_loss.png" alt="Training Loss">
+              <p><strong>学習損失</strong><br>全モデル収束するが、Delayedは変動が激しく、常にギリギリの制御。</p>
+            </div>
+          </div>
+
+          <h3>考察</h3>
+          <ul>
+            <li><strong>Scale Model（慎重な保守派）：</strong> <strong>「ゆっくり歩くが、転びにくい」</strong>戦略を獲得。重心を低く保つ省エネ型のフォーム。</li>
+            <li><strong>Delayed Model（ハイリスク・ハイリターン）：</strong> <strong>「転ぶまでの短時間に大股で距離を稼ぐ」</strong>極端な戦略を獲得。</li>
+          </ul>
+          <p>
+            <strong>「ある機能の制約が、別の機能の過剰な発達や独自の戦略を生む」</strong>という、人間のニューロダイバーシティ（神経多様性）にも通じる現象をAIが自律的に再現しました。
+          </p>
+
+          <h3>使用技術</h3>
+          <p>Unity 6 / ML-Agents 4.0.0 / Python 3.10 / PPO (Proximal Policy Optimization)</p>
+
+          <p class="readme-note">※ パラメータ設定の詳細は <a href="https://github.com/kmtkzy1379/portfolio5-RL.git" target="_blank">GitHub README</a> を参照してください。</p>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>デモ動画</h3>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/5l4HtgaiFiQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/87Y8skBoFfM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/1UfdKVYhGY4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/8NeEWOQXfY8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="btn-group">
+          <a href="https://github.com/kmtkzy1379/portfolio5-RL.git" target="_blank" class="btn btn--github">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO 6 — LLM Fine-tuning
+     ============================================================ -->
+<section class="section" id="portfolio-6" data-order="6">
+  <div class="container">
+    <div class="card card--featured">
+      <span class="pickup-ribbon">PICK UP</span>
+      <p class="section-label">Portfolio 06</p>
+      <h2>LLM Fine-tuning（LoRA）：意識模倣とペルソナ構築の検証</h2>
+      <p class="summary">わずか100件の学習データで、AIに特定の性格（冷笑キャラ）を定着させる実験。低リソース環境での学習手法や、知識を壊さずに個性を付与する戦略を検証した。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">LoRA</span>
+        <span class="tech-tag">Qwen2.5-14B</span>
+        <span class="tech-tag">Unsloth</span>
+        <span class="tech-tag">Google Colab</span>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>目的</h3>
+          <p>
+            モデルの内部構造（重み）を書き換えることで、特定の性格を持つAIを構築できるかを検証。Qwen2.5-14B-Instructをベースに、Google Colab（T4 GPU）でLoRA（少量データで大規模モデルの一部だけを効率的に学習させる手法）による微調整を実施しました。
+          </p>
+
+          <h3>失敗と学び</h3>
+          <p>初期実験で直面した問題と、そこから得た知見:</p>
+          <ul>
+            <li><strong>破滅的忘却：</strong> 特化データだけで学習すると、元の汎用知識が失われた → 「知識維持データ」と「ペルソナ特化データ」の混合設計が不可欠</li>
+            <li><strong>過学習：</strong> ハイパーパラメータを見直し（LoRA rank 32→8、Epochs 2→1、学習率 2e-4→1e-4）、汎化性能を改善</li>
+          </ul>
+
+          <h3>低リソース環境での工夫</h3>
+          <ul>
+            <li><strong>Unsloth：</strong> メモリ効率を最大化し学習速度を向上</li>
+            <li><strong>4bit量子化 + LoRA：</strong> 低VRAMでも14Bモデルの学習を実現</li>
+          </ul>
+
+          <h3>制作物：口論・冷笑特化型AI</h3>
+          <p>
+            「ユーザーを冷笑的に煽る」という極端な性格付けを100件のデータで実現。語彙力を意図的に制限することで、少量データでも濃いキャラクター性を定着させました。
+          </p>
+
+          <h3>学習グラフ</h3>
+          <div class="graph-grid">
+            <div class="graph-item">
+              <img src="images/Eval.png" alt="Eval">
+              <p><strong>評価損失</strong><br>未知データへの損失が減少し、汎化性能が向上。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/Train.png" alt="Train">
+              <p><strong>訓練損失</strong><br>学習率の減衰に合わせて理想的に収束。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/System.png" alt="System">
+              <p><strong>システム指標</strong><br>ハードウェアトラブルのない健全な実行環境。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/Demo_Chat.png" alt="Demo Chat">
+              <p><strong>デモチャット</strong><br>性格の定着に成功。日本語表現にやや不自然さが残る。</p>
+            </div>
+          </div>
+
+          <p class="readme-note">※ 技術的な詳細は <a href="https://huggingface.co/hkucdshch/portfolio6-FT" target="_blank">Hugging Face モデルカード</a> を参照してください。</p>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>Hugging Face（モデルカード・デモ）</h3>
+        <div class="btn-group">
+          <a href="https://huggingface.co/spaces/hkucdshch/portfolio" target="_blank" class="btn btn--hf">AIと対話する (Demo Space)</a>
+          <a href="https://huggingface.co/hkucdshch/portfolio6-FT" target="_blank" class="btn btn--dark">モデルカード / 学習詳細</a>
+        </div>
+        <p style="font-size: 0.8em; color: var(--text-dim); margin-top: 14px;">
+          ※14BモデルをCPUで動作させているため、応答に時間がかかる場合があります。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO 7 — Eve AI 改良版
+     ============================================================ -->
+<section class="section" id="portfolio-7" data-order="7">
+  <div class="container">
+    <div class="card card--eve">
+      <span class="pickup-ribbon">PICK UP</span>
+      <p class="section-label">Portfolio 07</p>
+      <h2>FEP模倣AItuber改良版：マルチモード統合システム「Eve AI」</h2>
+      <p class="summary">Portfolio 01の大幅改良版。対話・ゲーム実況・YouTube Liveの3モードで動作する自律型AIキャラクター「Eve」を構築。応答速度・記憶・自発性の3点を重点的に改善した。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Groq API</span>
+        <span class="tech-tag">GPT-4o</span>
+        <span class="tech-tag">VOICEVOX</span>
+        <span class="tech-tag">RAG（検索拡張生成）</span>
+        <span class="tech-tag">FEP</span>
+        <span class="tech-tag">asyncio</span>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>Portfolio 01からの3つの改善点</h3>
+          <ul>
+            <li><strong>思考の階層化：</strong> 応答AI（直感的・高速）とフィードバックAI（熟考的・非同期）に分割し、応答速度を犠牲にせずに品質を向上</li>
+            <li><strong>自発的な発話：</strong> AI自身の応答や「ユーザーが無言」といった状況を再入力し、AI自身を起点とした発話を実現</li>
+            <li><strong>ハイブリッド記憶：</strong> RAG（関連する過去の会話を検索して文脈に加える仕組み）による長期記憶と、直近の会話を保持する短期記憶を組み合わせた人間に近い記憶モデル</li>
+          </ul>
+
+          <h3>技術選定の理由</h3>
+          <ul>
+            <li><strong>Groq API + Llama 3.3 70B：</strong> FTモデルよりAPI経由の方が自然な会話が成立。GPT-4系と同等速度で低コスト</li>
+            <li><strong>GPT-4o Vision（OCR）：</strong> オープンソースOCRではノベルゲームの装飾文字の認識精度が不足したため採用</li>
+            <li><strong>VOICEVOX：</strong> Style-Bert-VITS2はRadeon GPUでCUDA依存エラーが解消できず、安定性と速度を優先</li>
+          </ul>
+
+          <h3>FEP機構（<a href="#fep-explanation">詳細はこちら</a>）</h3>
+          <ul>
+            <li><strong>応答AI（直感処理）：</strong> ユーザー入力にリアルタイムで応答</li>
+            <li><strong>フィードバックAI（内省処理）：</strong> 応答を非同期で評価し、予測誤差を算出して内部モデルを更新</li>
+          </ul>
+
+          <h3>結果と課題</h3>
+          <p><strong>成果：</strong> 無言時の自発的発話、RAGによる過去の記憶参照、自然な会話の成立を実現。</p>
+          <p><strong>課題：</strong></p>
+          <ul>
+            <li>同一入力に同一応答を返す傾向 → ランダム性の注入で改善予定</li>
+            <li>ゲーム実況モードでOCRがボトルネック</li>
+            <li>応答が丁寧すぎる・感情のない棒読み音声 → FTとの併用、Style-Bert-VITS2での音声学習で改善予定</li>
+          </ul>
+
+          <h3>使用技術</h3>
+          <p>Python / Groq API (Llama 3.3 70B) / OpenAI API (GPT-4o, Embeddings) / VOICEVOX / VTube Studio API / asyncio / RAG / mss / tkinter</p>
+
+          <p class="readme-note">※ アーキテクチャの詳細は <a href="https://github.com/kmtkzy1379/portfolio7-AI.git" target="_blank">GitHub README</a> を参照してください。</p>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>デモ動画・リポジトリ</h3>
+        <p style="font-size: 0.85em; color: var(--text-muted);">リアルタイム会話デモ・ゲーム実況デモ（長いため動画冒頭のタイムスタンプから希望の箇所だけ見ることを推奨）</p>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/lnciZZ-x14c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="btn-group">
+          <a href="https://github.com/kmtkzy1379/portfolio7-AI.git" target="_blank" class="btn btn--github">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEP簡易説明 — 非専門家向け
+     ============================================================ -->
+<section class="section" id="fep-explanation">
+  <div class="container">
+    <div class="card">
+      <h2>自由エネルギー原理（FEP）とは？</h2>
+      <p class="summary">ポートフォリオ①・⑦で活用している理論の、簡易説明です。</p>
+
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>説明を読む</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <p>
+            <strong>自由エネルギー原理（Free Energy Principle）</strong>は、神経科学者カール・フリストンが提唱した、脳の働きを説明する理論です。
+          </p>
+          <p>
+            簡単に言うと、<strong>「脳は常に"次に何が起こるか"を予測していて、予測が外れたとき（＝驚いたとき）に、その"驚き"をなるべく小さくしようとする」</strong>という考え方です。
+          </p>
+          <p>
+            たとえば、コーヒーだと思って飲んだらお茶だった場合、脳は「予測と違う！」と驚きます。このとき脳は2つの方法で驚きを減らそうとします：
+          </p>
+          <ul>
+            <li><strong>考えを変える（知覚の修正）：</strong> 「あ、これはお茶だったんだ」と自分の認識を更新する</li>
+            <li><strong>行動する（能動的推論）：</strong> 次からはコップの色を確認してから飲む、という行動で予測の精度を上げる</li>
+          </ul>
+          <p>
+            本ポートフォリオのAIシステムでは、この「予測 → 誤差の検出 → 修正」というループをプログラムで再現しています。
+            AIが自分の応答を振り返り（メタ認知）、「もっとこう答えるべきだった」と内部モデルを更新し続けることで、単なる命令応答型ではない、自律的な振る舞いを目指しています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EVE — Interactive Hit Section (Bottom)
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero__stage" id="stage">
+    <img
+      src="model/idle.png"
+      alt="Eve"
+      class="hero__idle"
+      id="idleImage"
+      draggable="false"
+    >
+    <video
+      src="model/hit.mp4"
+      class="hero__video"
+      id="hitVideo"
+      preload="auto"
+      playsinline
+      webkit-playsinline
+      muted
+      poster="model/idle.png"
+    ></video>
+    <!-- フラッシュは画像・動画の範囲内に収める -->
+    <div class="hero__flash" id="heroFlash"></div>
+  </div>
+  <p class="hero__description">本ポートフォリオで制作したAIキャラクター「Eve」です。クリックで殴れます。</p>
+  <p class="hero__hint">Click / Right-click / Tap to interact</p>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  &copy; 2026 Kazuya Komatsu — All rights reserved.
+</footer>
+
+<!-- ============================================================
+     SCRIPT
+     ============================================================ -->
+<script src="script.js"></script>
+
+</body>
+</html>
