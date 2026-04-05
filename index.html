@@ -22,6 +22,7 @@
     <a class="badge badge--featured" data-target="portfolio-5" href="#portfolio-5"><span class="badge__num">5</span><span class="badge__label">RL</span></a>
     <a class="badge badge--featured" data-target="portfolio-6" href="#portfolio-6"><span class="badge__num">6</span><span class="badge__label">LoRA</span></a>
     <a class="badge badge--eve" data-target="portfolio-7" href="#portfolio-7"><span class="badge__num">7</span><span class="badge__label">Eve</span></a>
+    <a class="badge badge--featured" data-target="portfolio-8" href="#portfolio-8"><span class="badge__num">8</span><span class="badge__label">VLM</span></a>
   </div>
 
   <div class="navbar__counter">
@@ -179,7 +180,12 @@
           <span class="toc-title">FEP模倣AItuber改良版：マルチモード統合システム「Eve AI」 <small>自律型AIキャラクター</small></span>
           <span class="toc-pickup">PICK UP</span>
         </a>
-        <a class="toc-item" href="#fep-explanation" data-order="8">
+        <a class="toc-item toc-item--featured" href="#portfolio-8" data-order="8">
+          <span class="toc-badge"><span class="toc-badge__num">8</span><span class="toc-badge__label">VLM</span></span>
+          <span class="toc-title">Eve AI + VLM：人間のような視覚認識を統合した画面共有AIアシスタント <small>9段ステージ画面認識パイプライン</small></span>
+          <span class="toc-pickup">PICK UP</span>
+        </a>
+        <a class="toc-item" href="#fep-explanation" data-order="9">
           <span class="toc-badge"><span class="toc-badge__num">※</span><span class="toc-badge__label">FEP</span></span>
           <span class="toc-title">自由エネルギー原理（FEP）とは？ <small>脳の情報処理理論の解説</small></span>
         </a>
@@ -639,6 +645,9 @@
             <li>ゲーム実況モードでOCRがボトルネック</li>
             <li>応答が丁寧すぎる・感情のない棒読み音声 → FTとの併用、Style-Bert-VITS2での音声学習で改善予定</li>
           </ul>
+          <p>
+            さらなる発展として、<a href="#portfolio-8">Portfolio 08</a>ではEveに人間のような視覚認識（VLM）を付与し、画面を共有しながら会話できるシステムへと進化させました。
+          </p>
 
           <h3>使用技術</h3>
           <p>Python / Groq API (Llama 3.3 70B) / OpenAI API (GPT-4o, Embeddings) / VOICEVOX / VTube Studio API / asyncio / RAG / mss / tkinter</p>
@@ -662,13 +671,154 @@
 </section>
 
 <!-- ============================================================
+     PORTFOLIO 8 — VLM AI（視覚認識）
+     ============================================================ -->
+<section class="section" id="portfolio-8" data-order="8">
+  <div class="container">
+    <div class="card card--featured">
+      <span class="pickup-ribbon">PICK UP</span>
+      <p class="section-label">Portfolio 08</p>
+      <h2>Eve AI + VLM：人間のような視覚認識を統合した画面共有AIアシスタント</h2>
+      <p class="summary">Eve AIに人間のような視覚認識を付与。9段ステージの画面認識パイプラインにより、画面をEveと共有しながら自然に会話できるシステムへ進化させた。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Groq API（Llama 4）</span>
+        <span class="tech-tag">OpenAI API</span>
+        <span class="tech-tag">YOLOv11</span>
+        <span class="tech-tag">litellm</span>
+        <span class="tech-tag">pHash + SSIM</span>
+        <span class="tech-tag">MediaPipe</span>
+        <span class="tech-tag">VOICEVOX</span>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的</h3>
+          <p>
+            <a href="#portfolio-7">Portfolio 07</a>で構築したEve AIは、テキストベースの対話においては自然な会話を実現していました。
+            しかし、よりUXを高めるためには<strong>「一緒に作業している」「画面の状況を共有している」</strong>という共感・共同体験の要素が不可欠だと感じました。
+          </p>
+          <p>
+            また、Portfolio 07 ではゲーム実況モードの<strong>OCRがボトルネック</strong>となっており、画面の内容を把握する手段がテキスト抽出に限られていました。
+            そこで本プロジェクトでは、OCRに依存しない<strong>9段ステージの画面認識パイプライン</strong>を独自設計し、Eveに<strong>人間のような視界（Visual Perception）</strong>を付与しました。
+            人間が普段「なんとなく画面全体を眺めつつ、気になった部分だけ注視する」という自然な視覚処理を、AIで再現することに挑戦しています。
+          </p>
+
+          <h3>2. 仕組み：3層の視覚認識メカニズム</h3>
+          <p>人間の視覚的注意のメカニズム（選択的注意・不随意的注意）を参考に、3層構造の認識システムを実装しました。</p>
+          <p>裏側では独自設計の<strong>9段ステージVLMパイプライン</strong>（画面キャプチャ → pHash+SSIM変化検出 → YOLOv11物体検出 → BoT-SORT追跡 → Optical Flow動き分析 → PerID分析 → SceneGraph構築 → DeltaEncoder差分圧縮 → LLMナレーション生成）が5fpsで常時稼働しています。</p>
+          <ul>
+            <li><strong>層1 — パッシブ認識（常時俯瞰）：</strong> VLMパイプラインの処理結果がVisionBufferに蓄積され、毎ターンのシステムプロンプトにシーンジャーナルとして注入される。Eveは常に「今画面に何があるか」を浅く把握している状態</li>
+            <li><strong>層2 — アクティブ認識（意識的注視）：</strong> Eve（応答AI）がFunction Callingで画面情報取得・画像解析・監視モード切替を能動的に呼び出し、会話の文脈から「画面を見る必要がある」と判断した場合に詳細な画面認識を実行</li>
+            <li><strong>自動プッシュ（変化への反応）：</strong> pHash + SSIMの2段階変化検出でMAJOR（ウィンドウ切り替えレベル）/ MODERATE / MINORを分類。MAJOR変化は自動的に会話に割り込んで声をかける。監視モード有効時はMODERATE変化にも反応。重複検出やプログレッシブクールダウン（15s→30s→60s）で過剰反応を抑制</li>
+          </ul>
+
+          <div class="vlm-pipeline">
+            <div class="vlm-pipeline__title">9段ステージ VLM パイプライン<span class="vlm-pipeline__sub">3スレッド並列処理 / 5fps</span></div>
+            <div class="vlm-pipeline__flow">
+              <div class="vlm-step vlm-step--capture"><span class="vlm-step__num">1</span><span class="vlm-step__name">ScreenCapture</span><span class="vlm-step__tech">mss</span></div>
+              <div class="vlm-arrow"></div>
+              <div class="vlm-step vlm-step--capture"><span class="vlm-step__num">2</span><span class="vlm-step__name">ChangeDetector</span><span class="vlm-step__tech">pHash + SSIM</span></div>
+              <div class="vlm-arrow"></div>
+              <div class="vlm-step vlm-step--detect"><span class="vlm-step__num">3</span><span class="vlm-step__name">物体検出</span><span class="vlm-step__tech">YOLOv11m</span></div>
+              <div class="vlm-arrow"></div>
+              <div class="vlm-step vlm-step--detect"><span class="vlm-step__num">4</span><span class="vlm-step__name">追跡</span><span class="vlm-step__tech">BoT-SORT + Re-ID</span></div>
+              <div class="vlm-arrow"></div>
+              <div class="vlm-step vlm-step--detect"><span class="vlm-step__num">5</span><span class="vlm-step__name">動き分析</span><span class="vlm-step__tech">Optical Flow</span></div>
+              <div class="vlm-arrow"></div>
+              <div class="vlm-step vlm-step--detect"><span class="vlm-step__num">6</span><span class="vlm-step__name">個別分析</span><span class="vlm-step__tech">MediaPipe + DeepFace</span></div>
+              <div class="vlm-arrow"></div>
+              <div class="vlm-step vlm-step--detect"><span class="vlm-step__num">7</span><span class="vlm-step__name">シーン構築</span><span class="vlm-step__tech">SceneGraph</span></div>
+              <div class="vlm-arrow"></div>
+              <div class="vlm-step vlm-step--detect"><span class="vlm-step__num">8</span><span class="vlm-step__name">差分圧縮</span><span class="vlm-step__tech">DeltaEncoder</span></div>
+              <div class="vlm-arrow"></div>
+              <div class="vlm-step vlm-step--narr"><span class="vlm-step__num">9</span><span class="vlm-step__name">ナレーション生成</span><span class="vlm-step__tech">Llama 4 Scout</span></div>
+            </div>
+            <div class="vlm-pipeline__legend">
+              <span class="vlm-legend vlm-legend--capture">Captureスレッド</span>
+              <span class="vlm-legend vlm-legend--detect">Mainスレッド</span>
+              <span class="vlm-legend vlm-legend--narr">Narrationスレッド</span>
+            </div>
+          </div>
+
+          <div class="vlm-layers">
+            <div class="vlm-layer vlm-layer--passive">
+              <div class="vlm-layer__label">層1</div>
+              <div class="vlm-layer__title">パッシブ認識</div>
+              <div class="vlm-layer__desc">常時俯瞰</div>
+              <p>VLMパイプラインの結果をVisionBufferに蓄積し、毎ターンのシステムプロンプトにシーンジャーナルとして注入</p>
+            </div>
+            <div class="vlm-layer vlm-layer--active">
+              <div class="vlm-layer__label">層2</div>
+              <div class="vlm-layer__title">アクティブ認識</div>
+              <div class="vlm-layer__desc">意識的注視</div>
+              <p>EveがFunction Callingで画面情報取得・画像解析・監視モード切替を能動的に呼び出し</p>
+            </div>
+            <div class="vlm-layer vlm-layer--auto">
+              <div class="vlm-layer__label">自動</div>
+              <div class="vlm-layer__title">自動プッシュ</div>
+              <div class="vlm-layer__desc">変化への反応</div>
+              <p>MAJOR変化を検出すると自動的に会話に割り込み。重複検出+クールダウンで過剰反応を抑制</p>
+            </div>
+          </div>
+
+          <h3>3. 試行錯誤</h3>
+          <p>
+            VLM機能の実装にあたっては、以下のような技術的課題と向き合いました：
+          </p>
+          <ul>
+            <li><strong>画面を見る意思とタイミングの問題：</strong> 応答AIが自発的に「画面を見よう」とする意思を持たせることが困難だった。画面の内容について質問しても「分からない」の一点張りになったり、見てもいないのに見えたかのようなハルシネーション（幻覚応答）を起こす問題が発生。最終的にFunction Callingによる能動的な画面参照と、監視モードの切替機構で解決した</li>
+            <li><strong>反応の閾値調整：</strong> 常時画面認識を送り続けると、些細な変化にもいちいち反応して煩わしくなるか、逆に全く反応しなくなるかの二極化が起きた。pHash+SSIMの2段階変化検出、ナレーション重複検出（SequenceMatcher）、プログレッシブクールダウン、ベースライン比較などの仕組みを組み合わせて解決。Live2Dキャラのアイドルアニメーション（揺れ・瞬き）の誤検出もナレーション重複検出とYOLOのclass_whitelist調整で抑制した</li>
+            <li><strong>人力による感性ベースの検証：</strong> この閾値調整は「人がどう感じるか」という感性の問題であるため、AIによる自動検証が不可能だった。細かくパラメータを変更しながら人力で繰り返し検証し、ハルシネーション・無反応・過剰反応の全てを防ぐバランスを探り当てた</li>
+          </ul>
+
+          <h3>4. 成果</h3>
+          <p>
+            これらの試行錯誤の結果、<strong>ユーザーの画面をEveと共有しながら自然に会話できるアプリケーション</strong>へと進化しました。
+            Eveはウィンドウの変化に気づいて声をかけたり、画面に映っている内容について的確にコメントしたりと、まるで隣で一緒に画面を見ている人間のような振る舞いを実現しています。
+          </p>
+
+          <h3>5. 技術的アピールポイント</h3>
+          <ul>
+            <li><strong>9段ステージの画面認識パイプラインを独自設計：</strong> キャプチャ → 変化検出 → 物体検出 → 追跡 → 動き分析 → 個別分析 → シーングラフ → 差分圧縮 → ナレーション生成の一連を3スレッドで並列処理</li>
+            <li><strong>CV技術とLLMの統合：</strong> YOLOv11、BoT-SORT、MediaPipe、DeepFace、Optical Flowといったコンピュータビジョン技術と、Llama 4 Scout/Maverickによる言語理解を一つのシステムに統合</li>
+            <li><strong>Eve (asyncio) × VLM (threading) のブリッジ設計：</strong> 非同期ベースのEveとスレッドベースのVLMパイプラインを VLMBridge で橋渡しし、リアルタイム性を維持</li>
+            <li><strong>認知科学の応用：</strong> 人間の選択的注意・不随意的注意のメカニズムをAIの画面認識に応用した独自の設計アプローチ</li>
+            <li><strong>UX駆動の開発：</strong> 単なる技術的な正しさではなく、「人の感性に合う反応の閾値」を人力で探索するUX重視の開発プロセス</li>
+          </ul>
+
+          <h3>使用技術</h3>
+          <p>Python 3.13 / Groq API (Llama 4 Scout, Llama 4 Maverick, Whisper) / OpenAI API (GPT-5.4 mini, GPT-4o, Embeddings) / litellm / YOLOv11m / BoT-SORT / MediaPipe / DeepFace / OpenCV / pHash+SSIM / mss / VOICEVOX / VTube Studio API / asyncio / RAG / FEP / Tkinter</p>
+
+          <p class="readme-note">※ アーキテクチャや技術的な詳細は <a href="https://github.com/kmtkzy1379/portfolio8-VLM-AI.git" target="_blank">GitHub README</a> を参照してください。</p>
+          <p class="readme-note">※ VLMパイプライン部分は独立パッケージ（vlm-screen-recognition）としても開発しています。→ <a href="https://github.com/kmtkzy1379/vlm.git" target="_blank">vlm リポジトリ</a></p>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>リポジトリ</h3>
+        <p style="font-size: 0.85em; color: var(--text-muted);">デモ動画は準備中です</p>
+        <div class="btn-group">
+          <a href="https://github.com/kmtkzy1379/portfolio8-VLM-AI.git" target="_blank" class="btn btn--github">GitHub（統合版）</a>
+          <a href="https://github.com/kmtkzy1379/vlm.git" target="_blank" class="btn btn--github">GitHub（VLMパイプライン）</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      FEP簡易説明 — 非専門家向け
      ============================================================ -->
 <section class="section" id="fep-explanation">
   <div class="container">
     <div class="card">
       <h2>自由エネルギー原理（FEP）とは？</h2>
-      <p class="summary">ポートフォリオ①・⑦で活用している理論の、簡易説明です。</p>
+      <p class="summary">ポートフォリオ①・⑦・⑧で活用している理論の、簡易説明です。</p>
 
       <div class="accordion">
         <button class="accordion__toggle" aria-expanded="false">
