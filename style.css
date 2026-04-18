@@ -1597,3 +1597,116 @@ body {
     width: 12px;
   }
 }
+
+/* ============================================================
+   GOLD PICK UP 変種（Portfolio 8 専用）
+   ============================================================ */
+.pickup-ribbon--gold {
+  background: linear-gradient(135deg, #d4a534, #f0d060);
+  color: #000;
+  box-shadow: 0 2px 12px rgba(212, 165, 52, 0.4);
+  font-weight: 900;
+}
+
+.toc-pickup--gold {
+  color: #d4a534;
+  background: rgba(212, 165, 52, 0.12);
+}
+
+.toc-item--gold {
+  background: rgba(212, 165, 52, 0.05);
+  border-color: rgba(212, 165, 52, 0.22);
+}
+.toc-item--gold:hover {
+  background: rgba(212, 165, 52, 0.09);
+  border-color: rgba(212, 165, 52, 0.45);
+}
+.toc-item--gold:hover .toc-badge__num {
+  background: #d4a534;
+  color: #000;
+}
+.toc-item--gold:hover .toc-title {
+  color: #f0d060;
+}
+.toc-item--gold .toc-badge {
+  border-color: rgba(212, 165, 52, 0.3);
+  color: #d4a534;
+}
+
+.badge--gold {
+  background: rgba(212, 165, 52, 0.06);
+  border-color: rgba(212, 165, 52, 0.25);
+  color: #d4a534;
+}
+.badge--gold .badge__num {
+  border-color: rgba(212, 165, 52, 0.3);
+  color: #d4a534;
+}
+.badge--gold:hover {
+  background: rgba(212, 165, 52, 0.1);
+  border-color: rgba(212, 165, 52, 0.5);
+  color: #f0d060;
+}
+.badge--gold:hover .badge__num {
+  background: #d4a534;
+  color: #000;
+}
+.badge--gold.active {
+  background: rgba(212, 165, 52, 0.1);
+  border-color: rgba(212, 165, 52, 0.5);
+  color: #f0d060;
+}
+.badge--gold.active .badge__num {
+  background: #d4a534;
+  color: #000;
+}
+
+.card--gold {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(212, 165, 52, 0.25);
+  background: linear-gradient(160deg, var(--bg-card) 0%, rgba(26, 20, 10, 0.5) 100%);
+}
+.card--gold:hover {
+  border-color: rgba(212, 165, 52, 0.45);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 20px rgba(212, 165, 52, 0.2);
+}
+
+/* card--gold 内のアクセント色を金系に統一（赤の名残を除去）*/
+.card--gold .section-label {
+  color: #d4a534;
+}
+.card--gold .tech-tag {
+  color: #d4a534;
+  background: rgba(212, 165, 52, 0.08);
+  border-color: rgba(212, 165, 52, 0.2);
+}
+.card--gold .accordion__toggle:hover {
+  background: rgba(212, 165, 52, 0.06);
+  border-color: #d4a534;
+}
+.card--gold .accordion--open > .accordion__toggle {
+  color: var(--text);
+  border-color: #d4a534;
+  background: rgba(212, 165, 52, 0.04);
+}
+.card--gold .readme-note {
+  border-left-color: #d4a534;
+}
+.card--gold .accordion__body h3 {
+  border-bottom-color: rgba(212, 165, 52, 0.15);
+}
+
+/* ============================================================
+   Portfolio Icon（タイトル脇のロゴ画像）
+   ============================================================ */
+.portfolio-icon {
+  display: block;
+  width: 96px;
+  height: 96px;
+  border-radius: 18px;
+  object-fit: cover;
+  margin: 4px 0 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
