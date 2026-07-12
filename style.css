@@ -561,6 +561,16 @@ body {
   height: 100%;
   border: none;
 }
+.video-embed video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: contain;
+  background: #000;
+}
 
 .demo-section {
   text-align: center;

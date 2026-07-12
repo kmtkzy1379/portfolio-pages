@@ -24,6 +24,7 @@
     <a class="badge" data-target="portfolio-7" href="#portfolio-7"><span class="badge__num">7</span><span class="badge__label">Eve</span></a>
     <a class="badge badge--gold" data-target="portfolio-8" href="#portfolio-8"><span class="badge__num">8</span><span class="badge__label">VLM</span></a>
     <a class="badge badge--featured" data-target="portfolio-9" href="#portfolio-9"><span class="badge__num">9</span><span class="badge__label">SNS</span></a>
+    <a class="badge badge--featured" data-target="portfolio-10" href="#portfolio-10"><span class="badge__num">10</span><span class="badge__label">Game×AI</span></a>
   </div>
 
   <div class="navbar__counter">
@@ -190,7 +191,12 @@
           <span class="toc-title">PromptLore：CLAUDE.md / skills 共有SNS <small>非エンジニアでも使えるAI設定配布プラットフォーム</small></span>
           <span class="toc-pickup">PICK UP</span>
         </a>
-        <a class="toc-item" href="#fep-explanation" data-order="10">
+        <a class="toc-item toc-item--featured" href="#portfolio-10" data-order="10">
+          <span class="toc-badge"><span class="toc-badge__num">10</span><span class="toc-badge__label">Game×AI</span></span>
+          <span class="toc-title">PromptGolf：ことばでキャラを動かすローカルLLMパズルゲーム <small>itch.ioで公開中のWindowsゲーム</small></span>
+          <span class="toc-pickup">PICK UP</span>
+        </a>
+        <a class="toc-item" href="#fep-explanation" data-order="11">
           <span class="toc-badge"><span class="toc-badge__num">※</span><span class="toc-badge__label">FEP</span></span>
           <span class="toc-title">自由エネルギー原理（FEP）とは？ <small>脳の情報処理理論の解説</small></span>
         </a>
@@ -897,6 +903,135 @@
           <a href="https://promptlore.fly.dev/" target="_blank" class="btn btn--play">サイトを開く</a>
           <a href="https://github.com/kmtkzy1379/PromptLore" target="_blank" class="btn btn--github">GitHub</a>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO 10 — PromptGolf（ローカルLLMパズルゲーム）
+     ============================================================ -->
+<section class="section" id="portfolio-10" data-order="10">
+  <div class="container">
+    <div class="card card--featured">
+      <span class="pickup-ribbon">PICK UP</span>
+      <p class="section-label">Portfolio 10</p>
+      <img src="images/promptgolf/cover.png" alt="PromptGolf" class="portfolio-icon">
+      <h2>PromptGolf：ことばでキャラを動かすローカルLLMパズルゲーム</h2>
+      <p class="summary">「3マス進んで、右を向いてジャンプ」——日本語で書いた指示をPC内のローカルAI（LLM）が解釈し、キャラクターをゴールへ導くパズルゲーム。スコアは「トークン数＋指示回数」で決まり、少ない・的確なことばでクリアするほど高得点。遊びながらプロンプトの書き方が身につく。itch.io にて無料公開中。</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Unity 2022.3</span>
+        <span class="tech-tag">C#</span>
+        <span class="tech-tag">llama.cpp</span>
+        <span class="tech-tag">Qwen3.5-9B（ローカルLLM）</span>
+        <span class="tech-tag">JSON Schema 構造化出力</span>
+        <span class="tech-tag">UniVRM</span>
+        <span class="tech-tag">itch.io（Butler）</span>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion__toggle" aria-expanded="false">
+          <span>詳細を見る</span>
+          <span class="accordion__chevron">▼</span>
+        </button>
+        <div class="accordion__body">
+          <h3>1. 目的</h3>
+          <p>
+            プロフィールの展望に掲げた<strong>「GameとAIの融合」を、初めて一般公開の作品として形にした</strong>プロジェクトです。
+            「AIに思い通り動いてもらうコツ＝プロンプトの書き方」は今後誰にとっても必要なスキルになると考え、
+            <strong>遊ぶだけでプロンプトエンジニアリングが自然と身につくゲーム</strong>として設計しました。
+          </p>
+          <p>
+            名前の由来はプログラマの遊び「コードゴルフ」（できるだけ短いコードで課題を解く競技）。
+            本作は<em>できるだけ少ないことば</em>でゴールを目指す「ことばのゴルフ」です。
+          </p>
+
+          <h3>2. ゲームデザイン</h3>
+          <ul>
+            <li><strong>日本語の指示でキャラを操作：</strong> 入力した指示文をローカルLLMが解釈し、行動列（歩く・曲がる・ジャンプ・しゃがみ等）に変換して実行</li>
+            <li><strong>スコアリング：</strong> 「使ったトークン数＋指示回数」が少ないほど★3に近づく。曖昧な指示はAIが誤解する——的確に伝える力がそのまま攻略になる</li>
+            <li><strong>ギミック：</strong> 段差・しゃがみ通路・ボタンと扉・鍵・一方通行などを組み合わせたステージ構成</li>
+            <li><strong>学習モード＋クイズ：</strong> トークン・コンテキスト・ハルシネーションといったAIの仕組みから「上手な指示のコツ」までを体系的に学べる</li>
+            <li><strong>VRMアバター対応：</strong> 手持ちの .vrm を読み込めば好きなキャラでプレイ可能（モーション確認用のVRMスタジオも搭載）</li>
+            <li><strong>ステージビルダー：</strong> ギミックを自由に配置して自作コースを作成</li>
+            <li><strong>AI自由会話：</strong> 遊び方の質問にもゲーム内AIが回答</li>
+          </ul>
+          <div class="graph-grid">
+            <div class="graph-item">
+              <img src="images/promptgolf/gif1_gameplay.gif" alt="PromptGolf ゲームプレイ">
+              <p><strong>ゲームプレイ</strong><br>日本語の指示がそのままキャラの動きになる。</p>
+            </div>
+          </div>
+
+          <h3>3. 技術的アピールポイント</h3>
+          <ul>
+            <li><strong>ローカルLLMをゲームに同梱：</strong> 推論エンジン llama.cpp（llama-server）と Qwen3.5-9B（GGUF 4bit量子化）を組み込み、<strong>APIキー不要・通信なし・完全ローカル動作</strong>を実現。入力はプレイヤーのPCの外に出ない</li>
+            <li><strong>5.6GBモデルの配布問題を解決：</strong> itch.io の容量制限のためモデルは同梱せず、<strong>初回起動時に Hugging Face から自動ダウンロード＋SHA256による整合性検証</strong>。保存先を永続領域に分離し、ゲーム更新時の再ダウンロードも回避</li>
+            <li><strong>JSON Schema による構造化出力：</strong> LLMの出力を <code>json_schema</code> 制約付きデコーディングで行動列JSONに強制し、ハルシネーションによる不正な行動を構造レベルで防止</li>
+            <li><strong>LLMプロバイダの抽象化：</strong> <code>ILlmProvider</code> インターフェースでローカル／リモートを差し替え可能な設計</li>
+            <li><strong>UniVRM ランタイムロード：</strong> ユーザーの .vrm を実行時に読み込み、揺れ物（スプリングボーン）やモーションの動作確認までゲーム内で完結</li>
+          </ul>
+
+          <h3>4. 開発アプローチ（AI協調開発の実践）</h3>
+          <p>
+            本作は、プロフィールに記載した<strong>AI協調開発フローを全面的に実践した初の作品</strong>です。
+            AIコーディングエージェント（Claude Code）に Unity エディタの自動操作（Unity MCP・C#エディタ拡張）まで任せて実装を推進し、
+            私は<strong>企画・仕様策定・設計判断・ビジュアル/UXの検証・最終品質判断</strong>を担当しました。
+            設計の分岐点では複数のAIエージェントに根拠付きで議論させて意思決定するなど、「AIを的確に制御して完遂させる」開発スタイルを検証しています。
+          </p>
+
+          <h3>5. 「作る」だけでなく「配る」までやり切る</h3>
+          <p>個人開発で疎かになりがちな配布品質にも取り組みました：</p>
+          <ul>
+            <li><strong>ライセンス対応：</strong> 再配布不可ライセンスのアバター素材を配布物から完全除去し、Apache-2.0（Qwen）／MIT（llama.cpp）のライセンス全文を同梱</li>
+            <li><strong>ユーザー保護：</strong> SmartScreen 警告・ウイルス対策ソフト誤検知への案内、アンインストール時のAIモデル削除機能を整備</li>
+            <li><strong>配信パイプライン：</strong> ビルド自動化（ReleaseBuilder）＋ Butler による itch.io への差分配信</li>
+          </ul>
+
+          <h3>スクリーンショット</h3>
+          <div class="graph-grid">
+            <div class="graph-item">
+              <img src="images/promptgolf/shot1_typing.png" alt="指示入力画面">
+              <p><strong>指示入力</strong><br>日本語で指示を書いて実行。定型文の登録も可能。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/promptgolf/shot2_clear.png" alt="クリア画面">
+              <p><strong>リザルト</strong><br>トークン数＋指示回数のスコアで★評価。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/promptgolf/shot3_vrm.png" alt="VRMスタジオ">
+              <p><strong>VRMスタジオ</strong><br>手持ちのVRMアバターを読み込んでモーション確認。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/promptgolf/shot4_builder.png" alt="ステージビルダー">
+              <p><strong>ステージビルダー</strong><br>ギミックを配置して自作コースづくり。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/promptgolf/shot5_chat.png" alt="AI会話">
+              <p><strong>AI自由会話</strong><br>攻略のコツや遊び方をゲーム内AIに質問できる。</p>
+            </div>
+            <div class="graph-item">
+              <img src="images/promptgolf/shot6_quiz.png" alt="学習モード">
+              <p><strong>学習モード＋クイズ</strong><br>プロンプトエンジニアリングを体系的に学べる。</p>
+            </div>
+          </div>
+
+          <h3>使用技術</h3>
+          <p>Unity 2022.3 / C# / llama.cpp (llama-server) / Qwen3.5-9B (GGUF・Unsloth量子化) / OpenAI互換API / JSON Schema 構造化出力 / UniVRM / itch.io (Butler)</p>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>紹介動画・配布ページ</h3>
+        <div class="video-embed">
+          <video src="images/promptgolf/intro.mp4" poster="images/promptgolf/cover.png" controls playsinline preload="metadata"></video>
+        </div>
+        <div class="btn-group">
+          <a href="https://kmt1379.itch.io/promptgolf" target="_blank" class="btn btn--play">itch.io でダウンロード（無料・Windows）</a>
+        </div>
+        <p style="font-size: 0.8em; color: var(--text-dim); margin-top: 14px;">
+          ※ 紹介動画・スクリーンショット：アリシア・ソリッド &copy; DWANGO Co., Ltd. ／ ナレーション：VOICEVOX 春日部つむぎ
+        </p>
       </div>
     </div>
   </div>
