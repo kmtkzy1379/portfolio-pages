@@ -701,7 +701,8 @@ html[data-shot="color"] .shot img, html[data-shot="color"] .shot video { filter:
   visibility: hidden;
 }
 .mascot__f.is-on { visibility: visible; }
-.mascot__f.is-flip { transform: scaleX(-1); }  /* 左に ゆれる ときの反転 */
+/* 左右反転と足元位置の補正は app.js の Mascot.show() が
+   inline transform で行う（フレームごとに補正量が違うため） */
 
 .mascot__hint {
   position: relative;

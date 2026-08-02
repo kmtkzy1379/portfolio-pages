@@ -961,6 +961,14 @@
      ========================================================= */
   const MASCOT_DIR = 'Talk-AI-images/web/';
   const MASCOT_FRAMES = ['idel', 'yure1', 'yure2', 'mabataki1', 'mabataki2'];
+  /* 各フレームの「足元の中心」のx座標（332×420 の画像内で実測）。
+     キャラはフレーム中央（x=166）より左に立っているため、そのまま
+     scaleX(-1) すると立ち位置が右へ約43px 飛ぶ。表示時に idel の
+     立ち位置へ translateX で補正して、足元を固定する。
+     元絵を差し替えたら計測し直すこと。 */
+  const MASCOT_W = 332;
+  const MASCOT_FEET_X = { idel: 144.6, yure1: 148.3, yure2: 144.5,
+                          mabataki1: 144.8, mabataki2: 144.5 };
   /* [フレーム名, 表示ミリ秒] */
   const MASCOT_SWAY  = [['idel', 90], ['yure1', 150], ['yure2', 240], ['idel', 130]];
   const MASCOT_BLINK = [['idel', 60], ['mabataki1', 70], ['mabataki2', 95],
@@ -987,12 +995,16 @@
       });
     },
 
-    /* 1枚だけ見せる。flip = true なら左右反転 */
+    /* 1枚だけ見せる。flip = true なら左右反転。
+       どのフレーム・向きでも足元が idel と同じ位置に来るよう補正する */
     show(name, flip) {
       MASCOT_FRAMES.forEach((n) => {
         this.imgs[n].classList.toggle('is-on', n === name);
       });
-      this.imgs[name].classList.toggle('is-flip', !!flip);
+      const feet = flip ? (MASCOT_W - MASCOT_FEET_X[name]) : MASCOT_FEET_X[name];
+      const dx = (MASCOT_FEET_X.idel - feet) / MASCOT_W * 100;
+      this.imgs[name].style.transform =
+        'translateX(' + dx.toFixed(2) + '%)' + (flip ? ' scaleX(-1)' : '');
     },
 
     /* コマ送り */
