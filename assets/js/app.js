@@ -13,8 +13,8 @@
     //   driver: 'local'  … このブラウザの来訪回数を数える（サーバー不要・既定）
     //   driver: 'remote' … endpoint に GET して { count: 数値 } を受け取る
     counter: {
-      driver: 'local',
-      endpoint: '',            // 例: 'https://api.counterapi.dev/v1/kmtkzy1379/portfolio/up'
+      driver: 'remote',
+      endpoint: 'https://api.counterapi.dev/v1/kmtkzy1379/portfolio/up',
       countPath: 'count',      // レスポンス内のカウント値のキー
       digits: 6
     },
@@ -364,11 +364,28 @@
           return '<div class="links">' + b.items.map((it) => {
             if (!it.url) return '<span class="dead">' + it.label + (it.note ? '（' + it.note + '）' : '') + '</span>';
             if (it.internal) return '<a href="' + it.url + '">' + it.label + '</a>';
+            const yid = youtubeId(it.url);
+            if (yid) {
+              return '<div class="yt">' +
+                '<button class="yt__head js-yt" type="button" aria-expanded="false" data-yt="' + yid + '">' +
+                  '<span class="yt__mark">▶</span>' +
+                  '<span class="yt__label">' + it.label + '</span>' +
+                  '<span class="yt__hint">ここで さいせい</span>' +
+                '</button>' +
+                '<div class="yt__panel" hidden></div>' +
+              '</div>';
+            }
             return '<a href="' + it.url + '" target="_blank" rel="noopener noreferrer">' + it.label + '</a>';
           }).join('') + '</div>';
         default: return '';
       }
     }).join('');
+  }
+
+  /* YouTube のURLなら動画IDを返す（それ以外は null） */
+  function youtubeId(url) {
+    const m = url.match(/(?:youtube\.com\/watch\?(?:.*&)?v=|youtu\.be\/|youtube\.com\/(?:embed|shorts)\/)([\w-]{11})/);
+    return m ? m[1] : null;
   }
 
   /* アコーディオン1つ分 */
@@ -736,6 +753,27 @@
         const label = box.querySelector('.acc__name').textContent;
         markSeen(id, label);
       } else { Sound.close(); }
+      return;
+    }
+
+    const yt = e.target.closest('.js-yt');
+    if (yt) {
+      const box = yt.parentElement;
+      const panel = box.querySelector('.yt__panel');
+      const open = box.classList.toggle('is-open');
+      yt.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.hidden = !open;
+      if (open) {
+        Sound.open();
+        panel.innerHTML = '<div class="yt__frame"><iframe' +
+          ' src="https://www.youtube-nocookie.com/embed/' + yt.getAttribute('data-yt') + '?rel=0"' +
+          ' title="YouTube" loading="lazy" allowfullscreen' +
+          ' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"' +
+          ' referrerpolicy="strict-origin-when-cross-origin"></iframe></div>';
+      } else {
+        Sound.close();
+        panel.innerHTML = '';  /* iframe を破棄して再生も止める */
+      }
       return;
     }
 

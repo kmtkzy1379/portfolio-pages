@@ -542,6 +542,24 @@ html[data-shot="color"] .shot img, html[data-shot="color"] .shot video { filter:
 .links span.dead { color: var(--dim); border-style: dashed; }
 .links span.dead::before { content: "－"; }
 
+/* YouTube（クリックするとサイト内で さいせい） */
+.links .yt { margin-bottom: 8px; }
+.links .yt__head {
+  display: flex; align-items: center; gap: 8px; width: 100%; text-align: left;
+  border: 3px solid var(--line); padding: 11px 12px; font-size: .82rem; word-break: break-all;
+}
+.links .yt__head:hover, .links .yt__head:focus-visible { background: var(--fg); color: var(--bg); outline: none; }
+.links .yt__mark { flex: 0 0 auto; transition: transform .12s steps(2); }
+.links .yt.is-open .yt__mark { transform: rotate(90deg); }
+.links .yt.is-open .yt__head { background: var(--fg); color: var(--bg); }
+.links .yt__label { flex: 1; min-width: 0; }
+.links .yt__hint { flex: 0 0 auto; font-size: .68rem; color: var(--dim); white-space: nowrap; }
+.links .yt__head:hover .yt__hint, .links .yt.is-open .yt__hint { color: inherit; }
+.links .yt__panel { border: 3px solid var(--line); border-top: none; padding: 4px; background: var(--bg); }
+.links .yt__panel[hidden] { display: none; }
+.yt__frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.yt__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+
 /* 記事下ナビ */
 .pager { display: flex; gap: 8px; padding: 20px 8px 8px; }
 .pager button { flex: 1; border: 3px solid var(--line); padding: 12px 8px; font-size: .78rem; }

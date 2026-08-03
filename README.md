@@ -141,22 +141,23 @@ Talk AI と小松マスターに来ない人には1バイトも転送されま�
 
 ## サイトカウンター
 
-既定は **サーバー不要のローカルカウンター**で、そのブラウザでの来訪回数を数えます
-（表示は「あなたの アクセス： N かいめ」）。
-
-サイト全体の通算訪問者数にしたい場合は `assets/js/app.js` 冒頭の `CONFIG.counter` を変更します。
+**CounterAPI（v1）を使った通算訪問者数**を表示します
+（表示は「あなたは N 人目の 訪れた人 です」）。設定は `assets/js/app.js` 冒頭の `CONFIG.counter` にあります。
 
 ```js
 counter: {
   driver: 'remote',
-  endpoint: 'https://<カウンターAPIのURL>',  // GET すると { "count": 1234 } が返るもの
+  endpoint: 'https://api.counterapi.dev/v1/kmtkzy1379/portfolio/up',  // GET すると { "count": 1234 } が返る
   countPath: 'count',
   digits: 6
 }
 ```
 
-`driver: 'remote'` にすると表示が「あなたは N 人目の 訪れた人 です」に変わります。
-通信に失敗した場合は自動でローカルカウンターにフォールバックするので、表示が壊れることはありません。
+通信に失敗した場合（オフライン・広告ブロッカーなど）は自動で**ローカルカウンター**に
+フォールバックし、表示が「あなたの アクセス： N かいめ」（そのブラウザでの来訪回数、
+localStorage の `kzy.visits.v1`）に変わります。表示が壊れることはありません。
+
+`driver: 'local'` に戻すと常にローカルカウンターになります。
 
 ## 設定でできること
 
