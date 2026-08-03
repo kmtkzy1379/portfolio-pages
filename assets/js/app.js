@@ -1127,7 +1127,9 @@
   function readRemote() {
     return new Promise((resolve, reject) => {
       if (CONFIG.counter.driver !== 'remote' || !CONFIG.counter.endpoint) return reject();
-      const to = setTimeout(reject, 3500);
+      /* APIのコールドスタートが数秒かかることがある。取得はページ読み込み直後に
+         始めて起動演出と並行させるので、長めに待っても体感は悪化しにくい */
+      const to = setTimeout(reject, 8000);
       fetch(CONFIG.counter.endpoint, { cache: 'no-store' })
         .then((r) => r.json())
         .then((j) => {
@@ -1214,10 +1216,7 @@
       bootDone = true;
       bar.style.width = '100%';
       pct.textContent = '100%';
-      const promise = CONFIG.counter.driver === 'remote'
-        ? readRemote().then((v) => ({ v: v, remote: true })).catch(() => ({ v: bumpLocal(), remote: false }))
-        : Promise.resolve({ v: bumpLocal(), remote: false });
-      promise.then((r) => {
+      counterPromise.then((r) => {
         paintCounter(r.v, r.remote);
         setTimeout(() => {
           const btn = document.getElementById('bootPress');
@@ -1270,6 +1269,11 @@
   applySettings();
   Sound.boot();
   updateGauge();
+
+  /* カウンター取得は起動演出と並行して先に始めておく（boot の finish が待ち受ける） */
+  const counterPromise = CONFIG.counter.driver === 'remote'
+    ? readRemote().then((v) => ({ v: v, remote: true })).catch(() => ({ v: bumpLocal(), remote: false }))
+    : Promise.resolve({ v: bumpLocal(), remote: false });
 
   document.getElementById('bootPress').addEventListener('click', () => {
     Sound.resume();
