@@ -1147,6 +1147,17 @@
     return n;
   }
 
+  /* 値が届くまでの仮表示（000000 ＋ けいさんちゅう） */
+  function paintCounterPending() {
+    const box = document.getElementById('counter');
+    const digits = document.getElementById('counterDigits');
+    box.hidden = false;
+    digits.innerHTML = pad(0, CONFIG.counter.digits).split('').map((d) => '<i>' + d + '</i>').join('');
+    const you = document.getElementById('counterYou');
+    you.textContent = 'けいさんちゅう …';
+    you.style.visibility = 'visible';
+  }
+
   function paintCounter(value, isRemote) {
     const digits = document.getElementById('counterDigits');
     const box = document.getElementById('counter');
@@ -1216,12 +1227,18 @@
       bootDone = true;
       bar.style.width = '100%';
       pct.textContent = '100%';
+
+      /* 通信は待たない。カウンターは「けいさんちゅう」で先に出し、
+         PRESS ANY KEY もそのまま表示して自己紹介へ進めるようにする */
+      paintCounterPending();
+      setTimeout(() => {
+        document.getElementById('bootPress').hidden = false;
+      }, settings.anim ? 1500 : 200);
+
       counterPromise.then((r) => {
+        /* すでに自己紹介へ進んでいたら差し替え演出（音を含む）は行わない */
+        if (document.getElementById('boot').classList.contains('is-out')) return;
         paintCounter(r.v, r.remote);
-        setTimeout(() => {
-          const btn = document.getElementById('bootPress');
-          btn.hidden = false;
-        }, settings.anim ? 1500 : 200);
       });
     }
 
