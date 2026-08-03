@@ -142,6 +142,7 @@ const DATA = {
         ]},
         { type: 'note', text: '※ 紹介動画・スクリーンショット：アリシア・ソリッド © DWANGO Co., Ltd. ／ ナレーション：VOICEVOX 春日部つむぎ' },
         { type: 'links', items: [
+          { label: 'PromptGolf 紹介動画（YouTube）', url: 'https://youtu.be/p-gdboxBYeA' },
           { label: 'itch.io でダウンロード', url: 'https://kmt1379.itch.io/promptgolf' },
           { label: 'GitHub：PromptGolf', url: 'https://github.com/kmtkzy1379/PromptGolf' }
         ]}
