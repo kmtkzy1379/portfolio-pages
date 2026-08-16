@@ -4,3 +4,6 @@
 # 開発ツール（サイトの動作には不要）
 .agents/
 skills-lock.json
+
+# pin-frames.js が退避した元画像のバックアップ（手元にだけ残す）
+Talk-AI-images/web/_before/
