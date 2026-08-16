@@ -9,19 +9,20 @@
      0. 設定
      ========================================================= */
   const CONFIG = {
-    // サイトカウンター
-    //   driver: 'local'  … このブラウザの来訪回数を数える（サーバー不要・既定）
-    //   driver: 'remote' … endpoint に GET して { count: 数値 } を受け取る
+    /* サイトカウンター（全員ぶんの通算アクセス数）
+       Abacus … 登録不要・CORS許可・無料。GET すると +1 して { "value": 数値 } を返す。
+       旧 CounterAPI v1 は 2026-08-07 に廃止されたため移行した。
+       取得できなかったときは、前回とれた通算値（localStorage のキャッシュ）を出す。
+       このブラウザの来訪回数に化けさせない ＝ 表示の意味を変えない、が方針 */
     counter: {
-      driver: 'remote',
-      endpoint: 'https://api.counterapi.dev/v1/kmtkzy1379/portfolio/up',
-      countPath: 'count',      // レスポンス内のカウント値のキー
+      endpoint: 'https://abacus.jasoncameron.dev/hit/kmtkzy1379-portfolio/total',
+      countPath: 'value',      // レスポンス内のカウント値のキー
       digits: 6
     },
     storageKeys: {
       settings: 'kzy.settings.v1',
       progress: 'kzy.progress.v1',
-      visits:   'kzy.visits.v1'
+      total:    'kzy.total.v1'   // 最後に取得できた通算アクセス数（通信失敗時の保険）
     }
   };
 
@@ -1127,9 +1128,10 @@
     return s.length >= len ? s : new Array(len - s.length + 1).join('0') + s;
   }
 
-  function readRemote() {
+  /* 通算アクセス数を +1 して受け取る。成功したら次回のためにキャッシュしておく */
+  function readTotal() {
     return new Promise((resolve, reject) => {
-      if (CONFIG.counter.driver !== 'remote' || !CONFIG.counter.endpoint) return reject();
+      if (!CONFIG.counter.endpoint) return reject();
       /* APIのコールドスタートが数秒かかることがある。取得はページ読み込み直後に
          始めて起動演出と並行させるので、長めに待っても体感は悪化しにくい */
       const to = setTimeout(reject, 8000);
@@ -1138,16 +1140,13 @@
         .then((j) => {
           clearTimeout(to);
           const v = CONFIG.counter.countPath.split('.').reduce((o, k) => (o ? o[k] : null), j);
-          if (typeof v === 'number') resolve(v); else reject();
+          if (typeof v === 'number') {
+            Store.set(CONFIG.storageKeys.total, v);
+            resolve(v);
+          } else reject();
         })
         .catch(() => { clearTimeout(to); reject(); });
     });
-  }
-
-  function bumpLocal() {
-    const n = (Store.get(CONFIG.storageKeys.visits, 0) | 0) + 1;
-    Store.set(CONFIG.storageKeys.visits, n);
-    return n;
   }
 
   /* 値が届くまでの仮表示（000000 ＋ けいさんちゅう） */
@@ -1161,20 +1160,29 @@
     you.style.visibility = 'visible';
   }
 
-  function paintCounter(value, isRemote) {
+  /* state: 'live'（いま数えた）／'stale'（前回の記録）／'fail'（一度も取れていない） */
+  function paintCounter(value, state) {
     const digits = document.getElementById('counterDigits');
     const box = document.getElementById('counter');
+    const you = document.getElementById('counterYou');
     const len = CONFIG.counter.digits;
     box.hidden = false;
 
-    /* 直前（-1）の状態を出してから +1 させる */
-    const before = pad(Math.max(0, value - 1), len).split('');
-    digits.innerHTML = before.map((d) => '<i>' + d + '</i>').join('');
+    if (state === 'fail') {
+      digits.innerHTML = new Array(len + 1).join('-').split('').map((d) => '<i>' + d + '</i>').join('');
+      you.textContent = 'つうしんに しっぱい しました …';
+      you.style.visibility = 'visible';
+      return;
+    }
 
-    document.getElementById('counterYou').innerHTML = isRemote
-      ? 'あなたは <b id="counterOrd">' + value + '</b> 人目の 訪れた人 です'
-      : 'あなたの アクセス： <b id="counterOrd">' + value + '</b> かいめ';
-    document.getElementById('counterYou').style.visibility = 'hidden';
+    /* live は 直前（-1）の状態を出してから +1 させる。stale は増やす根拠がないので据え置き */
+    const start = state === 'live' ? Math.max(0, value - 1) : value;
+    digits.innerHTML = pad(start, len).split('').map((d) => '<i>' + d + '</i>').join('');
+
+    you.innerHTML = state === 'live'
+      ? 'これまでの そうアクセス <b id="counterOrd">' + value + '</b> かい'
+      : 'つうしん できず … まえの きろく <b id="counterOrd">' + value + '</b> かい';
+    you.style.visibility = 'hidden';
 
     setTimeout(() => {
       const after = pad(value, len).split('');
@@ -1185,8 +1193,8 @@
           cells[i].classList.add('is-roll');
         }
       });
-      document.getElementById('counterPlus').classList.add('is-on');
-      document.getElementById('counterYou').style.visibility = 'visible';
+      if (state === 'live') document.getElementById('counterPlus').classList.add('is-on');
+      you.style.visibility = 'visible';
       Sound.exp();
     }, settings.anim ? 800 : 100);
   }
@@ -1241,7 +1249,7 @@
       counterPromise.then((r) => {
         /* すでに自己紹介へ進んでいたら差し替え演出（音を含む）は行わない */
         if (document.getElementById('boot').classList.contains('is-out')) return;
-        paintCounter(r.v, r.remote);
+        paintCounter(r.v, r.state);
       });
     }
 
@@ -1291,9 +1299,14 @@
   updateGauge();
 
   /* カウンター取得は起動演出と並行して先に始めておく（boot の finish が待ち受ける） */
-  const counterPromise = CONFIG.counter.driver === 'remote'
-    ? readRemote().then((v) => ({ v: v, remote: true })).catch(() => ({ v: bumpLocal(), remote: false }))
-    : Promise.resolve({ v: bumpLocal(), remote: false });
+  const counterPromise = readTotal()
+    .then((v) => ({ v: v, state: 'live' }))
+    .catch(() => {
+      const cached = Store.get(CONFIG.storageKeys.total, null);
+      return typeof cached === 'number'
+        ? { v: cached, state: 'stale' }
+        : { v: 0, state: 'fail' };
+    });
 
   document.getElementById('bootPress').addEventListener('click', () => {
     Sound.resume();
