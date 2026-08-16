@@ -148,7 +148,11 @@
   function seenCount() {
     return progress.seen.filter((id) => DATA.allItemIds.indexOf(id) !== -1).length;
   }
-  function level() { return Math.min(6, 1 + Math.floor(seenCount() / 3)); }
+  /* 全部よむと LV6。項目数が増減しても最大値が変わらないよう割合で出す
+     （3項目ごとに1上げる方式だと、項目が15未満のときLV6に届かない） */
+  function level() {
+    return TOTAL ? Math.min(6, 1 + Math.floor(seenCount() * 5 / TOTAL)) : 1;
+  }
 
   function saveProgress() { Store.set(CONFIG.storageKeys.progress, progress); }
 

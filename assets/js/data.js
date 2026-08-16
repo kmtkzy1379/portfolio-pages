@@ -400,7 +400,9 @@ const DATA = {
     }
   ],
 
-  /* ---------------- インターン・活動履歴（5） ---------------- */
+  /* ---------------- インターン・活動履歴（3） ----------------
+     1社1項目にすると読む場所が増え、小松マスターが遠のく。
+     長期インターン／短期インターン／イベント の3つにまとめている。 */
   history: [
     {
       id: 'ohmyteeth',
@@ -426,42 +428,34 @@ const DATA = {
       ]
     },
     {
-      id: 'relic',
-      title: '株式会社Relic',
-      role: '1day インターン',
-      period: '2026年',
+      id: 'short-intern',
+      title: '短期インターン',
+      role: 'SmartHR ／ 株式会社Relic ／ 三栄ハイテックス',
+      period: '2026年・計4day',
       blocks: [
+        { type: 'h', text: 'SmartHR（2day）' },
+        { type: 'p', text: '<strong>LT登壇会</strong>と、<strong>GitHub・AI活用の研修</strong>に、1dayずつ計2day参加しました。' },
+        { type: 'h', text: '株式会社Relic（1day）' },
         { type: 'p', text: '1day のインターンに参加しました。<strong>「My-AI（高解像度のESを半自動で生成するAIシステム）」を題材として提出</strong>しています。' },
         { type: 'links', items: [
           { label: '作品を見る：My-AI', url: '#/works/my-ai', internal: true }
-        ]}
-      ]
-    },
-    {
-      id: 'supporterz-1on1',
-      title: 'サポーターズ',
-      role: 'エンジニア1on1面談《ハイクラス》',
-      period: '2026年',
-      blocks: [
-        { type: 'p', text: 'エンジニア1on1面談《ハイクラス》に <strong>選考通過</strong>し、参加しました。' }
-      ]
-    },
-    {
-      id: 'giikusai',
-      title: 'サポーターズ 技育祭2026春',
-      role: '関東アンバサダー',
-      period: '2026年',
-      blocks: [
-        { type: 'p', text: '技育祭2026春の <strong>関東アンバサダー</strong>を務めました。' }
-      ]
-    },
-    {
-      id: 'sanei',
-      title: '三栄ハイテックス',
-      role: '1day インターン',
-      period: '2026年',
-      blocks: [
+        ]},
+        { type: 'h', text: '三栄ハイテックス（1day）' },
         { type: 'p', text: '1day のインターンに参加しました。' }
+      ]
+    },
+    {
+      id: 'events',
+      title: 'イベント',
+      role: 'ミーツカンパニー ／ サポーターズ ／ 技育祭2026春',
+      period: '2026年',
+      blocks: [
+        { type: 'h', text: 'ミーツカンパニー：MVP選出' },
+        { type: 'p', text: '<strong>ガクチカや実績ではなく、人柄とビジネス視点を企業の方々の投票で評価いただき、MVPに選出されました。</strong>' },
+        { type: 'h', text: 'サポーターズ：エンジニア1on1面談《ハイクラス》' },
+        { type: 'p', text: 'エンジニア1on1面談《ハイクラス》に <strong>選考通過</strong>し、参加しました。' },
+        { type: 'h', text: 'サポーターズ 技育祭2026春：関東アンバサダー' },
+        { type: 'p', text: '技育祭2026春の <strong>関東アンバサダー</strong>を務めました。' }
       ]
     }
   ]
