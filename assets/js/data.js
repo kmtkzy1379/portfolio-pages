@@ -117,7 +117,7 @@ const DATA = {
         { type: 'p', text: 'どのゲーム配布サービスも容量に制限があり、ローカルLLMを同梱するのは困難です。そこで<strong>ゲーム本体だけを配布し、初回起動時にランチャーからローカルLLMをダウンロードする</strong>方式で解決しました。ユーザーが混乱しないよう、その旨は明記しています。' },
         { type: 'h', text: '学んだこと' },
         { type: 'ul', items: [
-          '<strong>ローカルLLMの可能性と、なぜローカルLLMのサービスが少ないかを、同時に理解できた。</strong> コストゼロでAIを無限に使える魅力は大きい。一方で——',
+          '<strong>ローカルLLMの可能性と、なぜローカルLLMのサービスが少ないかを、同時に理解できた。</strong> 一方でコストゼロでAIを無限に使える魅力は大きいと感じ、将来ローカルLLMが発達することを考慮すると今後必須技術になりそうと感じた。',
           '一般的なPCでは大きいモデルを扱えず、<strong>企業のAPI経由のAIに精度で大幅に劣る</strong>',
           'デプロイ・リリース時に容量が大きくなり、<strong>手軽に試せる機会が減り、導入のハードルが上がる</strong>',
           'RAGや構造化出力で出力をコントロールすれば、精度はある程度改善する（今回は行っていないが、ファインチューニングと組み合わせれば、特定のタスクでは企業のAIより理想に近い回答が得られそう）',
@@ -160,6 +160,9 @@ const DATA = {
       blocks: [
         { type: 'h', text: '概要' },
         { type: 'p', text: 'リアルタイムで会話できるAIシステムです。従来のAIと違い1問1答ではなく、<strong>AIのほうから話しかけてきます。</strong> ほかに画面認識や、簡単なタスク実行もできます。' },
+        { type: 'links', items: [
+          { label: 'Talk AI デモ動画（YouTube）', url: 'https://youtu.be/9uKrJzXXlYI' }
+        ]},
         { type: 'h', text: 'なぜ作ったか' },
         { type: 'p', text: 'AIは急速に進化していますが、<strong>まだ人間と間違えるほど会話が上手ではありません。</strong> そこで人間の心理や脳機能を模倣すれば、より人間らしく、曖昧な指示も汲み取り、高速に応答できるのではないかと考えました。人間と同等のレベルで会話できるAIができれば、<strong>対人会話が苦手な人の支援やエンタメ領域に使え、世界をより面白くできる</strong>と思っています。' },
         { type: 'p', text: 'もう1つの理由は、作り直しです。このプロダクトは私が<strong>最初に作り始めた作品の4作目</strong>にあたります。' },
@@ -220,7 +223,7 @@ const DATA = {
         { type: 'h', text: 'リポジトリ・デモ動画' },
         { type: 'links', items: [
           { label: 'GitHub：Talk AI（4作目・現行）', url: 'https://github.com/kmtkzy1379/TalkAI' },
-          { label: '4作目 Talk AI デモ動画', url: null, note: '製作中' },
+          { label: '4作目 Talk AI デモ動画（YouTube）', url: 'https://youtu.be/9uKrJzXXlYI' },
           { label: '3作目 Eve AI + VLM デモ（YouTube）', url: 'https://www.youtube.com/watch?v=I9cAP766aQw' },
           { label: '2作目 Eve AI デモ（YouTube）', url: 'https://www.youtube.com/watch?v=sACIvKWCAHc' },
           { label: '1作目 AI VTuber デモ（YouTube）', url: 'https://www.youtube.com/watch?v=xfwJvJJUYtA' },
