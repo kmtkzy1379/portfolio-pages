@@ -34,6 +34,8 @@ const DATA = {
       blocks: [
         { type: 'ul', items: [
           '<strong>2年ほどの個人開発。</strong> 企画から実装、公開までを一通り自分で通してきました',
+          '<strong>技育博の出展作品に選出。</strong> サポーターズ主催の「技育博2026 vol.2」に PromptGolf が選ばれ、大手企業の方々からプロの視点で評価をいただきました',
+          '<strong>長期インターンでプロジェクトリーダー。</strong> 参画3ヶ月で選出。社員を含む8名のチームで、KPI設定・タスク管理・ミーティング進行を担い、1つ目のプロジェクトを完走しました',
           '<strong>インターンでの実務経験。</strong> チーム開発の進め方と、企業の中でのエンジニア業務を理解しています',
           '<strong>オンボーディングの企画・構築。</strong> 研修制度・勉強会・マニュアル作成を企画し、インターン生を巻き込んで企画書を作成。CEOに打診し、業務時間内で実施する許可を得ました'
         ]}
@@ -45,7 +47,7 @@ const DATA = {
       title: '自己PR',
       blocks: [
         { type: 'h', text: '自走力と知識欲' },
-        { type: 'p', text: '完全独学で始め、2年間の個人開発を継続。加えて3ヶ月のインターンに参加しています。' },
+        { type: 'p', text: '完全独学で始め、2年間の個人開発を継続。加えて2026年5月から長期インターンに参加し、参画3ヶ月でプロジェクトリーダーに選出されました。' },
         { type: 'h', text: 'AIの仕組みの理解' },
         { type: 'p', text: 'AI開発を通じて、出力が統計的・確率的・数理的に決まることを理解しています。だからこそ、<strong>どうすれば精度が高く、ハルシネーションの少ない出力が得られるかを、勘ではなく仕組みから説明できます。</strong>' },
         { type: 'h', text: 'エンジニアの実務経験' },
@@ -64,7 +66,7 @@ const DATA = {
         { type: 'h', text: 'ゼロイチを作って回すのが好きだから' },
         { type: 'p', text: '現状の問題を分析し、新しい何かを作り出す過程そのものが好きです。' },
         { type: 'h', text: '上流と下流の両方を経験しているから' },
-        { type: 'p', text: '企画やオンボーディングという上流と、コーディング・デプロイという下流の、両方を経験しています。<strong>下流を理解している人間が上流をやれば、「技術的に何ができるか」「実装がどれくらい難しいか」を体感として持っているぶん、認識のズレが少なくなります。</strong>' },
+        { type: 'p', text: '企画やオンボーディング、プロジェクトリーダーとしてのKPI設定・進行管理という上流と、コーディング・デプロイという下流の、両方を経験しています。<strong>下流を理解している人間が上流をやれば、「技術的に何ができるか」「実装がどれくらい難しいか」を体感として持っているぶん、認識のズレが少なくなります。</strong>' },
         { type: 'h', text: '上流に魅力を感じたから' },
         { type: 'p', text: '日々AIは進化しておりコーディングする時間は減りつつあります。そして今のエンジニアに求められるのはAIが生成したコードを読み込み理解し責任を持つことです。それよりもゼロイチを作って回すのが好きだからこそ新しい実装方法や企画に専念できる上流に強い魅力を感じて目指そうと思いました。' }
       ]
@@ -79,12 +81,15 @@ const DATA = {
       title: 'PromptGolf',
       sub: 'AIに指示して迷路をクリアしながら、AIについて学べるゲーム',
       tags: ['Unity', 'ローカルLLM', 'RAG', 'ゲーム'],
-      status: '公開中（β版・無料・Windows）',
+      status: '技育博 選出 ／ 公開中（β版・無料・Windows）',
       cover: 'images/promptgolf/cover.png',
       blocks: [
         { type: 'h', text: '概要' },
         { type: 'p', text: 'PC内のAI（ローカルLLM）に指示を出して、迷路をクリアするゲームです。<strong>より適切で、より少ない指示でクリアするほど高得点。</strong> ほかに、AI活用をクイズ形式で学べるモードや、AIとチャットで質問できる機能があります。' },
         { type: 'video', src: 'images/promptgolf/intro.mp4', poster: 'images/promptgolf/cover.png', caption: '紹介動画' },
+        { type: 'h', text: '実績' },
+        { type: 'p', text: '<strong>サポーターズ主催の「技育博2026 vol.2」で、出展作品に選出されました。</strong> さまざまな大手企業の方に実際に触れていただき、プロの視点から評価をいただきました。' },
+        { type: 'img', src: 'images/promptgolf/giikuhaku-2026-vol2.jpg', caption: '技育博2026 vol.2 出展時の様子', size: 'portrait' },
         { type: 'h', text: 'なぜ作ったか' },
         { type: 'p', text: 'いまやほとんどの作業や業務でAIは必須です。しかし「コンテキスト」「トークン」と用語が多すぎて、学ぶ気が起きない人も少なくありません。AIを使うこと自体に抵抗がある人、うまく使いこなせていない人もいます。<strong>そういう人たちに、楽しみながらAIを使いこなしてほしい</strong>と考えました。' },
         { type: 'p', text: 'だからこそ、Skills や .md といった踏み込んだ話はあえて説明していません。<strong>最低限のセキュリティリテラシーと、「明らかに精度が落ちるプロンプト」を改善できるようになること</strong>に目的を絞っています。' },
@@ -155,13 +160,13 @@ const DATA = {
       title: 'Talk AI',
       sub: 'リアルタイムで会話できるAIシステム',
       tags: ['マルチエージェント', 'RAG', '画面認識', 'TTS / STT'],
-      status: '4作目・現行',
+      status: '4作目・運用中',
       cover: 'Talk-AI-images/web/Talk-AI-8bit-icon.webp',
       blocks: [
         { type: 'h', text: '概要' },
         { type: 'p', text: 'リアルタイムで会話できるAIシステムです。従来のAIと違い1問1答ではなく、<strong>AIのほうから話しかけてきます。</strong> ほかに画面認識や、簡単なタスク実行もできます。' },
         { type: 'links', items: [
-          { label: 'Talk AI デモ動画（YouTube）', url: 'https://youtu.be/9uKrJzXXlYI' }
+          { label: 'Talk AI 紹介動画（YouTube）', url: 'https://youtu.be/9_sCYnkUtq4' }
         ]},
         { type: 'h', text: 'なぜ作ったか' },
         { type: 'p', text: 'AIは急速に進化していますが、<strong>まだ人間と間違えるほど会話が上手ではありません。</strong> そこで人間の心理や脳機能を模倣すれば、より人間らしく、曖昧な指示も汲み取り、高速に応答できるのではないかと考えました。人間と同等のレベルで会話できるAIができれば、<strong>対人会話が苦手な人の支援やエンタメ領域に使え、世界をより面白くできる</strong>と思っています。' },
@@ -222,8 +227,8 @@ const DATA = {
         ]},
         { type: 'h', text: 'リポジトリ・デモ動画' },
         { type: 'links', items: [
-          { label: 'GitHub：Talk AI（4作目・現行）', url: 'https://github.com/kmtkzy1379/TalkAI' },
-          { label: '4作目 Talk AI デモ動画（YouTube）', url: 'https://youtu.be/9uKrJzXXlYI' },
+          { label: '4作目 Talk AI 紹介動画（YouTube）', url: 'https://youtu.be/9_sCYnkUtq4' },
+          { label: 'GitHub：4作目 Talk AI', note: '運用中のため非公開' },
           { label: '3作目 Eve AI + VLM デモ（YouTube）', url: 'https://www.youtube.com/watch?v=I9cAP766aQw' },
           { label: '2作目 Eve AI デモ（YouTube）', url: 'https://www.youtube.com/watch?v=sACIvKWCAHc' },
           { label: '1作目 AI VTuber デモ（YouTube）', url: 'https://www.youtube.com/watch?v=xfwJvJJUYtA' },
@@ -408,9 +413,16 @@ const DATA = {
       id: 'ohmyteeth',
       main: true,
       title: 'oh my teeth',
-      role: 'AIエンジニア・インターン',
+      role: 'AIエンジニア・インターン ／ プロジェクトリーダー',
       period: '2026年5月 〜 現在',
       blocks: [
+        { type: 'h', text: '参画3ヶ月でプロジェクトリーダーに選出' },
+        { type: 'p', text: '社員を含む<strong>計8名のチーム</strong>で、プロジェクトリーダーを務めています。<strong>1つ目のプロジェクトを完走し、</strong>現在は2つ目のプロジェクトに取り組んでいます。' },
+        { type: 'ul', items: [
+          'プロジェクト概要の策定と、KPIの設定',
+          'スプリント（1週間）ごとの、メンバーへのタスクの割り振りと管理',
+          'ミーティングの進行'
+        ]},
         { type: 'h', text: '組織のオンボーディングを企画・先導' },
         { type: 'p', text: '参画当時は研修制度がなく、自分自身が進め方に困りました。その経験をもとにメンバーを集めて相談し、企画を立ち上げ。<strong>5名のメンバーの指揮を取って企画書を作成し、CEOに打診して、業務時間内で実施する許可を得ました。</strong>' },
         { type: 'h', text: '機械学習環境のオンボーディングを企画・先導' },
@@ -430,9 +442,12 @@ const DATA = {
     {
       id: 'short-intern',
       title: '短期インターン',
-      role: 'SmartHR ／ 株式会社Relic ／ 三栄ハイテックス',
-      period: '2026年・計4day',
+      role: 'Works Human Intelligence ／ SmartHR ／ 株式会社Relic ／ 三栄ハイテックス',
+      period: '2026年・計8day',
       blocks: [
+        { type: 'h', text: 'Works Human Intelligence（4day）' },
+        { type: 'p', text: '前半2日で企画・設計、後半2日で実装を行う、チーム開発のインターンに参加しました。<strong>基本的にAIの使用は禁止</strong>で、自分の論理的思考力と実力がそのまま試される、得られる経験値の多いインターンでした。' },
+        { type: 'p', text: '当初5人だったチームは3人になりましたが、メンバーと協力して開発を進め、<strong>他チームと遜色ないクオリティの作品を作り上げました。</strong>' },
         { type: 'h', text: 'SmartHR（2day）' },
         { type: 'p', text: '<strong>LT登壇会</strong>と、<strong>GitHub・AI活用の研修</strong>に、1dayずつ計2day参加しました。' },
         { type: 'h', text: '株式会社Relic（1day）' },
@@ -447,9 +462,14 @@ const DATA = {
     {
       id: 'events',
       title: 'イベント',
-      role: 'ミーツカンパニー ／ サポーターズ ／ 技育祭2026春',
+      role: '技育博2026 vol.2 ／ ミーツカンパニー ／ サポーターズ ／ 技育祭2026春',
       period: '2026年',
       blocks: [
+        { type: 'h', text: 'サポーターズ 技育博2026 vol.2：出展作品に選出' },
+        { type: 'p', text: '個人開発のゲーム「PromptGolf」が、<strong>技育博の出展作品に選出</strong>されました。さまざまな大手企業の方に実際に触れていただき、<strong>プロの視点から評価をいただきました。</strong>' },
+        { type: 'links', items: [
+          { label: '作品を見る：PromptGolf', url: '#/works/promptgolf', internal: true }
+        ]},
         { type: 'h', text: 'ミーツカンパニー：MVP選出' },
         { type: 'p', text: '<strong>ガクチカや実績ではなく、人柄とビジネス視点を企業の方々の投票で評価いただき、MVPに選出されました。</strong>' },
         { type: 'h', text: 'サポーターズ：エンジニア1on1面談《ハイクラス》' },

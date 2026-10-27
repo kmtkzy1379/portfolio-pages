@@ -523,6 +523,9 @@ html[data-shot="color"] .shot img, html[data-shot="color"] .shot video { filter:
 .shot--icon { max-width: 190px; margin-left: auto; margin-right: auto; }
 .shot--icon img { image-rendering: auto; }
 
+/* スマホで撮った縦長の写真（全幅だと画面を占領するので、幅をしぼって中央に） */
+.shot--portrait { max-width: 480px; margin-left: auto; margin-right: auto; }
+
 /* ドット絵スプライト */
 .shot--sprite .frame { background: var(--bg); }
 .shot--sprite canvas { width: 100%; height: 260px; display: block; }

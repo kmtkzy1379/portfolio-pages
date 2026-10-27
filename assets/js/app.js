@@ -347,7 +347,7 @@
           return '<div class="tablewrap"><table>' + head + body + '</table></div>';
         }
         case 'img':
-          return '<div class="shot' + (b.size === 'icon' ? ' shot--icon' : '') + '"><figure><div class="frame">' +
+          return '<div class="shot' + (b.size ? ' shot--' + b.size : '') + '"><figure><div class="frame">' +
             '<img src="' + b.src + '" alt="' + (b.caption || '') + '" loading="lazy" decoding="async">' +
             '</div>' + (b.caption ? '<figcaption>' + b.caption + '</figcaption>' : '') + '</figure></div>';
         case 'sprite':
